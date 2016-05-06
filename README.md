@@ -1,10 +1,6 @@
-# README #
-
-This README would normally document whatever steps are necessary to get your application up and running.
-Our new version of the prototype requires: 
+# ECoG-ClusterFlow #
 
 ### Required dependencies ###
-
     PySide
       \-QtCore (BrainViewer)
       \-QtGui (BrainViewer)
