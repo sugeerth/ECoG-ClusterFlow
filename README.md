@@ -1,5 +1,7 @@
 # ECoG-ClusterFlow #
 
+ ![ScreenShot](https://raw.githubusercontent.com/sugeerth/ECoG-ClusterFlow/master/Images/Synthetic.png?token=AD8LYDKD2an4z3ATT6V0DpRezBHtv-dTks5XNTkywA%3D%3D)
+
 ### Required dependencies ###
     PySide
       \-QtCore (BrainViewer)
