@@ -1,4 +1,4 @@
-# Hierarchical Spatio-temporal Visual Analysis of ECoG Data #
+# Hierarchical Spatio-Temporal Visual Analysis of ECoG Data #
 
  ![ScreenShot](https://raw.githubusercontent.com/sugeerth/ECoG-ClusterFlow/master/Images/Synthetic.png?token=AD8LYCp_5nYMJ9QRQFcZ40o_o6dYR5xvks5XNT1KwA%3D%3D)
  
