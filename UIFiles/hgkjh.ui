@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1214</width>
+    <height>680</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QListView" name="listView">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>640</y>
+     <width>1211</width>
+     <height>61</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1211</width>
+     <height>641</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="Layout"/>
+  </widget>
+  <widget class="QComboBox" name="VizTheme">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>650</y>
+     <width>104</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="currentText">
+    <string>ObjectFlow</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>ObjectFlow</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>ThemeRiver</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QCheckBox" name="threshold">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>650</y>
+     <width>89</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Threshold</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QSlider" name="thresholdvalue">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>650</y>
+     <width>941</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>30</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="thresholdlineedit">
+   <property name="geometry">
+    <rect>
+     <x>1170</x>
+     <y>650</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

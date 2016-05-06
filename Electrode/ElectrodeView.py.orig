@@ -1,0 +1,402 @@
+### Standard Python packages
+#-*- coding: utf-8 -*-
+import csv
+import colorsys
+import math
+import colorsys
+import time
+from collections import defaultdict
+from PySide import QtCore, QtGui
+from PySide.QtCore import *
+from PySide.QtGui import *
+
+from sys import platform as _platform
+import weakref
+import cProfile
+import pprint
+# import time
+import community as cm
+# ... reading NIfTI 
+import nibabel as nibc
+import numpy as np
+# ... graph drawing
+import networkx as nx
+
+ElectrodeSignalDataName = 'muDat'
+timesteps = 12
+NumberofTimesteps = 85
+#Max and Min are either computed per channel 
+
+from ElectrodeNode import ElectrodeNode
+
+MaxVal = -9
+MinVal = 9
+minOpac = 40
+maxOpac = 255
+MaxToggling = True
+
+
+class Translate(QtCore.QObject):
+    def __init__(self):
+        QtCore.QObject.__init__(self)
+    def set(self,string):
+        return  str(self.tr(string))
+
+
+class ElectrodeOpacity(object):
+        def __init__(self, ElectrodView, ElectrodeNumber, counter): 
+            # print counter, "Electrode counter", ElectrodeNumber, ElectrodView.ChunkNo 
+            self.ElectrodeSignalData = ElectrodView.ElectrodeData.ElectrodeSignal[ElectrodeSignalDataName]
+            self.ElectrodView = ElectrodView
+            self.ElectrodeNumber = ElectrodeNumber
+            self.counter = counter
+            self.value = 0
+            self.TimesVisited =0 
+            self.DefMinValMaxVal(ElectrodeNumber)
+
+        """Defines max and min values across all timesteps"""
+        def DefMinValMaxVal(self, ElectrodeNo):
+            global MaxVal, MinVal
+            MaxVal = np.nanmax(self.ElectrodeSignalData)
+            MinVal = np.nanmin(self.ElectrodeSignalData)
+
+        def RegenerateMaxMin(self,timeStep):
+            global MaxVal, MinVal
+            # print "MinVal", MinVal, "MaxVal", MaxVal
+            CurrentSyllable = self.ElectrodView.ElectrodeData.syllableUnit
+            if not(self.ElectrodView.MaxButtonCheck):
+                list1 = [] 
+                for i in range(256):
+                    list1.append(self.ElectrodeSignalData[CurrentSyllable][i][timeStep])
+                MaxVal = max(list1)
+                MinVal = min(list1)
+            # else:
+            #     MaxVal = np.nanmax(self.ElectrodeSignalData[CurrentSyllable])
+            #     MinVal = np.nanmin(self.ElectrodeSignalData[CurrentSyllable])
+        """
+        1) Given the values of a electrode finds out the normalized min max values for every 
+        along every timestep
+        2) Normalization is performed for at every timestep, can be precomputed, later 
+        """
+        def normalize(self, timestep, ElementNumber):
+            global MaxVal, MinVal
+            self.TimesVisited = self.TimesVisited + 1
+
+            "Given the timestep the functin computes opacity per channel based on all of the timesteps"
+
+            CurrentSyllable = self.ElectrodView.ElectrodeData.syllableUnit
+            x = self.ElectrodeSignalData[CurrentSyllable][self.ElectrodeNumber][timestep]
+            # print self.ElectrodeNumber ,timestep, MaxVal, MinVal, ElementNumber, self.counter, self.ElectrodView.ChunkNo
+            # if x > MaxVal: 
+            #     return 0 
+            # if x < MinVal:
+            #     return 0  
+
+            minOpac = 0.2 
+            maxOpac = 1.1
+
+            OpacityValue = float((x-MinVal)/(MaxVal-MinVal))
+
+            # print OpacityValue, self.TimesVisited, timestep, MaxVal, MinVal
+            # assert (OpacityValue > -0.1 and OpacityValue < 1.0)
+            
+            if OpacityValue > 0.7:
+                print "SUCCESSFUL"
+
+            OpacityValue = float(OpacityValue)*(maxOpac-minOpac) + minOpac
+
+            # if OpacityValue > 255:
+            #         OpacityValue = 0
+            # if OpacityValue < 0: 
+            #         OpacityValue = 0
+
+            self.value = x
+            return OpacityValue,x
+
+class ElectrodeView(QtGui.QGraphicsView):
+    DataLink = QtCore.Signal(int)
+    # color of the communitycolor, communitynumber, timestep range,source to destination÷
+    CommunitySelectPerTime = QtCore.Signal(list, list ,  int)
+
+    # color of the communitycolor, communitynumber, timestep range,source to destination÷
+    CommunitySelectAcrossTime = QtCore.Signal(list, list ,int)
+
+    def __init__(self,ElectrodeData, i = None, width = None, height = None):
+        QtGui.QGraphicsView.__init__(self)
+        global MaxVal, MinVal, timesteps
+        self.smallMultiple = False
+        if i: 
+            self.smallMultiple = True
+        if width and height:
+            self.width  =1301
+            self.height =861
+            self.setMinimumSize(QtCore.QSize(300,275))
+        else: 
+            self.width  =1301
+            self.height =861
+            self.setMinimumSize(QtCore.QSize(300,275))
+
+        self.Translate = Translate()
+        timesteps = ElectrodeData.dataProcess.timestep
+
+        self.ChunkNo = i
+        self.ElectrodeData = ElectrodeData
+        self.NodeIds = []
+        self.slices = self.ElectrodeData.slices
+        scene = QtGui.QGraphicsScene(self)
+        scene.setItemIndexMethod(QtGui.QGraphicsScene.NoIndex)
+
+        # scene.setSceneRect(-200, -200, 400, 400)
+        self.transparent= False
+        self.setScene(scene)
+        self.scene = scene
+        self.setCacheMode(QtGui.QGraphicsView.CacheBackground)
+        self.setRenderHint(QtGui.QPainter.Antialiasing)
+        self.setTransformationAnchor(QtGui.QGraphicsView.AnchorUnderMouse)
+        self.setResizeAnchor(QtGui.QGraphicsView.AnchorViewCenter)
+        self.setInteractive(True)
+        self.setTransformationAnchor(QtGui.QGraphicsView.AnchorUnderMouse)
+        # self.setResizeAnchor(QtGui.QGraphicsView.NoAnchor)
+        self.scaleView(0.0)
+        self.ElectrodeOpacity = []
+        self.setScene(scene)
+        self.MaxButtonCheck = True
+        self.Cluster1 = False
+        
+        self.Scene_to_be_updated = scene
+        self.setCacheMode(QtGui.QGraphicsView.CacheBackground)
+        self.setViewportUpdateMode(QtGui.QGraphicsView.BoundingRectViewportUpdate)
+        self.setDragMode(QtGui.QGraphicsView.ScrollHandDrag)
+
+        self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+
+        self.setRenderHint(QtGui.QPainter.Antialiasing)
+        self.setInteractive(True)
+        
+        self.PaintElectrodes()
+
+        pixItem = QtGui.QGraphicsPixmapItem(self.ElectrodeData.PixMap)
+        self.scene.addItem(pixItem)    
+
+        self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
+        self.setScene(self.Scene_to_be_updated)
+
+        rect =QtCore.QRectF(self.width/2+150, self.height/4+150, 3*self.width/6-150,3*self.height/6-20)
+        rect.translate(200,0)
+        self.fitInView(rect,QtCore.Qt.KeepAspectRatio)
+
+        self.MaxVal = MaxVal
+        self.MinVal = MinVal
+
+        # self.setContextMenuPolicy(Qt.ActionsContextMenu)
+        # delete = QAction(self)
+        # delete.setText("Select Community")
+        # delete.triggered.connect(self.removeButton)
+        # self.addAction(delete)
+          
+    def changeSliceNumber(self,value = -1):
+        number = int((self.ElectrodeData.Visualizer.Slices.text().encode('ascii','ignore')).replace(' ',''))
+        self.slices = number
+        self.UpdateColors()
+        self.RefreshInteractivityData()
+
+    def drawBackground(self,painter,rect):
+        pass
+
+    def changeMaxOpacity(self,value):
+        global MaxVal,MinVal
+        print "printing the value of value slider!!", value
+        MaxVal = value*self.MaxVal*0.01
+        self.ElectrodeData.Visualizer.Max.setText("{0:.2f}".format(MaxVal))
+        self.ElectrodeData.Visualizer.Min.setText("{0:.2f}".format(MinVal))
+        
+        self.UpdateColors()
+        self.RefreshInteractivityData()
+
+    def HighlightThisColor(self, CommunityColor,ColorQ):
+        for node in self.NodeIds:
+            node.AcrossCommunityMode =True
+            node.Highlight = False
+
+            if node.ColorQ == ColorQ: 
+                node.Highlight = True
+            node.update()
+        print "* Done"
+
+
+    def HighlightAcrossTime(self, CommunityColor, ColorQ):
+        for node in self.NodeIds:
+            node.AcrossCommunityMode =True
+            node.Highlight = False
+            print len(node.ColorQ)
+            if node.ColorQ == ColorQ: 
+                node.Highlight = True
+            node.update()
+        print "* Done"
+
+
+    # def contextMenuEvent(self, event):
+    #     menu = QtGfui.QMenu()
+    #     testAction = QtGui.QAction('Refresh Screen', None)
+    #     testAction.triggered.connect(self.RefreshInteractivityData)
+    #     menu.addAction(testAction)
+    #     # menu.exec_(event.globalPos())
+
+    def RefreshInteractivityData(self): 
+        for node in self.NodeIds:
+            node.AcrossCommunityMode=False
+            node.Highlight=False
+            node.update()
+
+    def PaintElectrodes(self):
+        counter = 0
+        # sa =[]
+
+        k = 0
+
+        for x,y in zip(self.ElectrodeData.mat['xy'][0],self.ElectrodeData.mat['xy'][1]):
+            if self.ElectrodeData.graphWidget.CommunityMode:
+                try: 
+                    temp = self.ElectrodeData.graphWidget.partition[counter]
+                except IndexError:
+                    temp = 0            
+
+                if counter == len(self.ElectrodeData.ElectrodeIds): 
+                        break
+                # print self.ElectrodeData.ElectrodeIds[counter]
+                if k == self.ElectrodeData.ElectrodeIds[counter]:  
+                    node_value=ElectrodeNode(self,counter,k,self.ElectrodeData.contextFlag)
+                    
+                    # initialize electrode opacity
+                    opacity=ElectrodeOpacity(self, k, counter)
+                    self.ElectrodeOpacity.append(opacity)
+
+                    node_value.PutColor(self.ElectrodeData.graphWidget.clut[counter])
+                    node_value.xy = (x,y)
+                    node_value.translate(0,25)
+                    node_value.setPos(QtCore.QPointF(x,y))
+                    self.NodeIds.append(node_value)
+                    self.scene.addItem(node_value)
+                    counter = counter+1 
+                k = k + 1
+
+    # def 
+    #         w = fm.width(self.ChunkNo1) + 1
+    #     h = fm.height()
+    #     pen_text = QtGui.QPen()
+    #     pen_text.setBrush(brush_text)
+    #     painter.setPen(pen_text)
+    #     fm = QtGui.QFontMetrics(painter.font())
+    #     self.ChunkNo1 = self.Translate.set(str(self.ChunkNo))
+        
+    #     painter.drawText(0, 0, int(w), int(h), QtCore.Qt.AlignLeft, self.ChunkNo1)
+
+
+    def setMaxVal(self,value):
+        global MaxVal
+        MaxVal = value
+        self.UpdateColors()
+
+    def setMinVal(self,value):
+        global MinVal
+        MinVal = value
+        self.UpdateColors()
+
+    @Slot(bool)
+    def changeMaxState(self,state):
+        self.MaxButtonCheck = not(self.MaxButtonCheck)
+
+    def Refresh(self):
+        for node in self.NodeIds:
+            node.update()
+        self.Scene_to_be_updated.update()
+
+    def hoverEnterEvent(self, event):
+        print "THIS IS THE TIMESTEP",self.ChunkNo-1 * self.slices, self.ChunkNo * self.slices
+
+    def regenerateElectrodes(self,timestep):
+        for node in self.ElectrodeOpacity:
+            node.RegenerateMaxMin(timestep)
+
+    @staticmethod
+    def unselectNodes(node):
+        node.setSelected(False)
+
+    def SelectNode(self,regionId):
+        self.NodeIds[regionId].setSelected(True)
+
+    def UpdateColors(self):
+        # print "This is the timestep value",self.ElectrodeData.timeStep
+        self.regenerateElectrodes(self.ElectrodeData.timeStep)
+        for node in self.NodeIds:
+            # print "counter,",node.counter
+            self.unselectNodes(node)
+            try:
+                temp = self.ElectrodeData.graphWidget.partition[node.counter]
+            except IndexError:
+                temp = 0 
+
+            if self.ElectrodeData.ScalarSize: 
+                Size = eval('self.ElectrodeData.graphWidget.'+self.ElectrodeData.electrodeSizeFactor+'[node.counter-1]')
+                node.setNodeSize(Size,self.ElectrodeData.electrodeSizeFactor)
+            else: 
+                Size = 0.4 
+                node.setNodeSize(Size,"nothing to Display")
+
+            if not(self.ElectrodeData.nodeSizeFactor == 1):
+                node.ScalarNodeSize(self.ElectrodeData.nodeSizeFactor)
+
+            # Opacity, EA = self.ElectrodeOpacity[node.counter].normalize(self.ElectrodeData.timeStep)
+            # node opacity in  
+            # node.PutEA(EA)
+            # node.PutColor(self.ElectrodeData.graphWidget.clut[temp],Opacity,self.ElectrodeData.OpacityOn)
+            # self.ElectrodeData.graphWidget.NodeIds[node.counter].PutColorFromOtherClass(self.ElectrodeData.graphWidget.clut[temp],Opacity,self.ElectrodeData.OpacityOn)
+
+        if self.ElectrodeData.Glyph:
+            for node in self.NodeIds:
+                node.setGlyph(True)
+                # node.PutGlyphColor()
+
+        if self.ElectrodeData.ElectrodeScreenshot:
+            pixmap = QtGui.QImage(self.scene.sceneRect().size().toSize())
+            pAin = QtGui.QPainter(pixmap)
+            self.scene.render(pAin,QtCore.QRectF(self.width/4+50, self.height/4+50, 3*self.width/6,3*self.height/6))
+            fileName = str("Time_"+str(self.ElectrodeData.timeStep)+"_Syllable_"+str(self.ElectrodeData.syllableUnit)+"_Alg_"+str(self.ElectrodeData.clusterActivated)+".png")
+            print fileName
+            pixmap1 = QtGui.QPixmap.fromImage(pixmap)
+            # print pixmap.save("sd.png")
+            # pprint.pprint(pixmap)
+
+    def keyPressEvent(self, event):
+        key = event.key()
+        if key == QtCore.Qt.Key_T:
+            self.transparent = not(self.transparent)
+        if key == QtCore.Qt.Key_D:
+            print "THIS IS THE TIMESTEP",(self.ChunkNo)*self.slices + self.ElectrodeData.CommunitiesAcrossTimeStep.Offset, (self.ChunkNo+1) * self.slices + self.ElectrodeData.CommunitiesAcrossTimeStep.Offset
+        if key == QtCore.Qt.Key_R:
+            print "Refresh the Entire Screen"
+            self.RefreshInteractivityData()
+        if key == QtCore.Qt.Key_C:
+            print "changed"
+            self.Cluster1= not(self.Cluster1) 
+        if key == QtCore.Qt.Key_A:
+            print "A"
+            self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+            self.showFullScreen()
+            self.update()
+        if key == QtCore.Qt.Key_Z:
+            print "Changing offset"
+            self.ElectrodeData.CommunitiesAcrossTimeStep.changeVizOffset()
+
+
+    def wheelEvent(self, event):
+        self.scaleView(math.pow(2.0, -event.delta() / 1040.0))
+
+    def scaleView(self, scaleFactor):
+        factor = self.matrix().scale(scaleFactor, scaleFactor).mapRect(QtCore.QRectF(0, 0, 1, 1)).width()
+        if factor < 0.07 or factor > 100:
+            return
+        self.scale(scaleFactor, scaleFactor)
+        del factor
+

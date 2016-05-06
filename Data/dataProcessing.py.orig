@@ -1,0 +1,82 @@
+
+from PySide import QtCore, QtGui
+import scipy.io
+import math
+import weakref
+import scipy
+from PIL import Image
+import numpy as np
+
+class dataProcessing(object):
+	    def __init__(self, Brain_image_filename,SelectedElectrodes_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename,ElectrodeSignals, ElectrodeIds, ElectodeData):
+			self.im = Image.open(Brain_image_filename)
+			self.syllableUnit = 0 
+			self.Timestep =0
+
+			Data=scipy.io.loadmat(Electrode_ElectrodeData_filename)
+			self.mat = scipy.io.loadmat(Electrode_mat_filename)
+			print np.shape(self.mat)
+
+			# self.ElectrodeIds = scipy.io.loadmat(Electrode_mat_filename)
+			# self.ElectodeData = scipy.io.loadmat(Electrode_mat_filename)
+
+			temp = Data['electrode']
+			self.ElectrodeIds = temp[0]
+			self.ElectodeData = Data['C']
+
+			# Electrode_ElectrodeData_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerProject/KrisDataset/Bolasso_output_algnd.mat' 
+			# Data=scipy.io.loadmat(Electrode_ElectrodeData_filename)
+			# temp = Data['electrode']
+			# self.ElectrodeIds = temp[0]
+
+
+			# self.ElectrodeIds[0] = 
+			print self.ElectrodeIds[2], len(self.ElectrodeIds)
+			print np.shape(self.ElectodeData)
+
+			self.syllable, self.timestep, self.N , self.N  = np.shape(self.ElectodeData)
+			self.timestep = self.timestep - 1
+
+			# Data for mat_ncv
+			# self.ElectrodeIds2 =scipy.io.loadmat(ElectrodeIds)
+			# self.ElectodeData = scipy.io.loadmat(ElectodeData)
+			# self.ElectodeData = self.ElectodeData['mat_ncv']
+
+			# print self.ElectrodeIds2['electids'] , self.ElectrodeIds  
+			# Index = []
+			# k = 0 
+			# for index,data in enumerate(self.ElectrodeIds2['electids'][0]):
+			# 	for index2, data2 in enumerate(self.ElectrodeIds[0]):
+			# 			if data == data2:
+			# 				Index.append(index)
+
+			# print "All the electrodes ids are", self.ElectrodeIds2['electids'][0]
+
+			# newData = np.zeros((6,64,54,54))
+			# for i in range(6):
+			# 	for j in range(64):
+			# 		for k in range(54):
+			# 			for l in range(54):
+			# 				newData[i][j][k][l] = self.ElectodeData[i][j][Index[k]][Index[l]]  
+			# self.ElectodeData = np.copy(newData)
+
+			# print np.shape(self.ElectodeData)
+
+			# self.ElectodeData= scipy.io.loadmat(Electrode_data_filename)
+			self.ElectrodeSignals = scipy.io.loadmat(ElectrodeSignals)
+			print np.shape(self.ElectrodeSignals['muDat'])
+			
+			# assert len(self.ElectrodeIds[0]) == 54,  "The length is s(%d)" % len(self.ElectrodeIds[0])
+
+			""" The variables names for the new connecivity matrices, 
+			C == correlation matrix 
+			syllable == 6 syllables
+
+			time = mapping between electrodes
+			electrode == 58 electrodes  
+			"""
+
+
+
+
+
