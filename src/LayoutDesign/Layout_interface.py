@@ -9,21 +9,11 @@ import cProfile
 import os
 
 class LayoutInit(QtGui.QWidget):
-    def __init__(self,widget,quantTable,Ui,VisualizerUI,dataSetLoader,screenshot, Brain_image_filename=None,Electrode_Ids_filename=None,SelectedElectrodes_filename=None,Electrode_data_filename=None,Electrode_mat_filename=None):
+    def __init__(self,widget,quantTable,Ui,VisualizerUI,dataSetLoader,screenshot, Brain_image_filename=None,Electrode_mat_filename=None):
         super(LayoutInit,self).__init__()
 
-        # self.matrix_filename=matrix_filename
-        # self.centre_filename=centre_filename
-        # self.centres_abbreviation =centres_abbreviation
-        # self.template_filename=template_filename
-        # self.parcelation_filename=parcelation_filename
         self.Ui = Ui
         self.VisualizerUI = VisualizerUI
-        # self.Brain _image_filename=Brain_image_filename
-        # self.Electrode_Ids_filename=Electrode_Ids_filename
-        # self.SelectedElectrodes_filename=SelectedElectrodes_filename
-        # self.Electrode_data_filename=Electrode_data_filename
-        # self.Electrode_mat_filename=Electrode_mat_filename
 
         self.classVariable(widget, Ui, dataSetLoader,screenshot, VisualizerUI)
         self.widgetChanges()
@@ -160,48 +150,20 @@ class LayoutInit(QtGui.QWidget):
         self.setPathForData()
 
     def dialogueConnect(self):
-
         self.dataSetLoader.matrix.clicked.connect(lambda: self.clickLineEdit("matrix"))
         self.dataSetLoader.center.clicked.connect(lambda: self.clickLineEdit("centre"))
         self.dataSetLoader.abbrev.clicked.connect(lambda: self.clickLineEdit("centres_abbreviation"))
         self.dataSetLoader.parcel.clicked.connect(lambda: self.clickLineEdit("parcelation"))
         self.dataSetLoader.template1.clicked.connect(lambda: self.clickLineEdit("template"))
 
-        # self.dataSetLoader.elecIds.clicked.connect(lambda: self.clickLineEdit("Electrode_Ids"))
-        # self.dataSetLoader.selecElec.clicked.connect(lambda: self.clickLineEdit("SelectedElectrodes"))
-        # self.dataSetLoader.elec.clicked.connect(lambda: self.clickLineEdit("Electrode_data"))
-        # self.dataSetLoader.brain.clicked.connect(lambda: self.clickLineEdit("Brain_image"))
-        # self.dataSetLoader.Pos.clicked.connect(lambda: self.clickLineEdit("Electrode_mat"))
-   
-
     def LevelValueInSlider(self,level):
         self.Ui.communityLevel.setToolTip("Level: %0.2f" % (self.widget.level))
 
     def SliderValueChanged(self,MaxDendoGramDepth):
-        # print "slider depth", MaxDendoGramDepth
         self.Ui.communityLevel.setMaximum(MaxDendoGramDepth+1)
 
     def setPathForData(self):
-        pass
-        # self.dataSetLoader.matrixPath.setText(self.matrix_filename)
-        # self.dataSetLoader.centerPath.setText(self.centre_filename)
-        # self.dataSetLoader.abbrevPath.setText(self.centres_abbreviation)
-        # self.dataSetLoader.parcelPath.setText(self.parcelation_filename)
-        # self.dataSetLoader.templatePath.setText(self.template_filename)
-
-        self.dataSetLoader.elecIdsPath.setText(self.Electrode_Ids_filename)
-        self.dataSetLoader.selecElecPath.setText(self.SelectedElectrodes_filename)
         self.dataSetLoader.elecPath.setText(self.Electrode_data_filename)
         self.dataSetLoader.brainPath.setText(self.Brain_image_filename)
         self.dataSetLoader.posPath.setText(self.Electrode_mat_filename)
         """Logic to send the new files to the start of the applicaiton """
-
-
-
-
-
-
-
-
- 
-

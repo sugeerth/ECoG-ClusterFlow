@@ -11,13 +11,11 @@ import pprint
 ElectrodeSignalDataName = 'sigData'
 ElectrodeConnectivityDataName = 'conDat'
 
-
-
 # Changes for RealData
 Connectvity_filename ='/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/enhancedConData.mat'
 
 class dataProcessing(object):
-	    def __init__(self, Brain_image_filename,SelectedElectrodes_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename,ElectrodeSignals, ElectrodeIds, ElectodeData):
+	    def __init__(self, Brain_image_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename,ElectrodeSignals,ElectodeData):
 			self.im = Image.open(Brain_image_filename)
 			self.syllableUnit = 0 
 			self.Timestep =0
@@ -26,19 +24,10 @@ class dataProcessing(object):
 			Data=scipy.io.loadmat(Electrode_ElectrodeData_filename)
 
 			self.mat = scipy.io.loadmat(Electrode_mat_filename)
-			# connectivityData=scipy.io.loadmat(Connectvity_filename)
-
-			# print np.shape(self.ElectrodeSignals['muDat'][0]), "shape"
-			# print self.ElectrodeSignals['muDat'][0][1], 
 
 			temp = Data['electrode']
 			self.ElectrodeIds = temp[0]
 			self.ElectodeData = Data['C']
-
-			# print len(self.ElectodeData)
-			# Changes for RealData
-			# self.ElectrodeIds = [i for i in range(len(self.ElectrodeSignals[ElectrodeSignalDataName][0]))]
-			# self.ElectodeData = connectivityData['conData']
 
 			self.syllable, self.timestep, self.N , self.N  = np.shape(self.ElectodeData)
 			self.timestep = self.timestep - 1
@@ -50,8 +39,3 @@ class dataProcessing(object):
 			time = mapping between electrodes
 			electrode == 58 electrodes  
 			"""
-
-
-
-
-

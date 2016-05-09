@@ -29,22 +29,13 @@ class CorrelationTable(object):
                 self.header.append(str(int(i)))
         self.RegionName.append((self.header))
         self.data = self.dataProcess.ElectodeData[dataProcess.syllableUnit][dataProcess.Timestep]
-
-        # self.data = self.FindAbsoluteValue(self.data)
-        # self.WritedataTocsv('TimestepAnalysis.csv')
-        
     """
     Function for finding the absolute value of correlation values 
     """
     
     def changeTableContents(self,Syllable, TimeStep):
         # print "Data is being changed in the correlation window", Syllable,TimeStep
-        # if TimeStep == 63:
-            # TimeStep = 62
-
-        # print np.shape(self.dataProcess.ElectodeData[][])
         self.data = self.dataProcess.ElectodeData[Syllable][TimeStep]
-
         """
         Commented out stuff that is not required
         """
