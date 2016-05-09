@@ -125,9 +125,6 @@ class LayoutInit(QtGui.QWidget):
 
         if ret == QtGui.QMessageBox.Save:
             pass
-            # Save was clicked
-            # Save with filename name as the current time and append all the parameters onto the dump file 
-            # Will owrk onit later
 
     def getSnapshots(self):
         """ Logic to retrieve the snapshots from the output file """

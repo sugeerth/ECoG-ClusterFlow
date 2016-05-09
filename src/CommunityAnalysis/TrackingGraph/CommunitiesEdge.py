@@ -235,8 +235,6 @@ class CommunitiesEdge(QtGui.QGraphicsItem):
                         # pointer to green
                         # painter.setPen(QtGui.QPen(self.EdgeColor ,self.communityWeight , QtCore.Qt.SolidLine, QtCore.Qt.RoundCap, QtCore.Qt.RoundJoin))
                         # painter.setPen(QtGui.QPen(QtCore.Qt.darkGreen, self.weight , QtCore.Qt.SolidLine, QtCore.Qt.RoundCap, QtCore.Qt.RoundJoin))
-
-
                         pen = QtGui.QPen(QtCore.Qt.darkGreen,2, QtCore.Qt.SolidLine, QtCore.Qt.RoundCap, QtCore.Qt.RoundJoin)
                         pen.setWidthF(self.weight)
                         painter.setPen(pen)
