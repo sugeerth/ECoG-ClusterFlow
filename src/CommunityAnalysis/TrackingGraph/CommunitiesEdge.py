@@ -46,9 +46,6 @@ class CommunitiesEdge(QtGui.QGraphicsItem):
 
         intersectingElements = list(set(sourceNode.correspondingNodes).intersection(destNode.correspondingNodes))
 
-        # self.setToolTip(str(intersectingElements))
-        # if (len(intersectingElements) == 0):
-        #     return -1 
         self.sourcePoint = QtCore.QPointF()
         self.destPoint = QtCore.QPointF()
         self.graph = weakref.ref(graphWidget)
@@ -60,14 +57,11 @@ class CommunitiesEdge(QtGui.QGraphicsItem):
         self.Color = sourceNode.CommunityColor
         self.weight = weight*2 + 2 
 
-        # intersect = list(set(sourceNode.Nodeidss).intersection(destNode.Nodeidss))
-        # pprint.pprint(intersectingElements)
         Tooltip = ""
         for i in intersectingElements:
             Tooltip+= str(i) +"\n"
 
         self.setToolTip(Tooltip)
-        # print sourceNode.CommunityColor, sourceNode.colorvalue, sourceNode.Nodeidss
 
     def type(self):
         return Edge.Type

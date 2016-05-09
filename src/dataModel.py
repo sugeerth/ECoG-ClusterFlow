@@ -1,3 +1,11 @@
+"""
+The script generates artificaial data required for visualization in the python initiated tool 
+
+The funtions are very simple, that mentions the number of syllables to be generated, and the 
+number of functionals to be generated
+"""
+
+
 import csv
 import sys
 import math
