@@ -1290,9 +1290,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		return matrix, Assignment
 
 	def AssigNewValuesToGraphWidget(self,TowValues=False,Assignment=None):
-
-		# print "SENDING/CHANGING COLORS EVERYWHERE"
-		# print "Parameters", TowValues, Assignment
 			
 		if TowValues: 
 			PartitionValueToBeVisit= copy.deepcopy(self.TowPartitionValue) 

@@ -360,11 +360,8 @@ class ImageLabel(QtGui.QGraphicsView):
 
     @Slot()
     def MinPressed(self):
-        # MinVal = int((self.electrodeUI.Min.text().encode('ascii','ignore')).replace(' ',''))
         MinVal = float((self.Visualizer.Min.text().encode('ascii','ignore')).replace(' ',''))
-        # self.ElectrodeView.MinVal = MinVal  
 
-        #Setting Minval for the tool
         self.ElectrodeView.setMinVal(MinVal)
         for i in range(self.Chunks+1):
             self.SmallMultipleElectrode[i].setMinVal(MinVal)
@@ -716,7 +713,6 @@ class ImageLabel(QtGui.QGraphicsView):
         self.graphWidget.changeStuffDuetoTowChange(self.graphWidget.TowValue)
         self.ElectrodeView.UpdateColors()
         self.UpdateColorsSmallMultiples()
-        # self.informationDisplay()
 
     def changesInTimestepSyllable(self):
         self.graphWidget.correlationTable().changeTableContents(self.syllableUnit, self.timeStep)
@@ -726,7 +722,6 @@ class ImageLabel(QtGui.QGraphicsView):
         self.ElectrodeView.UpdateColors()
         self.UpdateColorsSmallMultiples()
 
-        # self.informationDisplay()
         # self.graphWidget.changeTimeStepSyllable(self.syllableUnit, self.timeStep)
         self.AnimationSignal1.emit(self.syllableUnit, self.timeStep)
 
