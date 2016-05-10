@@ -207,7 +207,6 @@ if ElectrodeWindowShowFlag:
     Electrode.ElectrodeInterface = ElectrodeInterface
 
     FinalLayout = QtGui.QHBoxLayout()
-    # FIX ME appropriate naming of the widgets 
   
     vbox = QtGui.QVBoxLayout()
     plotLayout = QtGui.QHBoxLayout()
