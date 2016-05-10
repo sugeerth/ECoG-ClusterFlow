@@ -15,7 +15,7 @@ ElectrodeConnectivityDataName = 'conDat'
 Connectvity_filename ='/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/enhancedConData.mat'
 
 class dataProcessing(object):
-	    def __init__(self, Brain_image_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename,ElectrodeSignals,ElectodeData):
+	    def __init__(self, Brain_image_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename,ElectrodeSignals):
 			self.im = Image.open(Brain_image_filename)
 			self.syllableUnit = 0 
 			self.Timestep =0

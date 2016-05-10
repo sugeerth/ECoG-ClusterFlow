@@ -11,10 +11,6 @@ from PySide import QtCore, QtGui
 import Pycluster
 import matplotlib.pyplot as plt
 
-
-
-#import traceback
-
 """Class responsible for transferring data from files to self.data"""
 class CorrelationTable(object):
     def __init__(self, dataProcess=None):
@@ -23,36 +19,55 @@ class CorrelationTable(object):
         self.data = []
         self.RegionName = []
         self.dataProcess = dataProcess
-        
-        self.dataProcess = dataProcess
+
+        # Assign each Node as the number associated with the electrode
         for i in dataProcess.ElectrodeIds:
                 self.header.append(str(int(i)))
+
         self.RegionName.append((self.header))
+        # Getting the data for each timestep in temrs of syllables and the timestep of the data  
         self.data = self.dataProcess.ElectodeData[dataProcess.syllableUnit][dataProcess.Timestep]
     """
     Function for finding the absolute value of correlation values 
     """
     
     def changeTableContents(self,Syllable, TimeStep):
-        # print "Data is being changed in the correlation window", Syllable,TimeStep
         self.data = self.dataProcess.ElectodeData[Syllable][TimeStep]
         """
-        Commented out stuff that is not required
+        Correlation values here are actually mean shifted. This varies from 
+        application to application
+        WE can eventually make this something intelligent
         """
-        # np.savetxt('test1.txt', self.data, delimiter=',', fmt='%1.1f')
         self.FindAbsoluteValue(self.data)
 
     @staticmethod
     def FindAbsoluteValue(data):
-        # MinimumValue = np.min(data[np.nonzero(data)])
+        MinimumValue = np.min(data[np.nonzero(data)])
         for i in range(len(data)):
             for j in range(len(data)):
                     if data[i,j] < 0: 
                         data[i,j] = 0
-                        # data[i,j] = (-1)*MinimumValue + data[i,j]
+                        data[i,j] = (-1)*MinimumValue + data[i,j]
         return data
 
-    def cluster(self, distances, k=3):
+    """
+    This is where the KMeans clustering algorithms are performed 
+    DEfault number of centers for K is found to be 3
+    """
+    def cluster(self, distances, k= 3):
+        def assign_points_to_clusters(medoids, distances):
+            distances_to_medoids = distances[:,medoids]
+            clusters = medoids[np.argmin(distances_to_medoids, axis=1)]
+            clusters[medoids] = medoids
+            return clusters
+
+        def compute_new_medoid(cluster, distances):
+            mask = np.ones(distances.shape)
+            mask[np.ix_(cluster,cluster)] = 0.
+            cluster_distances = np.ma.masked_array(data=distances, mask=mask, fill_value=10e9)
+            costs = cluster_distances.sum(axis=1)
+            return costs.argmin(axis=0, fill_value=10e9)
+
         m = distances.shape[0] # number of points
         print "number of points",m
 
@@ -66,32 +81,18 @@ class CorrelationTable(object):
         # Until the medoids stop updating, do the following:
         while not ((old_medoids == curr_medoids).all()):
             # Assign each point to cluster with closest medoid.
-            clusters = self.assign_points_to_clusters(curr_medoids, distances)
+            clusters = assign_points_to_clusters(curr_medoids, distances)
 
             # Update cluster medoids to be lowest cost point. 
             for curr_medoid in curr_medoids:
                 cluster = np.where(clusters == curr_medoid)[0]
-                new_medoids[curr_medoids == curr_medoid] = self.compute_new_medoid(cluster, distances)
+                new_medoids[curr_medoids == curr_medoid] = compute_new_medoid(cluster, distances)
 
             old_medoids[:] = curr_medoids[:]
             curr_medoids[:] = new_medoids[:]
             print curr_medoids
 
         return clusters, curr_medoids
-
-    def assign_points_to_clusters(self, medoids, distances):
-        distances_to_medoids = distances[:,medoids]
-        clusters = medoids[np.argmin(distances_to_medoids, axis=1)]
-        clusters[medoids] = medoids
-        return clusters
-
-    def compute_new_medoid(self, cluster, distances):
-        mask = np.ones(distances.shape)
-        mask[np.ix_(cluster,cluster)] = 0.
-        cluster_distances = np.ma.masked_array(data=distances, mask=mask, fill_value=10e9)
-        costs = cluster_distances.sum(axis=1)
-        return costs.argmin(axis=0, fill_value=10e9)
-
 
     def WritedataTocsv(self,filename):
         self.data.tofile(filename,sep=',',format='%10.5f')
@@ -132,6 +133,13 @@ class ParentCommunityDisplay(QtGui.QTableWidget):
 
     def sortDataStructure(self,Order,Brain_Regions):
 
+        """
+        Sorting procedure here is perfomred naively
+        there is no particular order in the correlation matrix 
+
+        Refer to papers on the effect of sorting algorithms over teh patterns discovered in the matrix
+
+        """
         self.ClusteredOrder = None
         self.sortedValues =  []
         self.sortedOrder = []
@@ -446,10 +454,8 @@ class CorrelationTableDisplay(ParentCommunityDisplay):
 
     """ Selecting cells in the adjacency matrix"""
     def selectRegion(self, regionId):
-
         # should be able to differentiate between the events that is being clicked on and the events the this class generates 
         # print "receiving correlationtabledisplay end",self.sender() 
-
         self.isElementSorted = not(isinstance(self.sender(),CorrelationTableDisplay))
         
         """ Logic only when the system is in communtiy mode """
@@ -460,12 +466,6 @@ class CorrelationTableDisplay(ParentCommunityDisplay):
             self.selectRow(self.sortedOrder.index(regionId))
         else:
             self.selectRow(regionId)
-            
-            # print "\nPutting the values in buffer\n"
-
-            # self.queue.put(str(regionId))
-
-
 
 """ Classes responsible for creating a new window in the community mode"""
 class CommunityCorrelationTableDisplay(ParentCommunityDisplay):
