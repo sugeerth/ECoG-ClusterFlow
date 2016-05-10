@@ -46,13 +46,11 @@ class LayoutInit(QtGui.QWidget):
         VisualizerUI.four1.hide()
         VisualizerUI.five1.hide()
         VisualizerUI.six1.hide()
-        VisualizerUI.fromAnimate1.hide()
-        VisualizerUI.ToAnimate1.hide()
+
         # VisualizerUI.Save1.hide()
         VisualizerUI.label_28.hide()
         VisualizerUI.Max1.hide()
         VisualizerUI.MaxButtonCheck.hide()
-        VisualizerUI.label_30.hide()
         VisualizerUI.timeInterval1.hide()
         VisualizerUI.PreCompute1.hide()
         VisualizerUI.ElectrodeImages.hide()
@@ -60,11 +58,9 @@ class LayoutInit(QtGui.QWidget):
         VisualizerUI.ElecNodes1.hide()
         VisualizerUI.ElectrodeSize.hide()
         VisualizerUI.nodeSize1.hide()
-        VisualizerUI.GraphButton1.hide()
-        VisualizerUI.GraphButton1.hide()
+
         VisualizerUI.TrElectrode.hide()
         VisualizerUI.TrCommunity.hide()
-        VisualizerUI.label_34.hide()
 
         self.horizontalLayout = QtGui.QGridLayout()
         self.horizontalLayout.setSpacing(1)

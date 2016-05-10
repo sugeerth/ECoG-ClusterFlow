@@ -32,14 +32,11 @@ class ElectrodeInterface(QtCore.QObject):
 		self.electrodeUI.ValueSlider1.hide()
 		self.Visualizer.ValueSlider1.valueChanged[int].connect(self.Electrode.changeMaxOpacity)
 
-		self.Visualizer.fromAnimate1.valueChanged.connect(self.Electrode.FromAnimate)
-		self.Visualizer.ToAnimate1.valueChanged.connect(self.Electrode.ToAnimate)
 		self.Visualizer.opacitySignals1.stateChanged.connect(self.Electrode.OpacityToggling)
 		self.Visualizer.ElecNodes1.stateChanged.connect(self.Electrode.ElectrodeNodeSize)
 		self.Visualizer.ElectrodeSize.activated[str].connect(self.Electrode.checkboxActivated)
 		self.Visualizer.NodeSize1.activated[str].connect(self.Electrode.ClusterActivated)
 		self.Visualizer.nodeSize1.valueChanged[int].connect(self.Electrode.nodeSizeChanged)
-		self.Visualizer.GraphButton1.clicked.connect(self.Electrode.InitiateTrackingGraph)
 		self.Visualizer.timeInterval1.valueChanged[int].connect(self.Electrode.timeIntervalAdjust)
 		self.Visualizer.lcdNumber1.setPalette(QtCore.Qt.red)
 		self.Visualizer.lcdNumber1.display(0.45)
@@ -65,7 +62,6 @@ class ElectrodeInterface(QtCore.QObject):
 
 	def ConnectPlayStop(self):
 		self.Visualizer.pushButton2.setToolTip('This is a <b>PlayButton</b> widget')
-		self.Visualizer.save1.clicked.connect(self.Electrode.SaveState)
 		self.Visualizer.pushButton2.clicked.connect(self.Electrode.playButtonFunc)
 		self.Visualizer.pushButton3.setToolTip('This is a <b>StopButton</b> widget')
 		self.Visualizer.pushButton3.clicked.connect(self.Electrode.stopButtonFunc)

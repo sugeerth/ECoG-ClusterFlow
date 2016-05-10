@@ -372,6 +372,10 @@ class ImageLabel(QtGui.QGraphicsView):
         self.ElectrodeView.UpdateColors()   
         # self.UpdateColorsSmallMultiples()
 
+    """
+    Saving the current state of the visualization tool 
+    This allows us to gather the results at a later time  
+    """
     @Slot()
     def SaveState(self):
         print self.timeStep, self.syllableUnit 
