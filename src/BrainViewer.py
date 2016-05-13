@@ -22,7 +22,7 @@ import sys
 from pycallgraph import PyCallGraph
 from pycallgraph.output import GraphvizOutput
 
-# import time'
+# import tie
 import warnings
 with warnings.catch_warnings(): 
            warnings.simplefilter("ignore", category=RuntimeWarning)
