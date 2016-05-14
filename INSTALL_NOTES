@@ -1,8 +1,7 @@
 To install Visit goto the visitBuild folder and run 
 
 1) ./build_visit.sh --console --makeflags '-j 4'
-As soon as you have that 
-
+As soon as you have tha
 2) 	download all the source files from the requirements folder in the same order
 
 	numpy==1.11.0
