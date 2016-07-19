@@ -69,8 +69,7 @@ class GraphWidget(QtGui.QGraphicsView):
         self.VisualizerUI = VisualizerUI
         self.DisplayOnlyEdges = False
         self.level = -1
-        self.ClusteringAlgorithm = 0
-        self.TowChanged = False
+        
         self.selectedColor = selectedColor
         self.Graph_data = weakref.ref(Graph_data)
         self.Tab_2_CorrelationTable = weakref.ref(Tab_2_CorrelationTable)
@@ -79,7 +78,7 @@ class GraphWidget(QtGui.QGraphicsView):
         self.correlationTable = weakref.ref(correlationTable)
         self.correlationTableObject = self.correlationTable()
         self.partition =[]
-        self.AnimationMode = False
+
         self.MaxDepthLevel = 2
         self.TimeStep = 0
         self.sortedValues = None
@@ -112,7 +111,6 @@ class GraphWidget(QtGui.QGraphicsView):
         self.nodesize = 7
         self.grayOutNodes = True
         self.PositionPreserve = True
-        self.TowValue = -1
         self.Graph_Color(-1)
 
         # initializing with an arbitrary layout option 
@@ -132,7 +130,6 @@ class GraphWidget(QtGui.QGraphicsView):
         self.setTransformationAnchor(QtGui.QGraphicsView.AnchorUnderMouse)
         self.setResizeAnchor(QtGui.QGraphicsView.NoAnchor)
 
-        self.ColorVisit = []
         self.NodeIds = []
 
         self.wid = QtGui.QWidget()
@@ -140,8 +137,7 @@ class GraphWidget(QtGui.QGraphicsView):
 
         self.First= True
         self.node = None
-        self.clut= np.zeros(self.counter)
-        self.FontBgColor = np.zeros(self.counter)
+
         self.HighlightedId = None
         self.EdgeIds = []
         self.scale(0.8, 0.8)
@@ -151,7 +147,6 @@ class GraphWidget(QtGui.QGraphicsView):
         i = 0
 
         for node in  self.Graph_data().g.nodes():
-            pass
             i = i + 1
             node_value=Node(self,i,correlationTable)
             self.NodeIds.append(node_value)
@@ -164,7 +159,6 @@ class GraphWidget(QtGui.QGraphicsView):
 
         for i in range(1, self.counter):
             for j in range(1, self.counter):
-                pass
                 if (i-1 >= j-1): 
                     continue
                 try:
@@ -175,19 +169,11 @@ class GraphWidget(QtGui.QGraphicsView):
                     continue
                 k = k + 1 
 
-        self.g =  self.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
-
         self.edges = [weakref.ref(item) for item in self.scene().items() if isinstance(item, Edge)]
         self.nodes = [weakref.ref(item) for item in self.scene().items() if isinstance(item, Node)]
      
-        self.g =  self.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
-        
-        self.communityDetectionEngine = communityDetectionEngine(self,distinguishableColors,FontBgColor)
-        self.communityDetectionEngine.CalculateColors.connect(self.CalculateColors)
-        self.communityDetectionEngine.CalculateFormulae.connect(self.CalculateFormulae)
-
     def CalculateColorsFunction(self,state):
-        self.CalculateColors.emit(TowValue)
+        self.CalculateColors.emit(self.communityDetectionEngine.TowValue)
 
     @Slot(int)
     def ComputeUpdatedClusters(self,cluster):
@@ -199,14 +185,7 @@ class GraphWidget(QtGui.QGraphicsView):
     def ColorForVisit(self,partition):
         self.ColorToBeSentToVisit = []
         for key,value in partition.items():
-            self.ColorToBeSentToVisit.append(self.ColorVisit[value])
-
-    def changeGrayOutNodes(self,state):
-        self.grayOutNodes = not(self.grayOutNodes)
-        if not(self.level == -1):
-            self.communityDetectionEngine.ChangeCommunityColor(self.level)
-        else: 
-            self.communityDetectionEngine.ChangeCommunityColor()
+            self.ColorToBeSentToVisit.append(self.communityDetectionEngine.ColorVisit[value])
 
     """Select the nodes colors"""
     @Slot(bool)
@@ -235,14 +214,13 @@ class GraphWidget(QtGui.QGraphicsView):
 
     @Slot(int)
     def changeStuffDuetoTowChange(self,value):
-        self.TowChanged = True 
-        self.TowValue = value
+        self.communityDetectionEngine.TowChanged = True 
+        self.communityDetectionEngine.TowValue = value
         self.DeriveNewCommunities(self.Min1)
     
     def ClusterChangeHappening(self,ClusteringAlgorithm):
         # print "This is the clustering algorithm that is changed",ClusteringAlgorithm
-        self.ClusteringAlgorithm = ClusteringAlgorithm
-        self.changeStuffDuetoTowChange(self.TowValue)
+        self.changeStuffDuetoTowChange(self.communityDetectionEngine.TowValue)
 
     def changeTimeStepSyllable(self,Syllable, TimeStep):
         self.AnimationMode = True
@@ -261,7 +239,7 @@ class GraphWidget(QtGui.QGraphicsView):
         self.Scene_to_be_updated.update()
 
     def UpdateThresholdDegree(self):
-        self.g =  self.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
+        self.communityDetectionEngine.TimeStepNetworkxGraphData =  self.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
 
     def Refresh(self):
         for edge in self.edges:
@@ -275,9 +253,7 @@ class GraphWidget(QtGui.QGraphicsView):
 
     def DeriveNewCommunities(self,value):
         """Changing the value of the communities"""
-
-        value_for_slider = float(value) / 1000 
-        self.EdgeSliderValue = value_for_slider
+        self.EdgeSliderValue = value
 
         if not(self.ColorNodesBasedOnCorrelation):
             """Community Mode"""

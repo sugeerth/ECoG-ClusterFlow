@@ -59,6 +59,7 @@ from interface.SignalInterface import Interface
 from interface.ElectrodeInterface import ElectrodeInterface
 from interface.CommunitiesAcrossTimestepInterrface import CommunitiesAcrossTimeStepInterface
 from WebViewServer.CustomWebView import CustomWebView
+from CommunityAnalysis.communityDetectionEngine import communityDetectionEngine
 from LayoutDesign.SmallMulitplesLayoutDesign import SmallMultipleLayout
 from PathFiles import *
 
@@ -145,6 +146,14 @@ print "Setting Graph Widget"
 
 """ Controlling graph widgets  """
 widget = GraphWidget(Tab_2_AdjacencyMatrix,Tab_2_CorrelationTable,correlationTable,colorTable,selectedColor,BoxGraphWidget,BoxTableWidget,Offset,distinguishableColors,FontBgColor, ui, electrodeUI,dataProcess, Visualizer)
+
+
+communityDetectionEngine = communityDetectionEngine(widget,distinguishableColors,FontBgColor)
+widget.communityDetectionEngine = communityDetectionEngine
+
+communityDetectionEngine.CalculateColors.connect(widget.CalculateColors)
+communityDetectionEngine.CalculateFormulae.connect(widget.CalculateFormulae)
+
 
 """ Controlling Quant Table """
 print "Initializing Quant Table"

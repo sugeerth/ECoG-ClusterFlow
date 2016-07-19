@@ -45,6 +45,7 @@ from random import shuffle
 Number_of_Communities = 2
 starttime = 4 
 endtime = 9
+DEFAULT_NO_OF_COMMUNITIES = 4
 
 class ConsensusCustomCluster(object):
     """docstring for ConsensusMediator"""
@@ -383,29 +384,18 @@ class ConsensusMediator(object):
             cluster_sample_ids.setdefault(cluster_id, []).append(sample_id)
             cluster_sample_indices.setdefault(cluster_id, []).append(sample_idx)
     
-        #Start writing the log
-        # print "\nClustering results"
-        # print "---------------------"
-    
-        # print "\nNumber of clusters: %s\nNumber of subsamples clustered: %s\nFraction of samples/features used in subsample: %s" % (kwds['num_clusters'], kwds['subsamples'], kwds['subsample_fraction'])
-        # print "\n---------------------"
-        # print "\nClusters"
 
         cluster_list = list(enumerate(cluster_sample_ids)) #(num, cluster_id) pairs
 
         partition = dict()
         for cluster in cluster_list:
             cluster_num, cluster_id = cluster
-
-            # print "\nCluster %s :\n" % (cluster_num)
     
             for sample_id in cluster_sample_ids[cluster_id]:
                 if hasattr(self, 'defined_clusters'):
                     pass
-                    # print "\t%s\t\t%s" % (sample_id, sample_id_to_cluster_def[sample_id])
                 else:
                     partition[int(sample_id)] = cluster_num
-                    # print "\t%s" % sample_id
 
         M = clust_data.M
         
@@ -420,16 +410,6 @@ class ConsensusMediator(object):
                 if kwds.has_key('ttest'):
                     ttest = kwds['ttest']
 
-                # ratios = pca.snr(M, cluster_sample_indices[clust1[1]], cluster_sample_indices[clust2[1]], threshold=threshold, significance=ttest)
-                
-                # if ratios:
-                #     buffer.append("\nCluster %s vs %s:" % (clust1[0], clust2[0]))
-                #     buffer.append("--------------------\n")
-                #     buffer.append("Gene ID\t\tCluster %s Avg\tCluster %s Avg\tSNR Ratio\tp-value" % (clust1[0], clust2[0]))
-
-                #     for ratio, gene_idx, mean1, mean2, pval in ratios:
-                #         buffer.append("%10s\t\t%f\t\t%f\t\t%f\t\t%s" % (self.ParsedData.gene_names[gene_idx], mean1, mean2, ratio, pval))
-
                 if kwds.has_key('classifier') and kwds['classifier'] and ratios:
                     clsbuffer.append("\nCluster %s vs %s:" % (clust1[0], clust2[0]))
                     clsbuffer.append("--------------------\n")
@@ -441,18 +421,6 @@ class ConsensusMediator(object):
 
                     for result in classif_list[0]:
                         clsbuffer.append("%10s\t%f" % (self.ParsedData.gene_names[result[1]], result[0]))
-        # def write_buffer(name, desc, buf):
-        #     console.new_logfile(name)
-        #     console.log(desc, display=False)
-
-        #     for line in buf:
-        #         console.log(line, display=False)
-
-        # if buffer:
-        #     write_buffer('SNR Results - %s clusters - %s subsamples' % (kwds['num_clusters'], kwds['subsamples']), "SNR-ranked features with ratio greater than %s" % threshold, buffer)
-
-        # if clsbuffer:
-        #     write_buffer('Binary Classifier - %s clusters - %s subsamples' % (kwds['num_clusters'], kwds['subsamples']), "Based on SNR-ranked features with ratio greater than %s" % threshold, clsbuffer)
         return partition
 
     def histogram(self,matrix):
@@ -571,14 +539,22 @@ class communityDetectionEngine(QtCore.QObject):
 
     def __init__(self,Graphwidget,distinguishableColors,FontBgColor):
         super(communityDetectionEngine, self).__init__()
-        self.Graphwidget= Graphwidget	
+        self.Graphwidget= Graphwidget
+
+        self.AnimationMode = False
+        self.TowChanged = False
+        self.ClusteringAlgorithm = 0
+
+        self.ColorVisit = []
+        self.clut = np.zeros(self.Graphwidget.counter)
+        self.FontBgColor = np.zeros(self.counter)
+
         self.distinguishableColors = distinguishableColors
+        
         self.ClusterAlgorithms = ClusterAlgorithms(Graphwidget)
         self.ConsensusMediator = ConsensusMediator(Graphwidget, self.ClusterAlgorithms)
         self.CustomCluster = CustomCluster(Graphwidget, self.ClusterAlgorithms)
         self.ConsensusCustomCluster = ConsensusCustomCluster(Graphwidget, ClusterAlgorithms)
-
-        self.plotKValues = self.ConsensusMediator.plotKValues
 
         self.communityMultiple = defaultdict(list)
         self.PreComputeState = False
@@ -586,9 +562,15 @@ class communityDetectionEngine(QtCore.QObject):
 
         self.FontBgColor= FontBgColor
         self.dend = -3 
+        self.TowValue = -1
+
+        self.TimeStepNetworkxGraphData = None
+
+        self.FinalClusterPartition = None
+        self.ClusterPartitionOfInterest = None
 
         # PLACE WHERE CHANGE NUMBER OF DEFAULT COMMUNITIES 
-        self.Number_of_Communities = 4
+        self.Number_of_Communities = DEFAULT_NO_OF_COMMUNITIES
 
         self.dendo = []
         self.NumberOfTimesCalled = -1
@@ -611,10 +593,9 @@ class communityDetectionEngine(QtCore.QObject):
         1) When one is intending to freeze the colors inside of there 
         """
         self.level = level
-        print "The Enire System is currently in the",self.Graphwidget.AnimationMode,"Mode"\
-        "This is the level", level
+        print "This is the level", level, self.AnimationMode, self.TowChanged
         
-        if self.Graphwidget.AnimationMode:
+        if self.AnimationMode:
             """For now the signal emits stuff that will 
             calculate the stability of the communities detected
             Future Work is to add few lines of code for incorporating 
@@ -624,15 +605,15 @@ class communityDetectionEngine(QtCore.QObject):
             self.calculateNewGraphPropertiesAndCommunitiesForAnimation(level)
             self.CalculateFormulae.emit(True)
         else: 
-            if self.Graphwidget.TowChanged:
+            if self.TowChanged:
                 self.calculateNewGraphPropertiesAndCommunities(level)
-                self.CalculateColors.emit(self.Graphwidget.TowValue)
+                self.CalculateColors.emit(self.TowValue)
             else:  
                 self.calculateNewGraphPropertiesAndCommunities(level)
-                self.GenerateNewColors(len(set(self.Graphwidget.partition.values())))
-                self.Graphwidget.ColorForVisit(self.Graphwidget.partition)
+                self.GenerateNewColors(len(set(self.FinalClusterPartition.values())))
+                self.Graphwidget.ColorForVisit(self.FinalClusterPartition)
 
-        self.Graphwidget.TowChanged = False
+        self.TowChanged = False
 
     def calculateNewGraphPropertiesAndCommunitiesForAnimation(self,level):
         """
@@ -641,20 +622,22 @@ class communityDetectionEngine(QtCore.QObject):
         """Change change the underlying data in the correlation data """
         # For the purpose of including in the animation section 
         # gets the graph data!! 
-        self.Graphwidget.g =  self.Graphwidget.Graph_data().DrawHighlightedGraph(self.Graphwidget.EdgeSliderValue)
+        self.TimeStepNetworkxGraphData =  self.Graphwidget.Graph_data().DrawHighlightedGraph(self.Graphwidget.EdgeSliderValue)
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
+
+
         if not(self.PreComputeState):
-            self.Graphwidget.partition=self.resolveCluster(self.Graphwidget.ClusteringAlgorithm,self.Graphwidget.g, self.Number_of_Communities)
+            self.FinalClusterPartition=self.resolveCluster(self.ClusteringAlgorithm,self.Graphwidget.g, self.Number_of_Communities)
         else: 
-            self.Graphwidget.partition=copy.deepcopy(self.PreComputeData[self.Graphwidget.TimeStep])
+            self.FinalClusterPartition=copy.deepcopy(self.PreComputeData[self.Graphwidget.TimeStep])
         """ 
         Does this data change everytime something is initialized??
         """
 
         if self.PreComputeState:
-            self.Graphwidget.PartitionOfInterest=copy.deepcopy(self.PreComputeData[self.Graphwidget.TimeStep]) 
+            self.ClusterPartitionOfInterest=copy.deepcopy(self.PreComputeData[self.Graphwidget.TimeStep]) 
         else: 
-            self.Graphwidget.PartitionOfInterest=copy.deepcopy(self.Graphwidget.partition)
+            self.ClusterPartitionOfInterest=copy.deepcopy(self.FinalClusterPartition)
     """
     Bering referenced by many classes of methods
     """
@@ -663,7 +646,8 @@ class communityDetectionEngine(QtCore.QObject):
         Number_of_Communities = self.Number_of_Communities
         if value == 0: 
             """Louvain"""
-            print "Using Louvain for Community Analysis"
+            print "Using Louvain for Community Analysis\nWARNING: edges wieghts are absolute for louvain"
+            self.absolutizeData(graph)
             partition=cm.best_partition(graph)
         elif value == 1: 
             """Hierarchical"""
@@ -682,23 +666,20 @@ class communityDetectionEngine(QtCore.QObject):
 
         return partition
 
+    def absolutizeData(self, graph):
+        for i,j,weight in graph.edges(data=True):
+            if weight['weight'] < 0: 
+               graph[i][j]['weight'] = abs(weight['weight'])
+
     def calculateNewGraphPropertiesAndCommunities(self,level):
-        self.Graphwidget.g =  self.Graphwidget.Graph_data().DrawHighlightedGraph(self.Graphwidget.EdgeSliderValue)
+        self.TimeStepNetworkxGraphData =  self.Graphwidget.Graph_data().DrawHighlightedGraph(self.Graphwidget.EdgeSliderValue)
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
-        self.Graphwidget.partition=self.resolveCluster(self.Graphwidget.ClusteringAlgorithm,self.Graphwidget.g, self.Number_of_Communities)
-
-        level = len(self.dendo)-1
-
-        self.Graphwidget.MaxDepthLevel = level
-        
-        if not(level == -1): 
-            if level > len(self.dendo)-1:
-                level = len(self.dendo)-1 
+        self.FinalClusterPartition=self.resolveCluster(self.ClusteringAlgorithm,self.Graphwidget.g, self.Number_of_Communities)
                 
     def updateCommunityColors(self,counter,TowPartition=None):
-        """Finds out the length of one length ommunities in the algorithm spitted out by louvain"""
+        """Finds out the number of one length communities in the algorithm spitted out by louvain"""
         self.communityMultiple.clear()
-        for key,value in self.Graphwidget.partition.items():
+        for key,value in self.FinalClusterPartition.items():
             self.communityMultiple[value].append(key)
         k=0
 
@@ -715,62 +696,53 @@ class communityDetectionEngine(QtCore.QObject):
         return k
 
     def timeStepColorGenerator(self, counter, TowPartition = None):
-        self.Graphwidget.ColorVisit = []
+        self.ColorVisit = []
         l = 1 
         self.Graphwidget.oneLengthCommunities = []
 
         for i in range(counter):
-            if i in self.Graphwidget.oneLengthCommunities: 
+            if i in self.oneLengthCommunities: 
                 r, g, b = 255,0,0
-                self.Graphwidget.clut[i] = (255 << 24 | r << 16 | g << 8 | b)
-                self.Graphwidget.FontBgColor[i] = ColorBasedOnBackground(r,g,b)
-                self.Graphwidget.ColorVisit.append((r,g,b,255))
+                self.clut[i] = (255 << 24 | r << 16 | g << 8 | b)
+                self.FontBgColor[i] = ColorBasedOnBackground(r,g,b)
+                self.ColorVisit.append((r,g,b,255))
             else:
                 r, g, b = self.distinguishableColors[l]
-                self.Graphwidget.FontBgColor[i] = ColorBasedOnBackground(r,g,b)
-                self.Graphwidget.clut[i] = (255 << 24 | r << 16 | g << 8 | b)
-                self.Graphwidget.ColorVisit.append((r,g,b,255))
+                self.FontBgColor[i] = ColorBasedOnBackground(r,g,b)
+                self.clut[i] = (255 << 24 | r << 16 | g << 8 | b)
+                self.ColorVisit.append((r,g,b,255))
                 l = l + 1
 
     def timeStepAnimationGenerator(self,counter, Assignment, communityMultiple): 
-        clut = copy.deepcopy(self.Graphwidget.clut)
-        ColorVisit = copy.deepcopy(self.Graphwidget.ColorVisit)
+        clut = copy.deepcopy(self.clut)
+        ColorVisit = copy.deepcopy(self.ColorVisit)
 
         # have to pass the tests for these different criterias 
-        assert communityMultiple == self.Graphwidget.partition
-        assert communityMultiple == self.Graphwidget.PartitionOfInterest
+        assert communityMultiple == self.FinalClusterPartition
+        assert communityMultiple == self.ClusterPartitionOfInterest
         assert len(Assignment.keys()) == len(set(communityMultiple.values()))
 
         if len(clut) > 2 and len(Assignment)>2:
-            self.Graphwidget.clut = np.zeros(len(self.Graphwidget.partition.keys()))
-            self.Graphwidget.ColorVisit = defaultdict(list)
+            self.clut = np.zeros(len(self.FinalClusterPartition.keys()))
+            self.ColorVisit = defaultdict(list)
             l = 1 
 
             for key, Color in Assignment.items():
                 if not(isinstance(Color, tuple)):
-                    #Stuff where the previous color vist of graph partition should be included
-                    self.Graphwidget.clut[key] =  clut[Color] 
-                    self.Graphwidget.ColorVisit[key] = ColorVisit[Color]
+                    self.clut[key] =  clut[Color] 
+                    self.ColorVisit[key] = ColorVisit[Color]
                 else:
-                    self.Graphwidget.clut[key] = ColorToInt(Color[0], Color[1], Color[2])
-                    self.Graphwidget.ColorVisit[key] = (Color[0], Color[1], Color[2])
+                    self.clut[key] = ColorToInt(Color[0], Color[1], Color[2])
+                    self.ColorVisit[key] = (Color[0], Color[1], Color[2])
 
     def AssignCommuntiesFromDerivedFromTow(self,TowPartition, TowInducedGraph,\
                                             TowMultipleValue, TowDataStructure,\
                                             timestep,syllable):
-        self.Graphwidget.g =  copy.deepcopy(TowDataStructure)
+        self.TimeStepNetworkxGraphData =  copy.deepcopy(TowDataStructure)
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
 
-        self.Graphwidget.partition.clear() 
-        self.Graphwidget.partition= copy.deepcopy(TowPartition)
-
-        if self.level == -1:
-            self.level = len(self.dendo)-1
-            self.Graphwidget.DendoGramDepth.emit(self.level)
-        
-        if not(self.level == -1): 
-            if self.level > len(self.dendo)-1:
-                self.level = len(self.dendo)-1 
+        self.FinalClusterPartition.clear() 
+        self.FinalClusterPartition= copy.deepcopy(TowPartition)
 
     def changeClusterValue(self, Cluster):
         self.Number_of_Communities = Cluster
@@ -785,19 +757,19 @@ class communityDetectionEngine(QtCore.QObject):
 
     def GenerateNewColors(self,counter):
         k=self.updateCommunityColors(counter)
-        self.Graphwidget.ColorVisit = []
+        self.ColorVisit = []
         l = 1 
         for i in range(counter):
             if i in self.Graphwidget.oneLengthCommunities: 
                 r, g, b = self.distinguishableColors[0]
-                self.Graphwidget.clut[i] = (255 << 24 | r << 16 | g << 8 | b)
-                self.Graphwidget.FontBgColor[i] = self.FontBgColor[0]
-                self.Graphwidget.ColorVisit.append((r,g,b,255))
+                self.clut[i] = (255 << 24 | r << 16 | g << 8 | b)
+                self.FontBgColor[i] = self.FontBgColor[0]
+                self.ColorVisit.append((r,g,b,255))
             else:
                 r, g, b = self.distinguishableColors[l]
-                self.Graphwidget.FontBgColor[i] = self.FontBgColor[l]
-                self.Graphwidget.clut[i] = (255 << 24 | r << 16 | g << 8 | b)
-                self.Graphwidget.ColorVisit.append((r,g,b,255))
+                self.FontBgColor[i] = self.FontBgColor[l]
+                self.clut[i] = (255 << 24 | r << 16 | g << 8 | b)
+                self.ColorVisit.append((r,g,b,255))
                 l = l + 1
 
     """universal algorithm for font based on backgroud color
