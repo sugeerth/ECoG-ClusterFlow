@@ -80,7 +80,7 @@ class ConsensusCustomCluster(object):
             assert self.partition == self.timestepPartition[timestep]
         except KeyError:
             pass
-        print "No of communities",len(self.partition.keys()), len(set(self.partition.values()))
+        # print "No of communities",len(self.partition.keys()), len(set(self.partition.values()))
         return self.partition
 
     def changeSyllable(self, syllable):
@@ -654,7 +654,7 @@ class communityDetectionEngine(QtCore.QObject):
 
         self.FontBgColor= FontBgColor
         self.dend = -3 
-        
+
         # PLACE WHERE CHANGE NUMBER OF DEFAULT COMMUNITIES 
         self.Number_of_Communities = 4
 
@@ -794,7 +794,7 @@ class communityDetectionEngine(QtCore.QObject):
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
         self.Graphwidget.partition=self.resolveCluster(self.Graphwidget.ClusteringAlgorithm,self.Graphwidget.g, self.Number_of_Communities)
 
-            level = len(self.dendo)-1
+        level = len(self.dendo)-1
 
         self.Graphwidget.MaxDepthLevel = level
         
@@ -941,9 +941,11 @@ class communityDetectionEngine(QtCore.QObject):
                 # Not Calculating the communities which are communities to itself 
                 if community == community2:
                     continue
+                    
                 # Calculating the correlation strength only with the lower half of the adjacency matrix
                 if i <= j: 
                     continue
+
                 # list_nodes1 and list_nodes2 indicate which nodes are actually present in these communties
                 list_nodes1 = [nodes for nodes in self.Graphwidget.partition.keys() if self.Graphwidget.partition[nodes] == community]
                 list_nodes2 = [nodes for nodes in self.Graphwidget.partition.keys() if self.Graphwidget.partition[nodes] == community2]

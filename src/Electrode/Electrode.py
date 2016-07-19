@@ -423,7 +423,7 @@ class ImageLabel(QtGui.QGraphicsView):
         elif state == "ConsensusPreComputed":
             self.clusterActivated = 6
             self.ClusteringAlgorithmChange.emit(6)
-            print "Toggle state to COnsensusCustomCluster"
+            print "Toggle state to Precomputed Consensus Cluster"
         # self.PreComputeClusters()
 
     @Slot()
@@ -532,7 +532,6 @@ class ImageLabel(QtGui.QGraphicsView):
     def TowValueChanged(self,value):
         value = int(value)
         self.TowValue = value
-        print "Tow value has changed globally from the source in imagelabel"
         self.TowValuesChanged.emit(value)
 
     @Slot()

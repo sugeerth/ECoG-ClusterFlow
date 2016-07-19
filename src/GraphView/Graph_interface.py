@@ -241,7 +241,7 @@ class GraphWidget(QtGui.QGraphicsView):
         self.DeriveNewCommunities(self.Min1)
     
     def ClusterChangeHappening(self,ClusteringAlgorithm):
-        print "This is the clustering algorithm that is changed",ClusteringAlgorithm
+        # print "This is the clustering algorithm that is changed",ClusteringAlgorithm
         self.ClusteringAlgorithm = ClusteringAlgorithm
         self.changeStuffDuetoTowChange(self.TowValue)
 
@@ -279,7 +279,7 @@ class GraphWidget(QtGui.QGraphicsView):
 
         value_for_slider = float(value) / 1000 
         self.EdgeSliderValue = value_for_slider
-        print self.EdgeSliderValue, "This is thre threshold value" 
+        # print self.EdgeSliderValue, "This is thre threshold value" 
 
         if not(self.ColorNodesBasedOnCorrelation):
             """Community Mode"""
