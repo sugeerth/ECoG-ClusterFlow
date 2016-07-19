@@ -189,7 +189,6 @@ class GraphWidget(QtGui.QGraphicsView):
     def CalculateColorsFunction(self,state):
         self.CalculateColors.emit(TowValue)
 
-
     @Slot(int)
     def ComputeUpdatedClusters(self,cluster):
         print cluster
@@ -279,7 +278,6 @@ class GraphWidget(QtGui.QGraphicsView):
 
         value_for_slider = float(value) / 1000 
         self.EdgeSliderValue = value_for_slider
-        # print self.EdgeSliderValue, "This is thre threshold value" 
 
         if not(self.ColorNodesBasedOnCorrelation):
             """Community Mode"""

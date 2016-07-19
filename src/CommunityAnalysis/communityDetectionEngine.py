@@ -565,74 +565,6 @@ class ConsensusMediator(object):
 def ColorToInt(r,g,b, a=255):
     return a << 24 | r << 16 | g << 8 | b
 
-class CommunityWidget(QtGui.QGraphicsView):
-    # @property
-    def __init__(self,induced_graph,correlationTable,GraphWidget):
-        QtGui.QGraphicsView.__init__(self)
-        self.induced_graph = induced_graph
-        self.correlationTable = weakref.ref(correlationTable)
-        self.correlationTableObject = self.correlationTable()
-
-        self.setMaximumSize(500, 400)
-        self.oneLengthCommunities=[]
-        self.initUI(GraphWidget)
-
-    def initUI(self,GraphWidget):
-        clut=GraphWidget.clut
-        FontBgColor = GraphWidget.FontBgColor
-        Max= GraphWidget.Max
-        Graph = GraphWidget
-        Matrix = GraphWidget.Matrix
-        ma = np.ma.masked_equal(Matrix, 0.0)
-        Min1 = ma.min()
-        Max1 = Matrix.max()
-        Pos = GraphWidget.Find_Initial_Positions()
-
-        scene = QtGui.QGraphicsScene(self)
-        scene.setItemIndexMethod(QtGui.QGraphicsScene.NoIndex)
-        self.setScene(scene)
-        self.NodeIds = []
-        self.centrality = []
-        self.Scene_to_be_updated = scene
-        self.setCacheMode(QtGui.QGraphicsView.CacheBackground)
-        self.setRenderHint(QtGui.QPainter.Antialiasing)
-        self.setInteractive(True)
-        self.setTransformationAnchor(QtGui.QGraphicsView.AnchorUnderMouse)
-        self.setResizeAnchor(QtGui.QGraphicsView.AnchorViewCenter)
-        i = 0
-        self.CommunityPos = nx.spring_layout(self.induced_graph,pos= Pos,weight='weight',scale=450)
-        for node in self.induced_graph.nodes():
-            i = i + 1
-            node_value=Node(Graph,i,self.correlationTableObject,True)
-            self.NodeIds.append(node_value)
-            scene.addItem(node_value)
-            x,y=self.CommunityPos[node]
-            node_value.setPos(x,y)
-            node_value.PutColor(clut[i-1])
-            node_value.PutTextColor(FontBgColor[i-1])
-        k =0 
-        for i,j in self.induced_graph.edges():
-                scene.addItem(Edge(Graph,self.NodeIds[i],self.NodeIds[j],k, i,j,Max,((Matrix[j,i]-Min1)/(Max1 - Min1))*10,True))
-                k = k + 1 
-
-        self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
-        self.setScene(self.Scene_to_be_updated)
-        self.fitInView(self.Scene_to_be_updated.itemsBoundingRect(),QtCore.Qt.KeepAspectRatio)
-        self.scaleView(math.pow(2.0, -500 / 1040.0))
-
-        self.nodes = [item for item in scene.items() if isinstance(item, Node)]
-        self.edges = [item for item in scene.items() if isinstance(item, Edge)]
-
-    def wheelEvent(self, event):
-        self.scaleView(math.pow(2.0, -event.delta() / 1040.0))
-
-    def scaleView(self, scaleFactor):
-        factor = self.matrix().scale(scaleFactor, scaleFactor).mapRect(QtCore.QRectF(0, 0, 1, 1)).width()
-        if factor < 0.07 or factor > 100:
-            return
-        self.scale(scaleFactor, scaleFactor)
-        del factor
-
 class communityDetectionEngine(QtCore.QObject):
     CalculateColors = QtCore.Signal(int)
     CalculateFormulae = QtCore.Signal(bool)
@@ -679,32 +611,26 @@ class communityDetectionEngine(QtCore.QObject):
         1) When one is intending to freeze the colors inside of there 
         """
         self.level = level
+        print "The Enire System is currently in the",self.Graphwidget.AnimationMode,"Mode"\
+        "This is the level", level
         
         if self.Graphwidget.AnimationMode:
-            """For now the signal emits stuff that will calculate the stability of the communities detected"""
-            # self.CalculateColors.emit(True)
-            # Creates communities of the current timestep for to compare with other timesteps 
-            # print "I AM IN ANIMATION MODE"
+            """For now the signal emits stuff that will 
+            calculate the stability of the communities detected
+            Future Work is to add few lines of code for incorporating 
+            NMI instead of Jaccards index that better captures the 
+            similarities between communities
+            """
             self.calculateNewGraphPropertiesAndCommunitiesForAnimation(level)
-            # self.Graphwidget.communityDetectionEngine.Find_InterModular_Edge_correlativity()
-            # Testing out for animations over consistant colors
             self.CalculateFormulae.emit(True)
-            # self.CalculateColors.emit(self.Graphwidget.TimeStep)
-            # self.initiateCommunityGraphView()
         else: 
             if self.Graphwidget.TowChanged:
-                # print "I AM IN TOW CHANGED MODE"
                 self.calculateNewGraphPropertiesAndCommunities(level)
-                # self.Graphwidget.communityDetectionEngine.Find_InterModular_Edge_correlativity()
                 self.CalculateColors.emit(self.Graphwidget.TowValue)
-                # self.initiateCommunityGraphView()
             else:  
-                # print "I AM IN TOW NOT CHANGED MODE BUT SEEK MODE"
                 self.calculateNewGraphPropertiesAndCommunities(level)
-                # self.Graphwidget.communityDetectionEngine.Find_InterModular_Edge_correlativity()
                 self.GenerateNewColors(len(set(self.Graphwidget.partition.values())))
                 self.Graphwidget.ColorForVisit(self.Graphwidget.partition)
-                # self.initiateCommunityGraphView()
 
         self.Graphwidget.TowChanged = False
 
@@ -713,47 +639,14 @@ class communityDetectionEngine(QtCore.QObject):
         This function is only for computing formulae purposes
         """
         """Change change the underlying data in the correlation data """
-        # self.Graphwidget.correlationTable().changeTableContents(self.Graphwidget.Syllable, self.Graphwidget.TimeStep)
-        # self.ChangeGraphDataStructure()
-        # self.ChangeGraphWeights()
-        """-----------------------------------------------------------"""
         # For the purpose of including in the animation section 
         # gets the graph data!! 
         self.Graphwidget.g =  self.Graphwidget.Graph_data().DrawHighlightedGraph(self.Graphwidget.EdgeSliderValue)
-        # reassuring that it is false
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
-        # Produces partitions of the graph strcuture based on the clustering algorithm that is provided   
         if not(self.PreComputeState):
             self.Graphwidget.partition=self.resolveCluster(self.Graphwidget.ClusteringAlgorithm,self.Graphwidget.g, self.Number_of_Communities)
         else: 
             self.Graphwidget.partition=copy.deepcopy(self.PreComputeData[self.Graphwidget.TimeStep])
-
-
-        # Produces the overview summary graph 
-        # self.Graphwidget.induced_graph = cm.induced_graph(self.Graphwidget.partition,self.Graphwidget.g)
-        # Dendogram related to louvain algorithms nothing else 
-        # self.dendo=cm.generate_dendogram(self.Graphwidget.g)
-        # Emit wht is the depth of the dendogram to be visualized
-        # self.Graphwidget.DendoGramDepth.emit(len(self.dendo)-1)
-
-        # if level == -1:
-        #     level = len(self.dendo)-1
-
-        # self.Graphwidget.MaxDepthLevel = level
-        
-        # if not(level == -1): 
-        #     if level > len(self.dendo)-1:
-        #         print "Incorrect level"
-        #         level = len(self.dendo)-1 
-        #     g = cm.partition_at_level(self.dendo,level)
-        #     self.Graphwidget.induced_graph1 = cm.induced_graph(g,self.Graphwidget.g)
-        #     self.Graphwidget.partition = g
-        #     self.Graphwidget.induced_graph = self.Graphwidget.induced_graph1
-
-
-        # self.Graphwidget.g_A =  self.Graphwidget.Graph_data().DrawHighlightedGraph(0)
-        # self.Graphwidget.ColorNodesBasedOnCorrelation = False 
-
         """ 
         Does this data change everytime something is initialized??
         """
@@ -770,8 +663,8 @@ class communityDetectionEngine(QtCore.QObject):
         Number_of_Communities = self.Number_of_Communities
         if value == 0: 
             """Louvain"""
-            # partition=cm.best_partition(graph)
-            partition=self.ClusterAlgorithms.computeKmeans(Number_of_Communities,graph)
+            print "Using Louvain for Community Analysis"
+            partition=cm.best_partition(graph)
         elif value == 1: 
             """Hierarchical"""
             partition=self.ClusterAlgorithms.HierarchicalClustering(graph)
@@ -802,45 +695,6 @@ class communityDetectionEngine(QtCore.QObject):
             if level > len(self.dendo)-1:
                 level = len(self.dendo)-1 
                 
-    def initiateCommunityGraphView(self):
-            """Need color by this moment to initiate the community view"""
-            nodes1 = [item for item in self.Graphwidget.scene().items() if isinstance(item, Node)]
-            count = 0
-            for community in set(self.Graphwidget.partition.values()):
-                list_nodes = [nodes for nodes in self.Graphwidget.partition.keys() if self.Graphwidget.partition[nodes] == community]
-
-                for node in nodes1:
-                    if node.counter-1 in list_nodes:
-                        node.PutColor(self.Graphwidget.clut[count])
-                        node.PutTextColor(self.Graphwidget.FontBgColor[count])
-                count = count + 1
-            for node in nodes1: 
-                node.allnodesupdate()
-                break
-
-            clut=self.Graphwidget.clut
-            Max= self.Graphwidget.Max
-            Graph = self
-            Matrix = self.Graphwidget.Matrix
-            ma = np.ma.masked_equal(Matrix, 0.0)
-            Min1 = ma.min()
-            Max1 = Matrix.max()
-            Pos = self.Graphwidget.Find_Initial_Positions()
-
-            def newwindow():
-                for i in reversed(range(self.Graphwidget.hbox.count())): 
-                        self.Graphwidget.hbox.itemAt(i).widget().close()
-
-                self.Graphwidget.hbox.setContentsMargins(0, 0, 0, 0)
-                self.Graphwidget.hbox.setContentsMargins(0, 0, 0, 0)
-                self.Graphwidget.hbox.setContentsMargins(0, 0, 0, 0)
-                self.Graphwidget.wid.setContentsMargins(0, 0, 0, 0)
-
-                self.Graphwidget.wid.setLayout(self.Graphwidget.hbox)
-            newwindow()
-           
-            self.Graphwidget.CommunityColorAndDict.emit(self.Graphwidget.ColorToBeSentToVisit,self.Graphwidget.partition)
-
     def updateCommunityColors(self,counter,TowPartition=None):
         """Finds out the length of one length ommunities in the algorithm spitted out by louvain"""
         self.communityMultiple.clear()
@@ -920,51 +774,6 @@ class communityDetectionEngine(QtCore.QObject):
 
     def changeClusterValue(self, Cluster):
         self.Number_of_Communities = Cluster
-
-    def Find_InterModular_Edge_correlativity(self):
-        # Induced graph is the data structure responsible for the adjacency matrix of the community
-        self.Graphwidget.Matrix = nx.to_numpy_matrix(self.Graphwidget.induced_graph)
-        # Matrix Before calculating the correlation strength
-        # finding out the lower half values of the matrix, can discard other values as computationally intensive
-        self.Graphwidget.Matrix = np.tril(self.Graphwidget.Matrix,-1)
-        i=0 
-        j=0 
-        SumTemp = 0
-        Edges = 0 
-        nodes1 = [item for item in self.Graphwidget.scene().items() if isinstance(item, Node)]
-        # ite1rateing over the indices
-        for community in set(self.Graphwidget.partition.values()):
-            i= i + 1
-            j=0
-            for community2 in set(self.Graphwidget.partition.values()):
-                j= j + 1
-                # Not Calculating the communities which are communities to itself 
-                if community == community2:
-                    continue
-                    
-                # Calculating the correlation strength only with the lower half of the adjacency matrix
-                if i <= j: 
-                    continue
-
-                # list_nodes1 and list_nodes2 indicate which nodes are actually present in these communties
-                list_nodes1 = [nodes for nodes in self.Graphwidget.partition.keys() if self.Graphwidget.partition[nodes] == community]
-                list_nodes2 = [nodes for nodes in self.Graphwidget.partition.keys() if self.Graphwidget.partition[nodes] == community2]
-                SumTemp = 0
-                Edges = 0
-                for node1 in nodes1:
-                    if node1.counter-1 in list_nodes1:
-                        for node2 in nodes1:
-                            if node2.counter-1 in list_nodes2:
-                                if node1.counter-1 == node2.counter-1:
-                                        continue
-                                if self.Graphwidget.Graph_data().ThresholdData[node1.counter-1][node2.counter-1] > 0:
-                                    Edges = Edges + 1
-
-                if Edges != 0: 
-                    Sum=self.Graphwidget.Matrix[i-1,j-1]/Edges
-                    self.Graphwidget.Matrix[i-1,j-1] = Sum
-
-        self.Graphwidget.induced_graph = nx.from_numpy_matrix(self.Graphwidget.Matrix)
 
     def ChangeGraphDataStructure(self):
         self.Graphwidget.Graph_data().setdata(self.Graphwidget.correlationTable().data)
