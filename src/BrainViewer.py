@@ -140,6 +140,7 @@ print "Setting CorrelationTable"
 Tab_1_CorrelationTable = CorrelationTableDisplay(correlationTable, colorTable,Tab_2_AdjacencyMatrix)
 Tab_1_CorrelationTable.setMinimumSize(390, 460)
 
+Tab_1_CorrelationTable.show()
 # Method to add graphs inside this
 print "Setting Graph Widget"
 
@@ -231,6 +232,10 @@ if ElectrodeWindowShowFlag:
         Visualizer.Glyphs.setChecked(True)
  
     debug()
+
+
+Tab_1_CorrelationTable.show()
+Tab_2_CorrelationTable.show()
 
 """Window for correlation Table"""
 view = CustomWebView()

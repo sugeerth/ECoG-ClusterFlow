@@ -139,12 +139,6 @@ class CustomWebView(QtWebKit.QWebView):
 	def loadProgress(prog):
 		pass
 		 
-	# def linkHovered(a, b, c):
-	# 	print "link hovered!"
-	# 	print a
-	# 	print b
-	# 	print c
-
 	def javaScriptWindowObjectCleared(self):
 		self.js = StupidClass(self)
 		self.page().mainFrame().addToJavaScriptWindowObject("pyObj", self.js)
@@ -156,10 +150,6 @@ class CustomWebView(QtWebKit.QWebView):
 
 	def slicesChanged(self,slices):
 		print "slices are being changed please take a look"
-		
-
-
-				
 		# print "Slices have been changed",self.SmallMultipleLayout.lengthPixels
 		# self.setMaximumSize(self.SmallMultipleLayout.lengthPixels,100) 
 		# self.setMinimumSize(self.SmallMultipleLayout.lengthPixels,100) 
