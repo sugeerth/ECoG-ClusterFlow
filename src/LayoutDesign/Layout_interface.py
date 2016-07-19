@@ -21,21 +21,15 @@ class LayoutInit(QtGui.QWidget):
 
         Node_Label= QtGui.QLabel('Edge Weight Threshold')
         
-        VisualizerUI.highlightEdges.stateChanged.connect(widget.changeHighlightedEdges)
-        VisualizerUI.colorEdges.stateChanged.connect(widget.changeTitle)
-        VisualizerUI.preservePositions.stateChanged.connect(widget.changeSpringLayout)
-        VisualizerUI.springLayout.clicked.connect(widget.LayoutCalculation)
-        VisualizerUI.Layout.activated[str].connect(widget.SelectLayout)
-        VisualizerUI.correlation.activated[str].connect(widget.SelectNodeColor)
-        # VisualizerUI.hover.stateChanged.connect(widget.hoverChanged)
-        VisualizerUI.transparent.stateChanged.connect(widget.changeTransparency)
-        VisualizerUI.NodeSize.activated[str].connect(widget.setNodeSizeOption)
+        # VisualizerUI.highlightEdges.stateChanged.connect(widget.changeHighlightedEdges)
+        # VisualizerUI.colorEdges.stateChanged.connect(widget.changeTitle)
+        # VisualizerUI.preservePositions.stateChanged.connect(widget.changeSpringLayout)
+        # VisualizerUI.springLayout.clicked.connect(widget.LayoutCalculation)
+        # VisualizerUI.Layout.activated[str].connect(widget.SelectLayout)
+        # VisualizerUI.correlation.activated[str].connect(widget.SelectNodeColor)
+        # VisualizerUI.transparent.stateChanged.connect(widget.changeTransparency)
+        # VisualizerUI.NodeSize.activated[str].connect(widget.setNodeSizeOption)
         
-        # VisualizerUI.snapshot.clicked.connect(widget.captureSnapshot)
-        # VisualizerUI.Thickness.valueChanged[int].connect(widget.changeEdgeThickness)
-        # VisualizerUI.communityLevel.valueChanged[int].connect(widget.changeDendoGramLevel)
-        # VisualizerUI.communityLevel.setToolTip("Level: %0.2f" % (widget.level))
-
         VisualizerUI.dataSet.clicked.connect(self.openFileDialog)
         VisualizerUI.getSnapshots.clicked.connect(self.getSnapshots)
         VisualizerUI.snapshot.clicked.connect(self.captureSnapshot)
@@ -69,7 +63,6 @@ class LayoutInit(QtGui.QWidget):
         self.horizontalLayout.addWidget(widget.Lineditor,0,101,0,102)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
 
-        # widget.SelectNodeColor("something")
         # ELECTRODE
         Node_Label.hide()
         widget.slider1.hide()
@@ -77,22 +70,16 @@ class LayoutInit(QtGui.QWidget):
 
         hbox = QtGui.QVBoxLayout()
         hbox.addWidget(widget)
-        # hbox.addLayout(self.horizontalLayout)
         hbox.setContentsMargins(0, 0, 0, 0)
 
         bbbox = QtGui.QHBoxLayout()
         bbbox.setContentsMargins(0, 0, 0, 0)
 
-        # Ui.setMinimumSize(211,726)
-        # bbbox.addWidget(VisualizerUI.Graph.setLayout)
         bbbox.setContentsMargins(0, 0, 0, 0)
 
         bbbox.addLayout(hbox)
         hbox.setContentsMargins(0, 0, 0, 0)
         bbbox.setContentsMargins(0, 0, 0, 0)
-        # Toggling Graph Layouts
-        # VisualizerUI.Graph.setLayout(bbbox)
-        # self.setLayout(bbbox)
 
     def classVariable(self,widget,Ui,dataSetLoader,screenshot,VisualizerUI):
         self.widget = widget

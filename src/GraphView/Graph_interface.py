@@ -174,10 +174,6 @@ class GraphWidget(QtGui.QGraphicsView):
                     continue
                 k = k + 1 
 
-        self.edges = [weakref.ref(item) for item in self.scene().items() if isinstance(item, Edge)]
-        self.nodes = [weakref.ref(item) for item in self.scene().items() if isinstance(item, Node)]
-     
-        self.setLayout('fdp')
         self.g =  self.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
 
         self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
@@ -261,14 +257,6 @@ class GraphWidget(QtGui.QGraphicsView):
             for edge in self.edges:
                 edge().setColorMap(True)
         self.Scene_to_be_updated.update()
-
-    def resizeTheWholeGraphWidget(self,state):
-        if state: 
-            self.BoxGraphWidget.resize(550,550)
-            self.BoxTableWidget.resize(self.width,self.width) 
-        else: 
-            newwidth = self.width+self.width
-            self.BoxTableWidget.resize(newwidth,self.width)
 
     def UpdateThresholdDegree(self):
         self.g =  self.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
