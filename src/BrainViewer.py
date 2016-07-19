@@ -173,8 +173,6 @@ BoxTable.addWidget(widget.wid)
 BoxTableWidget.setLayout(BoxTable)
 
 print "something is going on "
-BoxTableWidget.show()
-widget.show()
 if CorrelationTableShowFlag:
     BoxTableWidget.hide()
 
@@ -184,8 +182,6 @@ Graph = QtGui.QHBoxLayout()
 Graph.setContentsMargins(0, 0, 0, 0)
 Graph.addWidget(widget.wid)
 BoxGraphWidget.setLayout(Graph)
-
-BoxGraphWidget.show()
 
 if GraphWindowShowFlag:
     BoxGraphWidget.hide()

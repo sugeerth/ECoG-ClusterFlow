@@ -665,17 +665,12 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			self.TowMultiple[value1].append(key)
 		self.AssigNewValuesToGraphWidget(True)
 		self.widget.Refresh()
-		self.widget.scaleView(1.0001)
 		# print "WARNING: Comunity coloring has been changed"
 		self.changeViewinGraph()
 
 	def noDuplicates(self, list1):
 		print list1
 		items = set([i for i in list1 if sum([1 for a in list1 if a == i]) > 1])
-		# if items:
-		# 	return True
-		# else:
-		# 	return False
 		return True
 
 	def truncate(self,no):
@@ -699,7 +694,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			self.startTime = pg.ptime.time()
 			self.firstTime = False
 
-		# print self.electrode.dataProcess.ElectodeData[0][self.Graph_interface.TimeStep], self.Graph_interface.TimeStep
 		self.variableWidth += 1
 		self.communityMultiple.clear()
 

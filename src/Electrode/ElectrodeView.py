@@ -239,7 +239,6 @@ class ElectrodeView(QtGui.QGraphicsView):
         self.setResizeAnchor(QtGui.QGraphicsView.AnchorViewCenter)
         self.setInteractive(True)
         self.setTransformationAnchor(QtGui.QGraphicsView.AnchorUnderMouse)
-        # self.setResizeAnchor(QtGui.QGraphicsView.NoAnchor)
         self.scaleView(0.0)
         self.ElectrodeOpacity = []
         self.setScene(scene)
@@ -408,10 +407,8 @@ class ElectrodeView(QtGui.QGraphicsView):
         self.NodeIds[regionId].setSelected(True)
 
     def UpdateColors(self):
-        # print "This is the timestep value",self.ElectrodeData.timeStep
         self.regenerateElectrodes(self.ElectrodeData.timeStep)
         for node in self.NodeIds:
-            # print "counter,",node.counter
             self.unselectNodes(node)
             try:
                 temp = self.ElectrodeData.graphWidget.partition[node.counter]
@@ -428,24 +425,9 @@ class ElectrodeView(QtGui.QGraphicsView):
             if not(self.ElectrodeData.nodeSizeFactor == 1):
                 node.ScalarNodeSize(self.ElectrodeData.nodeSizeFactor)
 
-            # Get the actual number of the electrodes for the signal data 
-
-            # ActualNumber = self.ElectrodeData.ElectrodeIds[node.counter]
-            # Opacity, EA = self.ElectrodeOpacity[node.counter].normalize(self.ElectrodeData.timeStep, ActualNumber)
-          
-            # node opacity in  
-            # node.PutEA(EA)
-            # node.PutColor(self.ElectrodeData.graphWidget.clut[temp],Opacity,self.ElectrodeData.OpacityOn)
-
-            # HACK calling the communtiy across timestep function 
-
-            # stuff to be put in the graph widget 
-            # self.ElectrodeData.graphWidget.NodeIds[node.counter].PutColorFromOtherClass(self.ElectrodeData.graphWidget.clut[temp],Opacity,self.ElectrodeData.OpacityOn)
-
         if self.ElectrodeData.Glyph:
             for node in self.NodeIds:
                 node.setGlyph(True)
-                # node.PutGlyphColor()
 
         if self.ElectrodeData.ElectrodeScreenshot:
             pixmap = QtGui.QImage(self.scene.sceneRect().size().toSize())
@@ -453,8 +435,6 @@ class ElectrodeView(QtGui.QGraphicsView):
             self.scene.render(pAin,QtCore.QRectF(self.width/4+50, self.height/4+50, 3*self.width/6,3*self.height/6))
             fileName = str("Time_"+str(self.ElectrodeData.timeStep)+"_Syllable_"+str(self.ElectrodeData.syllableUnit)+"_Alg_"+str(self.ElectrodeData.clusterActivated)+".png")
             pixmap1 = QtGui.QPixmap.fromImage(pixmap)
-            # print pixmap.save("sd.png")
-            # pprint.pprint(pixmap)
 
     def keyPressEvent(self, event):
         key = event.key()
@@ -477,9 +457,6 @@ class ElectrodeView(QtGui.QGraphicsView):
         if key == QtCore.Qt.Key_Z:
             print "Changing offset"
             self.ElectrodeData.CommunitiesAcrossTimeStep.changeVizOffset()
-
-    # def mousePressEvent(self, event):
-    #     self.EmitSelectedElectrodeView.emit(self.ChunkNo* self.slices, (self.ChunkNo+1) * self.slices, self.slices)
 
     def wheelEvent(self, event):
         self.scaleView(math.pow(2.0, -event.delta() / 1040.0))

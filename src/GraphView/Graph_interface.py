@@ -131,7 +131,6 @@ class GraphWidget(QtGui.QGraphicsView):
         self.setInteractive(True)
         self.setTransformationAnchor(QtGui.QGraphicsView.AnchorUnderMouse)
         self.setResizeAnchor(QtGui.QGraphicsView.NoAnchor)
-        self.scaleView(2.0)
 
         self.ColorVisit = []
         self.NodeIds = []
@@ -148,6 +147,7 @@ class GraphWidget(QtGui.QGraphicsView):
         self.scale(0.8, 0.8)
         self.setMinimumSize(400, 600)
         self.setWindowTitle(self.tr("Node Visualization"))
+
         i = 0
 
         for node in  self.Graph_data().g.nodes():
@@ -160,6 +160,7 @@ class GraphWidget(QtGui.QGraphicsView):
         k = 0 
         Min1 = np.min(self.Graph_data().data)
         Max1 = np.max(self.Graph_data().data)
+        self.Min1 = Min1
 
         for i in range(1, self.counter):
             for j in range(1, self.counter):
@@ -176,6 +177,11 @@ class GraphWidget(QtGui.QGraphicsView):
 
         self.g =  self.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
 
+        self.edges = [weakref.ref(item) for item in self.scene().items() if isinstance(item, Edge)]
+        self.nodes = [weakref.ref(item) for item in self.scene().items() if isinstance(item, Node)]
+     
+        self.g =  self.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
+        
         self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
         self.setScene(self.Scene_to_be_updated)
         self.fitInView(self.Scene_to_be_updated.itemsBoundingRect(),QtCore.Qt.KeepAspectRatio)
@@ -187,32 +193,13 @@ class GraphWidget(QtGui.QGraphicsView):
     def CalculateColorsFunction(self,state):
         self.CalculateColors.emit(TowValue)
 
-    def changeHighlightedEdges(self,state):
-        if state: 
-            for edge in self.edges:
-                 edge().setHighlightedColorMap(False)
-        else: 
-            for edge in self.edges:
-                 edge().setHighlightedColorMap(True)
 
-        self.Scene_to_be_updated.update()
-
-    def LayoutCalculation(self):
-        self.setLayout('spring')
+    @Slot(int)
+    def ComputeUpdatedClusters(self,cluster):
+        print cluster
 
     def NewNodeSelected(self,idx):
         self.HighlightedId = idx 
-
-    def changeSpringLayout(self,state):
-        if state: 
-            self.PositionPreserve = True
-        else: 
-            self.PositionPreserve = False
-
-    def changeTitle(self, state):
-        self.DisplayOnlyEdges = not(self.DisplayOnlyEdges)
-        self.NodeSelected(self.HighlightedId) 
-        self.Scene_to_be_updated.update()
 
     def ColorForVisit(self,partition):
         self.ColorToBeSentToVisit = []
@@ -226,6 +213,27 @@ class GraphWidget(QtGui.QGraphicsView):
         else: 
             self.communityDetectionEngine.ChangeCommunityColor()
 
+    """Select the nodes colors"""
+    @Slot(bool)
+    def SelectNodeColor(self,state):
+        nodes1 = [item for item in self.scene().items() if isinstance(item, Node)]
+        if state == "Correlation Strength": 
+            self.ColorNodesBasedOnCorrelation = True 
+            for node in nodes1:
+                node.NodeColor()
+            self.Tab_2_CorrelationTable().hide()
+            self.CommunityMode.emit(False)
+        else: 
+            self.ColorNodesBasedOnCorrelation = False 
+            if not(self.level == -1):
+                self.communityDetectionEngine.ChangeCommunityColor(self.level)
+            else: 
+                self.communityDetectionEngine.ChangeCommunityColor()
+            self.CommunityMode.emit(True)
+            self.CommunityColor.emit(self.ColorToBeSentToVisit)
+        self.Scene_to_be_updated.update()
+        del nodes1
+
     @Slot(bool)
     def ToggleAnimationMode(self,state):
         self.AnimationMode = False
@@ -234,7 +242,7 @@ class GraphWidget(QtGui.QGraphicsView):
     def changeStuffDuetoTowChange(self,value):
         self.TowChanged = True 
         self.TowValue = value
-        self.DeriveNewCommunities(0)
+        self.DeriveNewCommunities(self.Min1)
     
     def ClusterChangeHappening(self,ClusteringAlgorithm):
         print "This is the clustering algorithm that is changed",ClusteringAlgorithm
@@ -249,8 +257,7 @@ class GraphWidget(QtGui.QGraphicsView):
         self.correlationTable().changeTableContents(Syllable,TimeStep)
         self.communityDetectionEngine.ChangeGraphDataStructure()
         self.communityDetectionEngine.ChangeGraphWeights()
-
-        self.DeriveNewCommunities(0)
+        self.DeriveNewCommunities(self.Min1)
 
     def changeTitleSetColorMap(self, state):
         if state: 
@@ -260,49 +267,6 @@ class GraphWidget(QtGui.QGraphicsView):
 
     def UpdateThresholdDegree(self):
         self.g =  self.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
-
-    def calculateRankAndZscore(self,counter):
-        """Zscore and Rank"""
-        Rank =  abs(self.sortedValues.keys().index(counter)-(self.counter-1))
-        Zscore = (self.sortedValues[counter] - self.average)/(self.std)
-
-        return (Rank,Zscore)
-
-    def setNodeSizeOption(self,state):
-        self.nodeSizeFactor = state
-        self.UpdateThresholdDegree()
-
-    def SelectLayout(self, Layout):
-        self.setLayout(Layout)
-        self.Layout = Layout
-
-    def changeViewinGraph(self):
-        self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
-        self.setScene(self.Scene_to_be_updated)
-        self.fitInView(self.Scene_to_be_updated.itemsBoundingRect(),QtCore.Qt.KeepAspectRatio)
-        self.Scene_to_be_updated.update()
-        self.Refresh()
-        self.update()
-
-    def NodeSelected(self,NodeId):
-        if isinstance(self.sender(),Node) or isinstance(self.sender(),GraphWidget):
-            return
-
-        if not(isinstance(self.sender(),GraphWidget)):
-            for node in self.nodes:
-                if node().counter-1 == NodeId:
-                    node().SelectedNode(NodeId,True)
-                    node().setSelected(True)
-                    node().update()
-
-        if self.DisplayOnlyEdges:
-            for edge in self.edges:
-                edge().ColorOnlySelectedNode(True)
-        else:
-           for edge in self.edges:
-                edge().ColorOnlySelectedNode(False) 
-        self.HighlightedId = NodeId
-        self.Scene_to_be_updated.update()
 
     def Refresh(self):
         for edge in self.edges:
@@ -314,16 +278,12 @@ class GraphWidget(QtGui.QGraphicsView):
         self.CommunityMode.emit(True)
         self.Scene_to_be_updated.update()
 
-    @Slot(bool)
-    def changeTransparency(self,state):
-        pass
-
     def DeriveNewCommunities(self,value):
         """Changing the value of the communities"""
 
         value_for_slider = float(value) / 1000 
         self.EdgeSliderValue = value_for_slider
-        self.slider1.setValue = self.EdgeSliderValue
+        print self.EdgeSliderValue, "This is thre threshold value" 
 
         if not(self.ColorNodesBasedOnCorrelation):
             """Community Mode"""
@@ -331,8 +291,6 @@ class GraphWidget(QtGui.QGraphicsView):
                 """position is not preserved"""
                 """recalculate stuff in position preserve"""
                 pass
-            # else:
-            # prin self.level
             if not(self.level == -1):
                 self.communityDetectionEngine.ChangeCommunityColor(self.level)
             else:

@@ -21,15 +21,6 @@ class LayoutInit(QtGui.QWidget):
 
         Node_Label= QtGui.QLabel('Edge Weight Threshold')
         
-        # VisualizerUI.highlightEdges.stateChanged.connect(widget.changeHighlightedEdges)
-        # VisualizerUI.colorEdges.stateChanged.connect(widget.changeTitle)
-        # VisualizerUI.preservePositions.stateChanged.connect(widget.changeSpringLayout)
-        # VisualizerUI.springLayout.clicked.connect(widget.LayoutCalculation)
-        # VisualizerUI.Layout.activated[str].connect(widget.SelectLayout)
-        # VisualizerUI.correlation.activated[str].connect(widget.SelectNodeColor)
-        # VisualizerUI.transparent.stateChanged.connect(widget.changeTransparency)
-        # VisualizerUI.NodeSize.activated[str].connect(widget.setNodeSizeOption)
-        
         VisualizerUI.dataSet.clicked.connect(self.openFileDialog)
         VisualizerUI.getSnapshots.clicked.connect(self.getSnapshots)
         VisualizerUI.snapshot.clicked.connect(self.captureSnapshot)
@@ -41,7 +32,6 @@ class LayoutInit(QtGui.QWidget):
         VisualizerUI.five1.hide()
         VisualizerUI.six1.hide()
 
-        # VisualizerUI.Save1.hide()
         VisualizerUI.label_28.hide()
         VisualizerUI.Max1.hide()
         VisualizerUI.MaxButtonCheck.hide()
@@ -59,14 +49,7 @@ class LayoutInit(QtGui.QWidget):
         self.horizontalLayout = QtGui.QGridLayout()
         self.horizontalLayout.setSpacing(1)
         self.horizontalLayout.addWidget(Node_Label,0,0)
-        self.horizontalLayout.addWidget(widget.slider1,0,1)
-        self.horizontalLayout.addWidget(widget.Lineditor,0,101,0,102)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-
-        # ELECTRODE
-        Node_Label.hide()
-        widget.slider1.hide()
-        widget.Lineditor.hide()
 
         hbox = QtGui.QVBoxLayout()
         hbox.addWidget(widget)
@@ -90,9 +73,6 @@ class LayoutInit(QtGui.QWidget):
 
     def widgetChanges(self):
         self.widget.setMinimumSize(550, 550)
-        self.widget.slider_imple()
-        self.widget.NodeSlider()
-        self.widget.lineEdit()
 
     @staticmethod
     def captureSnapshot():
