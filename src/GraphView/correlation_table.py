@@ -555,9 +555,7 @@ class CommunityCorrelationTableDisplay(ParentCommunityDisplay):
     def ChangeColors(self):
         """
         Clustered Order is the sorted order of different brain regions based on the communities detected   
-
         """
-
         """Calling the Parent Method for Sorting the cells"""
         self.sortDataStructure(self.Order,self.Brain_Regions)
 
@@ -580,9 +578,7 @@ class CommunityCorrelationTableDisplay(ParentCommunityDisplay):
 
     """ Selecting cells in the adjacency matrix"""
     def selectRegion(self, regionId):
-
         # should be able to differentiate between the events that is being clicked on and the events the this class generates 
-
         if not(self.CommunityMode):
             return
 
