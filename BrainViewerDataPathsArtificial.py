@@ -5,6 +5,6 @@ Electrode_ElectrodeData_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectro
 
 #set the flag data around here for convenience
 GraphWindowShowFlag = True
-MainWindowShowFlag = False
+MainWindowShowFlag = True
 ElectrodeWindowShowFlag = True
-CorrelationTableShowFlag = False
+CorrelationTableShowFlag = True

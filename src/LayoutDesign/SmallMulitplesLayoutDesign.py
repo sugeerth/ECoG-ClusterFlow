@@ -9,13 +9,17 @@ import cProfile
 import os
 TotalNo = 62
 
+SliceSizes= 250
+Width = 1425
+Height = 851
+
 class SmallMultipleLayout(QtGui.QWidget):
     def __init__(self,Electrode, CustomWebView):
         super(SmallMultipleLayout,self).__init__()
         self.Electrode = Electrode
 
-        self.setMinimumSize(1425,851)
-        self.setMaximumSize(1425,851)
+        self.setMinimumSize(Width,Height)
+        self.setMaximumSize(Width,Height)
 
         self.PutAllLayout = True
 
@@ -40,7 +44,7 @@ class SmallMultipleLayout(QtGui.QWidget):
         self.scroll.setWidget(self.widget)
 
         self.LayoutChangesOnSliceChange(self.Electrode.slices)
-        self.layout.addWidget(self.CustomWebView, 1, 0,1,15, QtCore.Qt.AlignLeft)
+        self.layout.addWidget(self.CustomWebView, 1, 0,1,25, QtCore.Qt.AlignLeft)
 
         self.layout.setContentsMargins(0, 0, 0, 0)
         self.setContentsMargins(0, 0, 0, 0)
@@ -132,8 +136,7 @@ class SmallMultipleLayout(QtGui.QWidget):
         self.LayoutChangesOnSliceChange(self.Electrode.slices)
 
         if not(self.PutAllLayout):
-            print StartSlice,EndSlice,gettingSmallMultipleNumber
-            if EndSlice - StartSlice > 0: 
+            if EndSlice - StartSlice > -1: 
                 q = StartSlice 
                 IterationNo = EndSlice-StartSlice
                 if IterationNo ==0: 
@@ -141,8 +144,8 @@ class SmallMultipleLayout(QtGui.QWidget):
                 for i in range(IterationNo):
                     WidgetTemp=self.Electrode.SmallMultipleElectrode[q]
                     WidgetTemp.show()
-                    WidgetTemp.setMinimumSize(QtCore.QSize(275,275))
-                    WidgetTemp.setMaximumSize(QtCore.QSize(275,275))
+                    WidgetTemp.setMinimumSize(QtCore.QSize(SliceSizes,SliceSizes))
+                    WidgetTemp.setMaximumSize(QtCore.QSize(SliceSizes,SliceSizes))
                     if i < 5: 
                         self.layout.addWidget(WidgetTemp, 0, i ,QtCore.Qt.AlignCenter)
                     else:
@@ -158,21 +161,11 @@ class SmallMultipleLayout(QtGui.QWidget):
                     C = self.layout.itemAtPosition(0, i)
 
                 A = QtGui.QWidget()
-                A.setMinimumSize(QtCore.QSize(275,275))
-                A.setMaximumSize(QtCore.QSize(275,275))
+                A.setMinimumSize(QtCore.QSize(SliceSizes,SliceSizes))
+                A.setMaximumSize(QtCore.QSize(SliceSizes,SliceSizes))
                 for i in range(5):
                     self.layout.addWidget(A, 2, i)
-            else: 
-                q = StartSlice 
-                WidgetTemp=self.Electrode.SmallMultipleElectrode[q]
-                self.layout.addWidget(WidgetTemp, 0, i ,QtCore.Qt.AlignCenter)
-                A = QtGui.QWidget()
-                A.setMinimumSize(QtCore.QSize(275,275))
-                A.setMaximumSize(QtCore.QSize(275,275))
-                for i in range(5):
-                    self.layout.addWidget(A, 2, i)
+
 
     def SignalForWebView(self):
         self.CustomWebView.sendTimeStepFromSankey.connect(self.SignalForWebViewE)
-            # self.Electrode.SmallMultipleElectrode[i].EmitSelectedElectrodeView.connect(self.CustomWebView.EmitTimestepRanges)
-

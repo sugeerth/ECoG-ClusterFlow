@@ -28,7 +28,6 @@ class AdditionalMetricsCustomizable(object):
 	        affiliation vector. This function uses the community affiliations as determined
 	        by the Louvain modularity algorithm (http://perso.crans.org/aynaud/communities/).
 	        """
-        	print G, "Why is this in int??" 
 	        partition = cm.best_partition(G)
 	        partition_list = []
 	        for count in range(len(partition)):
