@@ -32,8 +32,6 @@ class CommunityDendogram(QtGui.QGraphicsView):
         self.setResizeAnchor(QtGui.QGraphicsView.AnchorViewCenter)
         self.scaleView(0.7)
 
-        
-        # method to add a new graph visualization                
         i = 0
         self.CommunityPos = nx.spring_layout(self.induced_graph,pos= Pos,weight='weight',scale=450)
         for node in self.induced_graph.nodes():

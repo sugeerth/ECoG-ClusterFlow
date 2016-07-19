@@ -207,12 +207,10 @@ class ElectrodeView(QtGui.QGraphicsView):
             self.width  =1301
             self.height =861
             self.setMinimumSize(QtCore.QSize(275,275))
-            # self.setMaximumSize(QtCore.QSize(275,275))
         else: 
             self.width  =1301
             self.height =861
             self.setMinimumSize(QtCore.QSize(275,275))
-            # self.setMaximumSize(QtCore.QSize(275,275))
             
 
         self.Translate = Translate()

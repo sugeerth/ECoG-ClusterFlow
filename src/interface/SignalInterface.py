@@ -42,7 +42,7 @@ class Interface(QtCore.QObject):
 
 
 	def LinkingWithinTables(self):
-		self.Tab_1_CorrelationTable.selectedRegionChanged.connect(self.widget.NodeSelected)
+		# self.Tab_1_CorrelationTable.selectedRegionChanged.connect(self.widget.NodeSelected)
 		self.Tab_1_CorrelationTable.selectedRegionChanged.connect(self.Tab_2_CorrelationTable.selectRegion)
 		self.Tab_2_CorrelationTable.selectedRegionChanged.connect(self.Tab_1_CorrelationTable.selectedRegionChanged)
 		self.widget.CommunityColorAndDict.connect(self.Tab_1_CorrelationTable.setRegionColors)
@@ -70,7 +70,7 @@ class Interface(QtCore.QObject):
 	def NodeSelectionSignals(self):
 		self.widget.regionSelected.connect(self.Electrode.colorRelativeToRegion)
 		self.Tab_1_CorrelationTable.selectedRegionChanged.connect(self.Electrode.colorRelativeToRegion)
-		self.Electrode.NodeSelected.connect(self.widget.NodeSelected)
+		# self.Electrode.NodeSelected.connect(self.widget.NodeSelected)
 		self.Tab_1_CorrelationTable.selectedRegionChanged.connect(self.Electrode.colorRelativeToRegion)
 
 	def ReferenceSignals(self):

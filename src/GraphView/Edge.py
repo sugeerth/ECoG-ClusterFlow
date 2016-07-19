@@ -60,8 +60,137 @@ class Edge(QtGui.QGraphicsItem):
     def type(self):
         return Edge.Type
 
+    def destNode(self):
+        return self.dest()
+
+    def sourceNode(self):
+        return self.source()
     def sourceNode(self):
         return self.source()
 
     def setWeight(self,weight):
         self.weight = float(weight)
+        # if not(self.weight == 0):
+            # print self.weight
+
+    def getNodes(self,community):
+        return self.graph().communityMultiple[community]
+
+    def hoverEnterEvent(self, event):
+        if self.ForCommunities:
+            self.selectEdges()
+            self.update()
+            return
+        QtGui.QGraphicsItem.hoverEnterEvent(self, event)
+
+    def allnodesupdate(self):
+        # Nodes = [item for item in self.scene().items() if isinstance(item, Node)]
+        Nodes = self.graph().nodes
+        for node in Nodes:
+            node().setSelected(False)
+            node().unsetOpaqueNodes()
+            node().WhitePaint = False
+            node().update()
+
+    def selectInterModularEdges(self,communtiy1,community2):
+        pass
+        # edges = self.graph().edges
+        
+        # self.allnodesupdate()
+        # self.alledgesupdate()
+
+
+        # for i in communtiy1:
+        #         self.graph().NodeIds[i].setOpaqueNodes()
+
+        # for j in community2: 
+        #         self.graph().NodeIds[j].setOpaqueNodes()
+
+        # for edge in edges: 
+        #     sourceBool = edge().sourceNode().counter-1 in communtiy1
+        #     destBool = edge().destNode().counter-1 in community2
+        #     if (sourceBool and destBool): 
+        #         edge().ColorEdges()
+
+        # for edge in edges: 
+        #     sourceBool = edge().sourceNode().counter-1 in community2
+        #     destBool = edge().destNode().counter-1 in communtiy1
+
+        #     if (sourceBool and destBool): 
+        #         edge().ColorEdges()
+
+        # self.graph().Refresh()
+
+
+    def selectEdges(self):
+        communtiy1 = self.getNodes(self.sourceId)
+        community2 = self.getNodes(self.destId)
+        self.selectInterModularEdges(communtiy1,community2)
+
+    def alledgesupdate(self):
+        edges = self.graph().edges
+        for edge in edges:
+            edge().ColorEdgesFlag = False
+
+    def setSourceNode(self, node):
+        self.source = weakref.ref(node)
+        self.adjust()
+
+    def destNode(self):
+        return self.dest()
+
+    def setHighlightedColorMap(self,state):
+        self.HighlightedColorMap = state
+
+
+    def ColorOnlySelectedNode(self,state):
+        self.ColorOnlySelectedNodesFlag = state
+
+    def setDestNode(self, node):
+        self.dest = weakref.ref(node)
+        self.adjust()
+    
+    def setColorMap(self,state):
+        self.ColorMap = state
+
+    def ColorEdges(self):
+        self.ColorEdgesFlag = True
+        self.update()
+ 
+    def setEdgeThickness(self,value):
+        self.edgeThickness = float(value)
+        self.update()
+
+    def Threshold(self,value):
+        # print "Threshold in Edge"
+        self.EdgeThreshold = float(value)
+        self.update()
+
+    def adjust(self):
+        if not self.source() or not self.dest():
+            return
+        # if self.weight == 0: 
+            # return
+        line = QtCore.QLineF(self.mapFromItem(self.source(), 0, 0), self.mapFromItem(self.dest(), 0, 0))
+
+        self.sourcePoint = line.p1() #+ edgeOffset
+        self.destPoint = line.p2() #- edgeOffset
+
+    def boundingRect(self):
+        """
+        Computes the bounding recatangle for every edge 
+        """
+        if not self.source() or not self.dest():
+            return QtCore.QRectF()
+
+        return QtCore.QRectF(self.sourcePoint,
+                             QtCore.QSizeF(self.destPoint.x() - self.sourcePoint.x(),
+                                           self.destPoint.y() - self.sourcePoint.y()))
+
+    def communityAlpha(self,boolValue,value=-1):
+        if boolValue:
+            self.communtiyColor1.setAlpha(255)
+        else:
+            self.communtiyColor1.setAlpha(55)
+        self.update()
+

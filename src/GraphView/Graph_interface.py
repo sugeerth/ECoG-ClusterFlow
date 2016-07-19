@@ -182,10 +182,6 @@ class GraphWidget(QtGui.QGraphicsView):
      
         self.g =  self.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
         
-        self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
-        self.setScene(self.Scene_to_be_updated)
-        self.fitInView(self.Scene_to_be_updated.itemsBoundingRect(),QtCore.Qt.KeepAspectRatio)
-
         self.communityDetectionEngine = communityDetectionEngine(self,distinguishableColors,FontBgColor)
         self.communityDetectionEngine.CalculateColors.connect(self.CalculateColors)
         self.communityDetectionEngine.CalculateFormulae.connect(self.CalculateFormulae)

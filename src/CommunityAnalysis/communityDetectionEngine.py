@@ -26,8 +26,6 @@ import pickle
 import cProfile
 import pprint
 import copy 
-# import time
-# import commun
 import community as cm
 
 # ... reading NIfTI 
@@ -35,8 +33,6 @@ import nibabel as nib
 import numpy as np
 # ... graph drawing
 import networkx as nx
-# from visit_interface import GetColor
-from Dendogram.dendogram import dendogram, DendoNode
 from GraphView.Edge import Edge 
 from GraphView.Node import Node
 from kmedoids import ClusterAlgorithms
@@ -50,10 +46,6 @@ Number_of_Communities = 2
 starttime = 4 
 endtime = 9
 
-Scad = ['87','102','106','107','121','123','134','154','185']
-Bolo = ['88','90','93','96','102','104','106','107','110','138','150']
-
-# ConsensusPreComputed
 class ConsensusCustomCluster(object):
     """docstring for ConsensusMediator"""
     def __init__(self, graphwidget, ClusterAlgorithms):
@@ -67,7 +59,6 @@ class ConsensusCustomCluster(object):
         syllable = self.graphWidget.Syllable
         self.syllable = syllable
         name = "ConsensusData/ConsensusCluster"+str(syllable)+str(4)+".json"
-        print "The new Cluster Data has been loaded", name
 
         self.timestepPartition = pickle.load(open(name))
 
@@ -89,7 +80,7 @@ class ConsensusCustomCluster(object):
             assert self.partition == self.timestepPartition[timestep]
         except KeyError:
             pass
-        # print "No of communities",len(self.partition.keys()), len(set(self.partition.values()))
+        print "No of communities",len(self.partition.keys()), len(set(self.partition.values()))
         return self.partition
 
     def changeSyllable(self, syllable):
@@ -110,24 +101,12 @@ class CustomCluster(object):
         timestepDict = dict()
         length = len(self.graphWidget.g)
 
-        # for i in range(-1,10):
-        #     timestepDict = dict()
-        #     for j in range(length):
-        #         timestepDict[j] = randint(0, 2)
-        #     self.timestepPartition[i] = timestepDict
-
-
         name = "ConsensusData/TenRandomTimesteps.json"
         self.timestepPartition = pickle.load(open(name))
-
-        # with open(name, 'w') as outfile:
-        #     pickle.dump(self.timestepPartition, outfile)
 
     def prepareClsuterData(self, graph, timestep, syllable): 
         distances = copy.deepcopy(nx.to_numpy_matrix(graph))
         
-        # print np.shape(distances)
-
         x = [i for i in range(21)]
         y = [i for i in range(21,40)]
         z = [i for i in range(40,64)]
@@ -314,7 +293,6 @@ class ConsensusMediator(object):
                 partition[i] = 0
 
             self.partition1[1] = partition
-        # outfile.close()
         self.FinalPartiction[self.Timestep] = self.partition1
 
         return self.partition1[k]
@@ -341,12 +319,6 @@ class ConsensusMediator(object):
         It's probably a very bad idea to subclass run_cluster.  The _report and _save_hmap functions are almost certainly what you want.
     
         """
-   
-        # print '%s clusters - %s subsamples' % (num_clusters, subsamples)
-        
-        # print "\nSamples: %s" % len(self.ParsedData.samples)
-    
-        # print "\nClustering data..."
         colour_map = None
         args = locals()
 
@@ -364,47 +336,6 @@ class ConsensusMediator(object):
 
         clust_data._reset_clusters() #Set cluster_ids to None
         return self.partition
-
-    def computeCDFHistogram(self, matrix):
-        pass
-
-    def createPlot(self, k):
-        pass
-        # print "Showing results"
-        # from matplotlib.backends.backend_pdf import PdfPages
-        # import numpy as np
-        # import matplotlib.pyplot as plt
-
-        # x1 = self.GlobalCDF[0].keys()
-        # y1 = self.GlobalCDF[0].values()
-
-        # x2 = np.arange(20)
-        # y2 = x2**2
-
-        # pp = PdfPages('test.pdf')
-
-
-        # def function_plot(X,Y):
-        #     plt.figure()
-        #     plt.clf()
-
-        #     plt.plot(X,Y)
-        #     plt.title('y vs x')
-        #     plt.xlabel('x axis', fontsize = 13)
-        #     plt.ylabel('y axis', fontsize = 13)
-        #     pp.savefig()
-
-        # function_plot(x1,y1)
-        # # function_plot(x2,y2)
-
-        # pp.close()
-
-        # import matplotlib.pyplot as plt
-        # for i in k:
-        #     plt.bar(range(len(self.GlobalCDF[i])), self.GlobalCDF[i].values(), align='center')
-        #     plt.xticks(range(len(self.GlobalCDF[i])), list(self.GlobalCDF[i].keys()))
-        # print "Will show plot now"
-        # plt.show()
 
     def _report(self, clust_data, **kwds):
         """
@@ -555,17 +486,6 @@ class ConsensusMediator(object):
         del lEN, matrix
 
     def area1(self, K, matrix):
-        # lEN = len(matrix)
-        # Sum = 0.0
-        # a = np.unique(matrix)
-        # a.sort()
-        # b = np.delete(a, 0)
-        # print matrix,"What am I doing here",len(matrix)
-        # for index, value in enumerate(b): 
-        #     if index == 0:
-        #         continue
-        #     data = float(format(b[index], '.2f'))
-        #     Sum += (b[index] - b[index-1])*self.GlobalCDF[K][data] 
         ListValues = self.HistogramValues.keys()
         ListValues.sort()
         Sum = 0
@@ -679,9 +599,7 @@ class CommunityWidget(QtGui.QGraphicsView):
         self.setInteractive(True)
         self.setTransformationAnchor(QtGui.QGraphicsView.AnchorUnderMouse)
         self.setResizeAnchor(QtGui.QGraphicsView.AnchorViewCenter)
-        # method to add a new graph visualization                
         i = 0
-        # self.CommunityPos =nx.graphviz_layout(self.induced_graph,prog='fdp',args='-Gsep=.25,-GK=20-Eweight=2')
         self.CommunityPos = nx.spring_layout(self.induced_graph,pos= Pos,weight='weight',scale=450)
         for node in self.induced_graph.nodes():
             i = i + 1
@@ -736,6 +654,7 @@ class communityDetectionEngine(QtCore.QObject):
 
         self.FontBgColor= FontBgColor
         self.dend = -3 
+        
         # PLACE WHERE CHANGE NUMBER OF DEFAULT COMMUNITIES 
         self.Number_of_Communities = 4
 
@@ -868,9 +787,6 @@ class communityDetectionEngine(QtCore.QObject):
         elif value == 6: 
             partition = self.ConsensusCustomCluster.prepareClsuterData(graph, self.Graphwidget.TimeStep, self.Graphwidget.Syllable)
 
-        # JUST TO PLAY AROUND WITH RIGHT NOWOWWWW
-        # par = self.ConsensusMediator.prepareClsuterData(graph)
-        # partition = copy.deepcopy(partition)
         return partition
 
     def calculateNewGraphPropertiesAndCommunities(self,level):
@@ -878,33 +794,19 @@ class communityDetectionEngine(QtCore.QObject):
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
         self.Graphwidget.partition=self.resolveCluster(self.Graphwidget.ClusteringAlgorithm,self.Graphwidget.g, self.Number_of_Communities)
 
-        # print self.Graphwidget.partition,self.Graphwidget.g
-        # self.Graphwidget.induced_graph = cm.induced_graph(self.Graphwidget.partition,self.Graphwidget.g)
-        # print self.Graphwidget.induced_graph
-
-        # self.dendo=cm.generate_dendogram(self.Graphwidget.g)
-        # self.Graphwidget.DendoGramDepth.emit(len(self.dendo)-1)
-
-        if level == -1:
             level = len(self.dendo)-1
 
         self.Graphwidget.MaxDepthLevel = level
         
         if not(level == -1): 
             if level > len(self.dendo)-1:
-                print "Incorrect level"
                 level = len(self.dendo)-1 
-            # g = cm.partition_at_level(self.dendo,level)
-            # self.Graphwidget.induced_graph1 = cm.induced_graph(g,self.Graphwidget.g)
-            # self.Graphwidget.partition = g
-            # self.Graphwidget.induced_graph = self.Graphwidget.induced_graph1
-
+                
     def initiateCommunityGraphView(self):
             """Need color by this moment to initiate the community view"""
             nodes1 = [item for item in self.Graphwidget.scene().items() if isinstance(item, Node)]
             count = 0
             for community in set(self.Graphwidget.partition.values()):
-                #Ensuring the right color to the right community is delivered
                 list_nodes = [nodes for nodes in self.Graphwidget.partition.keys() if self.Graphwidget.partition[nodes] == community]
 
                 for node in nodes1:
@@ -929,25 +831,13 @@ class communityDetectionEngine(QtCore.QObject):
                 for i in reversed(range(self.Graphwidget.hbox.count())): 
                         self.Graphwidget.hbox.itemAt(i).widget().close()
 
-                # print "Community is initiated"
-                # community = CommunityWidget(self.Graphwidget.induced_graph,self.Graphwidget.correlationTableObject, self.Graphwidget)
-                # Dendogram = dendogram(self.Graphwidget,self.Graphwidget.g)
-
                 self.Graphwidget.hbox.setContentsMargins(0, 0, 0, 0)
-
-                # self.Graphwidget.hbox.addWidget(community)
                 self.Graphwidget.hbox.setContentsMargins(0, 0, 0, 0)
-
-                # self.Graphwidget.hbox.setContentsMargins(0, 0, 0, 0)
-
-                # self.Graphwidget.communityObject = community
-                # self.Graphwidget.dendogramObject = Dendogram
                 self.Graphwidget.hbox.setContentsMargins(0, 0, 0, 0)
                 self.Graphwidget.wid.setContentsMargins(0, 0, 0, 0)
 
                 self.Graphwidget.wid.setLayout(self.Graphwidget.hbox)
             newwindow()
-            # must change it to ColorToBeSentToVisit
            
             self.Graphwidget.CommunityColorAndDict.emit(self.Graphwidget.ColorToBeSentToVisit,self.Graphwidget.partition)
 
@@ -1007,51 +897,29 @@ class communityDetectionEngine(QtCore.QObject):
                     #Stuff where the previous color vist of graph partition should be included
                     self.Graphwidget.clut[key] =  clut[Color] 
                     self.Graphwidget.ColorVisit[key] = ColorVisit[Color]
-                    # self.Graphwidget.FontBgColor[key] = self.ColorBasedOnBackground(ColorVisit[Color][0], ColorVisit[Color][1], ColorVisit[Color][2]) 
                 else:
                     self.Graphwidget.clut[key] = ColorToInt(Color[0], Color[1], Color[2])
                     self.Graphwidget.ColorVisit[key] = (Color[0], Color[1], Color[2])
-                    # self.Graphwidget.FontBgColor[key] = self.ColorBasedOnBackground(Color[0],Color[1],Color[2]) 
-            # pprint.pprint(self.Graphwidget.clut)
-            # pprint.pprint(self.Graphwidget.ColorVisit)
 
     def AssignCommuntiesFromDerivedFromTow(self,TowPartition, TowInducedGraph,\
                                             TowMultipleValue, TowDataStructure,\
                                             timestep,syllable):
-        # self.Graphwidget.correlationTable().changeTableContents(syllable,timestep)
-        # self.Graphwidget.ChangeGraphDataStructure()
-        # self.Graphwidget.ChangeGraphWeights()
-
         self.Graphwidget.g =  copy.deepcopy(TowDataStructure)
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
 
         self.Graphwidget.partition.clear() 
         self.Graphwidget.partition= copy.deepcopy(TowPartition)
 
-        # self.Graphwidget.induced_graph = copy.deepcopy(TowInducedGraph)
-        # self.dendo=cm.generate_dendogram(self.Graphwidget.g)
-        
         if self.level == -1:
             self.level = len(self.dendo)-1
             self.Graphwidget.DendoGramDepth.emit(self.level)
-            
-        # self.Graphwidget.MaxDepthLevel = self.level
         
         if not(self.level == -1): 
             if self.level > len(self.dendo)-1:
                 self.level = len(self.dendo)-1 
-                # self.Graphwidget.DendoGramDepth.emit(self.level)
-            # g = cm.partition_at_level(self.dendo,self.level)
-            # self.Graphwidget.induced_graph1 = cm.induced_graph(g,self.Graphwidget.g)
-            # self.Graphwidget.partition = g
-            # self.Graphwidget.induced_graph = self.Graphwidget.induced_graph1
-
-        # self.Find_InterModular_Edge_correlativity()
 
     def changeClusterValue(self, Cluster):
         self.Number_of_Communities = Cluster
-        self.ModularityBehaviour()
-        print "CAllecd it"
 
     def Find_InterModular_Edge_correlativity(self):
         # Induced graph is the data structure responsible for the adjacency matrix of the community
@@ -1061,7 +929,6 @@ class communityDetectionEngine(QtCore.QObject):
         self.Graphwidget.Matrix = np.tril(self.Graphwidget.Matrix,-1)
         i=0 
         j=0 
-        # Sum = np.copy(Matrix)
         SumTemp = 0
         Edges = 0 
         nodes1 = [item for item in self.Graphwidget.scene().items() if isinstance(item, Node)]
@@ -1096,50 +963,6 @@ class communityDetectionEngine(QtCore.QObject):
                     self.Graphwidget.Matrix[i-1,j-1] = Sum
 
         self.Graphwidget.induced_graph = nx.from_numpy_matrix(self.Graphwidget.Matrix)
-
-    def ModularityBehaviour(self):
-        #Module for plotting the graphs for Modularity vs time 
-        Number_of_Connected_Components = dict()
-        Number_of_Communities = dict()
-
-        modularity = dict()
-
-        end = 60
-
-        # g1 = self.Graphwidget.Graph_data().DrawHighlightedGraph(self.EdgeSliderValue)
-        # Number_of_Communities = len(set(partition.values()))
-
-        for i in range(0,end):
-            # g1 =  self.Graphwidget.Graph_data().DrawHighlightedGraph(counter)
-            self.ThresholdData = self.Graphwidget.correlationTable().dataProcess.ElectodeData[3][i]
-            self.ThresholdData = self.Graphwidget.correlationTable().FindAbsoluteValue(self.ThresholdData)
-            ModularityGraph = nx.from_numpy_matrix(self.ThresholdData)
-
-            try: 
-                partition=cm.best_partition(ModularityGraph)
-                modularity[i] = cm.modularity(partition, ModularityGraph)
-                Number_of_Connected_Components[i] = nx.number_connected_components(ModularityGraph)
-                Number_of_Communities[i] = len(set(partition.values()))
-            except AttributeError:
-                continue
-
-        f=open("modularity.txt", "wb")
-        w = csv.writer(f)
-        for key, val in modularity.items():
-            w.writerow([val])
-        f.close()
-
-        f=open("number_connected_components.txt", "wb")
-        w = csv.writer(f)
-        for key, val in Number_of_Connected_Components.items():
-            w.writerow([val])
-        f.close()
-        
-        f=open("Number_of_Communities.txt", "wb")
-        w = csv.writer(f)
-        for key, val in Number_of_Communities.items():
-            w.writerow([val])
-        f.close()
 
     def ChangeGraphDataStructure(self):
         self.Graphwidget.Graph_data().setdata(self.Graphwidget.correlationTable().data)

@@ -21,7 +21,6 @@ from time import time
 from math import *
 
 from TrackingGraph.CommunitiesNode import CommunityGraphNode
-# from TrackingGraph.CommunitiesEdge import CommunitiesEdge
 from LegacyAPI import LegacyAPI
 
 """
@@ -609,10 +608,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 	@Slot()
 	def stateChanges(self,state):
 		self.ThresholdChange = not(self.ThresholdChange)
-		# if self.ThresholdChange: 
-		# 	print "Threshold Data Activated"
-		# else: 
-		# 	print "Not activated" 
 	
 	@Slot()
 	def thresholdValueChanged(self, value): 
@@ -620,10 +615,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			value = float(value)
 			self.thresholdValue = value/10
 			self.AcrossTimestepUI.thresholdlineedit.setText(str(self.thresholdValue))
-			# for item in self.Scene_to_be_updated.items():
-			# 	if isinstance(item, CommunitiesEdge):
-			# 	 	item.setWeight(value)
-			# self.changeViewinGraph()
 
 	@Slot()
 	def LineEditChanged(self):
@@ -729,7 +720,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		Value = np.mean(list1)
 
 		self.sendLCDValues.emit(Value)
-		self.updateSignals(self.electrode.timeStep,Value)
 		
 		self.NodeIds1 = [] 
 		self.NodeIds1 = self.NodeIds #stuff in previous timestep 
@@ -743,9 +733,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			self.Kappa_matrix1, AssignmentAcrossTime, colorAssignment = self.Logic.changeEdgeProperties(self, self.NodeIds1)
 			if self.Graph_interface.TimeStep > -1:
 				self.Logic.changeColorsForNodesJustRendered(self,colorAssignment,self.NodeIds,self.NodeIds1, self.Kappa_matrix1)
-
-		#* Check for duplicates
-		# self.CreateTrackingEdges(self.communityMultiple, self.dataAccumalation, AssignmentAcrossTime)
 
 		Name = ""
 		End = -1 
@@ -761,7 +748,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 
 		self.WriteTrackingData(AssignmentAcrossTime, Name, Start , End)
 		self.ExchangeHeatmapData()
-		# self.LegacyAPI.writeToaFile(self.AggregateList, self.dot)
 
 		self.dataAccumalation = copy.deepcopy(self.communityMultiple)
 		if self.Graph_interface.TimeStep == 61:
@@ -784,13 +770,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		f.close()
 
 
-		# with open('ConsensusData/DeltaAreaChange'+str(self.electrode.syllableUnit)+str(4)+'Heatmap.tsv','rb') as tsvin, open(HeatmapFilename,'wb') as tsvout:
-		# 	tsvin = csv.reader(tsvin, delimiter='\t')
-		# 	tsvout = csv.writer(tsvout, delimiter='\t')
-
-		# 	for row in tsvin:
-		# 		tsvout.writerows(row)
-
 	def findElements1(self, a, b):
 		return frozenset(a).intersection(b)
 
@@ -802,8 +781,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			nodeDict = dict()
 			EdgeDict = dict()
 
-			# for i in self.NodeIds1:
-				# i.
 			for row, j in AssignmentAcrossTime.items():
 				nodeDict = dict()
 				if row == None or j == None: 
@@ -819,7 +796,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 				nodeDict["color"] = str("rgb"+str(self.NodeIds1[row].CommunityColor.getRgb()[:3])+"").replace("[", "").replace("]", "")
 
 				NElements = self.dataAccumalation[row]
-				# print row, self.Graph_interface.TimeStep-1, len(NElements)
 				Elements = []
 				
 				for q in NElements:
@@ -837,43 +813,8 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 					if not(self.TrElectrodeFlag):
 						Color = tuple([self.truncate(int(round(x))) for x in self.NodeIds1[row].CommunityColor.getRgb()[:3]])
 
-				# only for the second one 
-				if Color == (186, 186, 186):
-					Color = (229, 40, 44)
-
-				if Color == (61, 200, 182):
-					Color = (229, 122, 45)
-
-				#darrk blue to black
-				if Color == (22, 45, 166):
-					Color = (0,0,0)
-
-				# purple --- Brown
-				if Color == (116, 45, 200):
-					print "dont dont call me", self.Graph_interface.TimeStep
-					Color = (200, 170, 122)
-
-				# # light blue ---Green
-				if Color == (200, 192, 203):
-					print "call me", self.Graph_interface.TimeStep
-					Color = (45, 153, 84)
-
-				# Dark Blue -- blue
-				if Color == (45, 45, 77):
-					print "dont call me", self.Graph_interface.TimeStep
-					Color = (45, 136, 201)
-
-
-				# if Color == (123, 108, 217):
-				# 	print "call me", self.Graph_interface.TimeStep
-				# 	Color = (229, 122, 44)
-				# if Color == (229, 122, 45):
-				# 	Color = (123, 108, 216)
-				# 	print "dont call me",self.Graph_interface.TimeStep
-
 				nodeDict["color"] = str("rgb"+str(Color)+"").replace("[", "").replace("]", "")
 				nodeDict["opacity"] = opacity
-				# print Color, opacity , self.Graph_interface.TimeStep
  	  			self.nodelist.append(nodeDict)
 	  			self.nodelist1.append(nodeDict)
 
@@ -891,17 +832,8 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 					EdgeDict["value"] = No_Of_Elements[row][column]
 
 					Elements = Similarity[row][column]
-					# assert len(Similarity[row][column])
-					# EdgeDict["opacity"]= self.ElectrodeOpacityCalc(self.electrode.syllableUnit, self.Graph_interface.TimeStep, Elements)
-					
-					# self.writer.writerow((valueRow, valueColumn, int(self.Kappa_matrix1[row][column])))
-					
-					self.edgelist.append(EdgeDict)
 
-					# print "[\'"+str(valueRow)+"','"+str(valueColumn)+"',"+str(float(self.Kappa_matrix1[row][column]))+"],"
-					# self.dot.node(str(valueColumn),str(valueColumn))
-					# print "edge", valueRow,valueColumn
-					# self.dot.edge(str(valueRow),str(valueColumn))
+					self.edgelist.append(EdgeDict)
 
 			self.fromK = self.toK
 			self.AnFrK = self.AnToK
@@ -921,7 +853,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 					nodeDict["color"] = str("rgb"+str(self.NodeIds[c].CommunityColor.getRgb()[:3])+"").replace("[", "").replace("]", "")
 					NElements  = Similarity[c]
 					NElements = self.communityMultiple[c]
-					# print NElements, c, self.Graph_interface.TimeStep-1, len(NElements), "Last"
 					Elements = []
 					for q in NElements:
 						Elements.append(q)
@@ -949,21 +880,15 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 				sankeyJSON["nodes"] = self.nodelist
 				sankeyJSON["links"] = self.edgelist
 
-				# Give all the electrode nodes is all views colors and opacity
-
 				self.nodelist = []
 				self.edgelist = []
 
-				# pprint.pprint(sankeyJSON["nodes"])
-				# pprint.pprint(sankeyJSON["links"])
 				json.dump(sankeyJSON, outfile,  indent=4)
 			outfile.close()
 
 	def ElectrodeOpacityCalc(self, syllable, TimeStep, elements):
 		Sum = 0 
 		k = 0
-		# for i in range(64):
-		# 	print self.electrode.dataProcess.ElectrodeSignals[ElectrodeSignalDataName][0,i,TimeStep]
 
 		for element in elements: 
 			Sum+= self.electrode.dataProcess.ElectrodeSignals[ElectrodeSignalDataName][syllable,element,TimeStep]
@@ -981,7 +906,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 	@Slot()
 	def flushData(self):
 		self.data5 = np.zeros((timestep+1))
-		self.updateSignals(0,0)
 		self.AggregateList = []
 		self.toK = 0
 		self.fromK = 0
@@ -997,10 +921,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.Offset = 0
 
 		sankeyJSON = dict()
-		# import json
-		# for i,j,k in FileNames:
-		# 	with open(i, 'w') as outfile:
-		# 		json.dump("", i,  indent=4)
 
 		for item in self.Scene_to_be_updated.items():
 			self.Scene_to_be_updated.removeItem(item)
@@ -1036,19 +956,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			self.NewCommunitiesToBeAssigned = []
 			self.NewCommunitiesToBeAssigned = deque([j for i,j in enumerate(self.distinguishableColors) if i > (10)])
 
-	# def CreateTrackingEdges(self, partitionValues, BeforeTimestep, AssignmentAcrossTime):
-	# 	i = 0
-	# 	k = 0
-	# 	for community1 in BeforeTimestep.keys():
-	# 		for community in partitionValues.keys(): 
-	# 			if self.ThresholdChange:
-	# 				k = k + 1 
-	# 				if community in AssignmentAcrossTime[community1]: 
-	# 					self.scene.addItem(CommunitiesEdge(self,self.NodeIds1[community1],self.NodeIds[community],k,community1,community, self.Kappa_matrix1[community1][community]))
-	# 			elif AssignmentAcrossTime[community1] == community: 
-	# 				k = k + 1 
-	# 				self.scene.addItem(CommunitiesEdge(self,self.NodeIds1[community1],self.NodeIds[community],k,community1,community, self.Kappa_matrix1[community1][community]))
-
 	def CreateNodes(self, partitionValues):
 		global Width_value
 		i = 0
@@ -1066,7 +973,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			self.scene.addItem(node_value)
 
 	def SendValuesToElectrodeNodes(self, nodelist, Offset = 0):
-		# pprint.pprint(nodelist)
 		# timestep at a range ONLY update that electrodeView, only then move onto the next one
 		# now make a hashmap of this range to write it onto the place
 		# make it really hard and fast ends at 8:00 pm
@@ -1119,9 +1025,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 				assert ElectrodeViewObject.NodeIds[element].counter == element
 				ElectrodeViewObject.NodeIds[element].update()
 
-				# print norm
-				# Sum+= ElectrodeViewObject.normalize(self.electrode.dataProcess.ElectrodeSignals['muDat'][syllable,element,i['timestep']])
-
 	def animate(self):
 		self.elapsed = (self.eFFlapsed + self.sender().interval()) % 1000
 		self.repaint()
@@ -1151,10 +1054,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
 		self.setScene(self.Scene_to_be_updated)
 		x1,y1,x2,y2 = (self.Scene_to_be_updated.itemsBoundingRect()).getCoords()
-		# x2-
-		# self.fitInView(self.Scene_to_be_updated.itemsBoundingRect(),QtCore.Qt.KeepAspectRatio)
 		self.fitInView(QtCore.QRectF(x2-50,y1,x2+100,y2), QtCore.Qt.KeepAspectRatio)
-		# self.fitInView(QtCore.QRectF(x2+50+self.width/4+50, self.height/4+50, x2+250,3*self.height/6),QtCore.Qt.KeepAspectRatio)
 		self.Scene_to_be_updated.update()
 		self.update()
 
@@ -1162,19 +1062,10 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		pass
 		x = np.linspace(0,100,64)
 		y = x
-		# self.PlotWidget.setYRange(0,1)
-		# self.PlotWidget.setXRange(0,timestep+1,padding=0)
-		# self.CurvePoint = self.PlotWidget.plot(pen={'color': 0.8, 'width': 1}, name= 'Community Stability')
 
 	def updateScene(self):
 		self.update()
 		self.Scene_to_be_updated.update()
-
-	def updateSignals(self, x,Value):
-		pass
-		# self.data5[x] = Value
-		# self.pointer = self.pointer+1
-		# self.CurvePoint.setData(self.data5)
 
 	"""Defined as the matrix that will be computed at every timestep
 	Useful for analysis between timesteps"""
