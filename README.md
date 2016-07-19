@@ -1,6 +1,6 @@
 # Hierarchical Spatio-Temporal Visual Analysis of ECoG Data #
 
- ![ScreenShot](https://raw.githubusercontent.com/sugeerth/ECoG-ClusterFlow/master/src/Images/Synthetic.png?token=AD8LYLdnT5TPFLo8-H8epRLl9I5DODBuks5XOlR3wA%3D%3D)
+ ![ScreenShot](https://github.com/sugeerth/ECoG-ClusterFlow/blob/FinalWorkingTool/src/Images/Synthetic.png)
  
  ![ScreenShot](https://raw.githubusercontent.com/sugeerth/ECoG-ClusterFlow/master/src/Images/Uload.png?token=AD8LYFkvUliWTEDgaXDsxE1EtePPAER4ks5XOlSnwA%3D%3D)
 
