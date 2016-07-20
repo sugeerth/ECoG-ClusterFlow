@@ -422,6 +422,7 @@ class ElectrodeNode(QtGui.QGraphicsItem):
 
             painter.setBrush(self.ColorQ[j])
             radius = (float(self.AlphaValue[j]/255)*20)
+            print "ASDASD",10-setWidth, 10, width, -radius
             rectangle = QtCore.QRectF(10-setWidth, 10, width, -radius);
             painter.drawRect(rectangle)
             setWidth += width 

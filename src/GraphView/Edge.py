@@ -26,8 +26,6 @@ class Edge(QtGui.QGraphicsItem):
     def __init__(self, graphWidget, sourceNode, destNode, counter, sourceId, destId, MaxValue,weight=1,ForCommunities=False,):
         QtGui.QGraphicsItem.__init__(self)
         self.setAcceptHoverEvents(False)
-
-
         self.EdgeThreshold = MaxValue - 0.01
         self.ColorEdgesFlag = False
         self.index = counter
