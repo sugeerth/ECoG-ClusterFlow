@@ -10,7 +10,6 @@ import math
 from PySide.QtCore import QTimer, SIGNAL
 from PIL import Image, ImageDraw
 
-from Data.slice_viewer import ColorToInt
 import community as cm
 import pyqtgraph as pg
 

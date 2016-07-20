@@ -27,6 +27,7 @@ class Edge(QtGui.QGraphicsItem):
         QtGui.QGraphicsItem.__init__(self)
         self.setAcceptHoverEvents(False)
 
+
         self.EdgeThreshold = MaxValue - 0.01
         self.ColorEdgesFlag = False
         self.index = counter
@@ -70,8 +71,6 @@ class Edge(QtGui.QGraphicsItem):
 
     def setWeight(self,weight):
         self.weight = float(weight)
-        # if not(self.weight == 0):
-            # print self.weight
 
     def getNodes(self,community):
         return self.graph().communityMultiple[community]
@@ -84,7 +83,6 @@ class Edge(QtGui.QGraphicsItem):
         QtGui.QGraphicsItem.hoverEnterEvent(self, event)
 
     def allnodesupdate(self):
-        # Nodes = [item for item in self.scene().items() if isinstance(item, Node)]
         Nodes = self.graph().nodes
         for node in Nodes:
             node().setSelected(False)
@@ -94,32 +92,6 @@ class Edge(QtGui.QGraphicsItem):
 
     def selectInterModularEdges(self,communtiy1,community2):
         pass
-        # edges = self.graph().edges
-        
-        # self.allnodesupdate()
-        # self.alledgesupdate()
-
-
-        # for i in communtiy1:
-        #         self.graph().NodeIds[i].setOpaqueNodes()
-
-        # for j in community2: 
-        #         self.graph().NodeIds[j].setOpaqueNodes()
-
-        # for edge in edges: 
-        #     sourceBool = edge().sourceNode().counter-1 in communtiy1
-        #     destBool = edge().destNode().counter-1 in community2
-        #     if (sourceBool and destBool): 
-        #         edge().ColorEdges()
-
-        # for edge in edges: 
-        #     sourceBool = edge().sourceNode().counter-1 in community2
-        #     destBool = edge().destNode().counter-1 in communtiy1
-
-        #     if (sourceBool and destBool): 
-        #         edge().ColorEdges()
-
-        # self.graph().Refresh()
 
 
     def selectEdges(self):
@@ -141,7 +113,6 @@ class Edge(QtGui.QGraphicsItem):
 
     def setHighlightedColorMap(self,state):
         self.HighlightedColorMap = state
-
 
     def ColorOnlySelectedNode(self,state):
         self.ColorOnlySelectedNodesFlag = state
@@ -169,10 +140,7 @@ class Edge(QtGui.QGraphicsItem):
     def adjust(self):
         if not self.source() or not self.dest():
             return
-        # if self.weight == 0: 
-            # return
         line = QtCore.QLineF(self.mapFromItem(self.source(), 0, 0), self.mapFromItem(self.dest(), 0, 0))
-
         self.sourcePoint = line.p1() #+ edgeOffset
         self.destPoint = line.p2() #- edgeOffset
 

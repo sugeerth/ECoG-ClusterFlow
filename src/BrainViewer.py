@@ -53,8 +53,8 @@ from GraphView.Graph_interface import GraphWidget
 from GraphView.GraphDataStructure import GraphVisualization
 from LayoutDesign.Layout_interface import LayoutInit
 from Electrode.Electrode import ImageLabel
-from CommunityAnalysis.syllableChoice import Syllable
 from Data.dataProcessing import dataProcessing
+from CommunityAnalysis.syllableChoice import Syllable
 from interface.SignalInterface import Interface
 from interface.ElectrodeInterface import ElectrodeInterface
 from interface.CommunitiesAcrossTimestepInterrface import CommunitiesAcrossTimeStepInterface
@@ -199,7 +199,7 @@ if GraphWindowShowFlag:
 print "Setting up Electrode data"
 if ElectrodeWindowShowFlag: 
     Electrode = ImageLabel(dataProcess, correlationTable, colorTable, selectedColor, Counter, widget, electrodeUI, Visualizer)
-    communitiesAcrossTimeStep = CommunitiesAcrossTimeStep(widget, Electrode, electrodeUI, AcrossTimestep, Visualizer)
+    communitiesAcrossTimeStep = CommunitiesAcrossTimeStep(widget, Electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine)
     Electrode.CommunitiesAcrossTimeStep = communitiesAcrossTimeStep 
 
     communitiesAcrossTimeStep.AcrossTimestepUI = AcrossTimestep

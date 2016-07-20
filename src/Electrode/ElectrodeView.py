@@ -365,7 +365,7 @@ class ElectrodeView(QtGui.QGraphicsView):
                     opacity=ElectrodeOpacity(self, k, counter)
                     self.ElectrodeOpacity.append(opacity)
 
-                    node_value.PutColor(self.ElectrodeData.communityDetectionEngine.clut[counter])
+                    node_value.PutColor(self.ElectrodeData.graphWidget.communityDetectionEngine.clut[counter])
                     node_value.xy = (x,y)
                     node_value.translate(0,25)
                     node_value.setPos(QtCore.QPointF(x,y))

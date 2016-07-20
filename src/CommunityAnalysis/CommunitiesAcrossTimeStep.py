@@ -331,9 +331,9 @@ class SimilarityData(object):
 				else: 
 					if CommunityObject.communitiesThatDie:
 						ColorAssignment[q] = CommunityObject.communitiesThatDie.popleft()
-						PermuteDict[q] = CommunityObject.communitiesThatDie.popleft()
+						# PermuteDict[q] = CommunityObject.communitiesThatDie.popleft()
 						#FIXME DISABLED PERMUTE DICT
-						# PermuteDict[q] = []
+						PermuteDict[q] = []
 					else: 
 						ColorAssignment[q] = (0,0,0)
 						PermuteDict[q] = (0,0,0)
@@ -380,73 +380,27 @@ class LogicForTimestep(object):
 		"""
 		Getting the data that needs to be visualized
 		"""
-
-		# print "Node"
-		# for u in Nodes:
-		# 	print u.Nodeidss 
-		# 	print u.CommunityColor
-
-		# print "Previous Node"
-		# for k in PreviousNodes:
-		# 	print k.Nodeidss 
-		# 	print u.CommunityColor
-		# for item in Nodes: 
 		for toCommunity,fromCommunity in ColorAssignment.iteritems():
 			try:
 				if not(isinstance(fromCommunity,tuple)):
-					# print "TO --> NOW",toCommunity,"FROM -->PREV",fromCommunity, PreviousNodes[fromCommunity].CommunityColor
-					# print toCommunity, "IN NORMAL STUFF"
-					# print "From--->",fromCommunity,PreviousNodes[fromCommunity].Nodeidss,"TO--->",toCommunity,item.Nodeidss
-					
-					#For now perform the color mixing algorithm
-					# Kappa_matrix[:,] = 0 
-					# self.blendColors(c1, c2, t)
-
-					# print Nodes[toCommunity].Nodeidss,
-
-					Nodes[toCommunity].PutColor(PreviousNodes[fromCommunity].CommunityColor)	
-					# Nodes[toCommunity].PutColor(QtGui.QColor(0,0,255))
+					pass
+					# Nodes[toCommunity].PutColor(PreviousNodes[fromCommunity].CommunityColor)	
 				else:
 					"""Changing Color Important"""
-					# print type(fromCommunity), len(fromCommunity)
-					# print "NEW COLOR", toCommunity
 					color = QtGui.QColor(fromCommunity[0],fromCommunity[1],fromCommunity[2])
-					# color = QtGui.QColor(255,0,255)
+					pass
 					Nodes[toCommunity].PutColor(color)
-					# color = QtGui.QColor(fromCommunity[0],fromCommunity[1],fromCommunity[2])
-					# print "NewColor",color
-					# item.PutColor(color)
 					continue
 			except IndexError as e:
 				continue
 
-
-		# for toCommunity,fromCommunity in ColorAssignment.iteritems():
-		# 	if isinstance(fromCommunity,tuple): 
-		# 		color = QtGui.QColor(fromCommunity[0],fromCommunity[1],fromCommunity[2])
-		# 		Nodes[toCommunity].PutColor(color)
-
-		# NewBorn = allElements - AssignedElements 
-
-	# def blendColorValue(self,a, b, t):
- #    	return math.sqrt(((1-t)*(a*a))+ (t * (b*b)))
-
-	# def blendAlphaValue(self,a, b, t):
- #    	return (1-t)*a + t*b;
-
-	# def blendColors(self, c1, c2, t):
-	#     for n in range(2): 
-	#         ret[n] = self.blendColorValue(c1[n], c2[n], t)
-	#     ret.a = self.blendAlphaValue(c1.a, c2.a, t)
-	#     return ret
-	
 """ Work remaining to do is mainly deploying the tracking graph with different parameters
 Working on consistent stuff """
 class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 	sendLCDValues = QtCore.Signal(float)
 	Logic = LogicForTimestep()
 
-	def __init__(self,widget, electrode, electrodeUI, AcrossTimestep, Visualizer):
+	def __init__(self,widget, electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine):
 		QtGui.QGraphicsView.__init__(self)
 		self.Graph_interface = widget
 		self.AggregateList = []
@@ -460,6 +414,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 
 		self.AnToK = 0 
 		self.AnFrK = 0
+		self.communityDetectionEngine = communityDetectionEngine
 		self.firstTIme = True
 		self.LegacyAPI=LegacyAPI("AcrossTimestep")
 		self.dot = Digraph(comment="The tracking graph")
@@ -647,7 +602,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		if self.PreComputeState:
 			self.TowPartitionValue = self.PreComputeData[value]
 		else:
-			self.TowPartitionValue = self.widget.communityDetectionEngine.resolveCluster(self.widget.ClusteringAlgorithm,self.TowGraphdataStructure, self.widget.communityDetectionEngine.Number_of_Communities)  
+			self.TowPartitionValue = self.communityDetectionEngine.resolveCluster(self.communityDetectionEngine.ClusteringAlgorithm,self.TowGraphdataStructure, self.communityDetectionEngine.Number_of_Communities)  
 
 		self.TowInducedGraph = cm.induced_graph(self.TowPartitionValue,self.TowGraphdataStructure)
 		self.TowMultiple.clear()
@@ -681,6 +636,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
  		5) Sends out the color information to the detection engine so that everyone can use the same coloring scheme 
 		"""
 
+		print "is it here"
 		if self.firstTime:
 			self.startTime = pg.ptime.time()
 			self.firstTime = False
@@ -695,7 +651,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		if self.communityMultiple:
 			self.previousTimestep = copy.deepcopy(self.communityMultiple)
 
-		for key,value in self.Graph_interface.PartitionOfInterest.items():
+		for key,value in self.communityDetectionEngine.ClusterPartitionOfInterest.items():
 			self.communityMultiple[value].append(key)
 
 		ModValue = 0
@@ -775,7 +731,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 
 	def WriteTrackingData(self,AssignmentAcrossTime,Name ,Start ,End):
 		sankeyJSON = dict()
-		if (self.Graph_interface.TimeStep > Start) and (self.Graph_interface.TimeStep <= End) and self.Graph_interface.AnimationMode:
+		if (self.Graph_interface.TimeStep > Start) and (self.Graph_interface.TimeStep <= End) and self.Graph_interface.communityDetectionEngine.AnimationMode:
 			self.toK += len(AssignmentAcrossTime.keys())
 			self.AnToK+=len(AssignmentAcrossTime.keys())
 			nodeDict = dict()
@@ -1004,7 +960,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 				ElectrodeViewNumberToUpdate = self.AggregateHashmap[i['timestep']]
 			except KeyError: 
 				continue
-			# print i['timestep'], ElectrodeViewNumberToUpdate
 
 			# getting the electrode view number 
 			ElectrodeViewObject = self.electrode.SmallMultipleElectrode[ElectrodeViewNumberToUpdate]
@@ -1068,7 +1023,10 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.Scene_to_be_updated.update()
 
 	"""Defined as the matrix that will be computed at every timestep
-	Useful for analysis between timesteps"""
+	Useful for analysis between timesteps
+	Here is where we can incorporate the NMI information 
+	for temporal smoothness
+	"""
 	def initiateMatrix(self):
 		try: 
 			if self.electrode.timeStep > -19: 
@@ -1197,7 +1155,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			self.widget.communityDetectionEngine.\
 							timeStepAnimationGenerator(\
 								len(set(Assignment.keys())),
-								Assignment, self.Graph_interface.PartitionOfInterest)
+								Assignment, self.communityDetectionEngine.ClusterPartitionOfInterest)
 		
 		""" Fix me for now just happen to coment this line out because at every timestep you just need the same colors"""
 

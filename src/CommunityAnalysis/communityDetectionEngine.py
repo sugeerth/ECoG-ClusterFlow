@@ -55,7 +55,7 @@ class ConsensusCustomCluster(object):
         self.partition = dict()
         self.timestepPartition = dict()
         timestepDict = dict()
-        length = len(self.graphWidget.g)
+        length = self.graphWidget.counter
 
         syllable = self.graphWidget.Syllable
         self.syllable = syllable
@@ -100,7 +100,7 @@ class CustomCluster(object):
         self.partition1 = dict()
         self.timestepPartition = dict()
         timestepDict = dict()
-        length = len(self.graphWidget.g)
+        length = self.graphWidget.counter
 
         name = "ConsensusData/TenRandomTimesteps.json"
         self.timestepPartition = pickle.load(open(name))
@@ -118,48 +118,48 @@ class CustomCluster(object):
         ClusterStart = [[0,10,20,30], [2,9,11], [8,12,13], [1,12,14], [6,7,10], [1,15,20]] 
         #* MADE CHANGES 
         
-        # if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]: 
-        #     for i in range(len(distances)):
-        #         self.partition[i] = 0
-                # if i in x: 
-                #     self.partition[i] = 0
-                # elif i in y: 
-                #     self.partition[i] = 1
-                # elif i in z: 
-                #     self.partition[i] = 2
+        if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]: 
+            for i in range(len(distances)):
+                self.partition[i] = 0
+                if i in x: 
+                    self.partition[i] = 0
+                elif i in y: 
+                    self.partition[i] = 1
+                elif i in z: 
+                    self.partition[i] = 2
 
-        # if timestep >= ClusterStart[syllable][0] and timestep <= ClusterStart[syllable][1]:
-        #     for i in range(len(distances)):
-        #         if i in x: 
-        #             self.partition[i] = 0
-        #         elif i in y: 
-        #             self.partition[i] = 1
-        #         elif i in z: 
-        #             self.partition[i] = 2
-        # elif timestep >= ClusterStart[syllable][1] and timestep <= ClusterStart[syllable][2]:
-        #     self.partition = self.timestepPartition[timestep-10]
-        #     try: 
-        #         self.partition = copy.deepcopy(self.timestepPartition[timestep])
-        #         if timestep == 0: 
-        #             assert not(self.partition == None) 
-        #         assert self.partition == self.timestepPartition[timestep]
-        #     except KeyError:
-        #         for j in range(len(distances)):
-        #             if syllable == 0: 
-        #                 self.partition[j] = randint(0, 1)
-        #             else: 
-        #                 if j in q:
-        #                     self.partition[j] = 0
-        #                 else:
-        #                     self.partition[j] = randint(1, 2)
+        if timestep >= ClusterStart[syllable][0] and timestep <= ClusterStart[syllable][1]:
+            for i in range(len(distances)):
+                if i in x: 
+                    self.partition[i] = 0
+                elif i in y: 
+                    self.partition[i] = 1
+                elif i in z: 
+                    self.partition[i] = 2
+        elif timestep >= ClusterStart[syllable][1] and timestep <= ClusterStart[syllable][2]:
+            self.partition = self.timestepPartition[timestep-10]
+            try: 
+                self.partition = copy.deepcopy(self.timestepPartition[timestep])
+                if timestep == 0: 
+                    assert not(self.partition == None) 
+                assert self.partition == self.timestepPartition[timestep]
+            except KeyError:
+                for j in range(len(distances)):
+                    if syllable == 0: 
+                        self.partition[j] = randint(0, 1)
+                    else: 
+                        if j in q:
+                            self.partition[j] = 0
+                        else:
+                            self.partition[j] = randint(1, 2)
 
 
-        # elif timestep >= ClusterStart[syllable][2] and timestep <= ClusterStart[syllable][3]: 
-        #     for i in range(len(distances)):
-        #         if i in q: 
-        #             self.partition[i] = 0
-        #         elif i in r: 
-        #             self.partition[i] = 1
+        elif timestep >= ClusterStart[syllable][2] and timestep <= ClusterStart[syllable][3]: 
+            for i in range(len(distances)):
+                if i in q: 
+                    self.partition[i] = 0
+                elif i in r: 
+                    self.partition[i] = 1
 
         print timestep
 
@@ -223,8 +223,6 @@ class ConsensusMediator(object):
         self.area = dict()
         self.DeltaAreaTimestep = dict()
         self.deltaArea = np.zeros(10)
-        plotKValues = pg.PlotWidget(pen = 'r')
-        self.plotKValues =  plotKValues
         self.count = 0
         self.ClusterAlgorithms = ClusterAlgorithms 
         # Parameters
@@ -267,10 +265,10 @@ class ConsensusMediator(object):
             k = self.createDeltaArea(self.kvalues)
 
         if Timestep == 62:
-            name = "ConsensusData/DeltaAreaChange"+str(self.graphWidget.Syllable)+str(4)+"Heatmap.tsv"
-            name2  = "ConsensusData/AllClusterings"+str(self.graphWidget.Syllable)+str(4)+"Heatmap.tsv"
+            ChangeInDeltaArea = "ConsensusData/DeltaAreaChange"+str(self.graphWidget.Syllable)+str(4)+"Heatmap.tsv"
+            AllClusterData  = "ConsensusData/AllClusterings"+str(self.graphWidget.Syllable)+str(4)+"Heatmap.tsv"
 
-            with open(name, 'w') as outfile:
+            with open(ChangeInDeltaArea, 'w') as outfile:
                 kValues = 'day' #K-values
                 timeSteps = 'hour' #hour
                 value = 'value'
@@ -283,10 +281,10 @@ class ConsensusMediator(object):
 
             outfile.close()
 
-            with open(name2, 'w') as outfile:
+            with open(AllClusterData, 'w') as outfile:
                 pickle.dump(self.FinalPartiction, outfile)
 
-            print name2, "is the file name for all data", "look at the K value data and choose Wisely:)"
+            print AllClusterData, "is the file name for all data", "look at the K value data and choose Wisely:)"
 
         if k == 1: 
             partition = dict()
@@ -547,10 +545,10 @@ class communityDetectionEngine(QtCore.QObject):
 
         self.ColorVisit = []
         self.clut = np.zeros(self.Graphwidget.counter)
-        self.FontBgColor = np.zeros(self.counter)
+        self.FontBgColor = np.zeros(self.Graphwidget.counter)
 
         self.distinguishableColors = distinguishableColors
-        
+
         self.ClusterAlgorithms = ClusterAlgorithms(Graphwidget)
         self.ConsensusMediator = ConsensusMediator(Graphwidget, self.ClusterAlgorithms)
         self.CustomCluster = CustomCluster(Graphwidget, self.ClusterAlgorithms)
@@ -627,7 +625,7 @@ class communityDetectionEngine(QtCore.QObject):
 
 
         if not(self.PreComputeState):
-            self.FinalClusterPartition=self.resolveCluster(self.ClusteringAlgorithm,self.Graphwidget.g, self.Number_of_Communities)
+            self.FinalClusterPartition=self.resolveCluster(self.ClusteringAlgorithm,self.TimeStepNetworkxGraphData,self.Number_of_Communities)
         else: 
             self.FinalClusterPartition=copy.deepcopy(self.PreComputeData[self.Graphwidget.TimeStep])
         """ 
@@ -642,7 +640,6 @@ class communityDetectionEngine(QtCore.QObject):
     Bering referenced by many classes of methods
     """
     def resolveCluster(self, value, graph, Number_of_Communities = 4, precomputeTimestep=0):
-
         Number_of_Communities = self.Number_of_Communities
         if value == 0: 
             """Louvain"""
@@ -674,7 +671,7 @@ class communityDetectionEngine(QtCore.QObject):
     def calculateNewGraphPropertiesAndCommunities(self,level):
         self.TimeStepNetworkxGraphData =  self.Graphwidget.Graph_data().DrawHighlightedGraph(self.Graphwidget.EdgeSliderValue)
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
-        self.FinalClusterPartition=self.resolveCluster(self.ClusteringAlgorithm,self.Graphwidget.g, self.Number_of_Communities)
+        self.FinalClusterPartition=self.resolveCluster(self.ClusteringAlgorithm,self.TimeStepNetworkxGraphData, self.Number_of_Communities)
                 
     def updateCommunityColors(self,counter,TowPartition=None):
         """Finds out the number of one length communities in the algorithm spitted out by louvain"""
@@ -752,6 +749,7 @@ class communityDetectionEngine(QtCore.QObject):
 
     def ChangeGraphWeights(self):
         for edge in self.Graphwidget.edges:
+            print self.Graphwidget.Graph_data().ThresholdData[edge().sourceNode().counter-1][edge().destNode().counter-1]
             edge().setWeight(self.Graphwidget.Graph_data().ThresholdData[edge().sourceNode().counter-1][edge().destNode().counter-1])
             edge().update()
 

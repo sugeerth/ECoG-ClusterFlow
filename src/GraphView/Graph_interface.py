@@ -23,8 +23,6 @@ except:
     print "Couldn't import all required packages. See README.md for a list of required packages and installation instructions."
     raise
 from GraphDataStructure import GraphVisualization
-from Dendogram.dendogram import dendogram, DendoNode
-from CommunityAnalysis.AdditionalMetricsCustomizable import AdditionalMetricsCustomizable
 from CommunityAnalysis.communityDetectionEngine import communityDetectionEngine
 
 from Edge import Edge 
@@ -82,8 +80,6 @@ class GraphWidget(QtGui.QGraphicsView):
         self.MaxDepthLevel = 2
         self.TimeStep = 0
         self.sortedValues = None
-        self.AdditionalMetricsCustomizable = AdditionalMetricsCustomizable(self)
-
         self.setTransp = True
         self.Syllable = 0
         self.communityPos = dict()
@@ -210,7 +206,7 @@ class GraphWidget(QtGui.QGraphicsView):
 
     @Slot(bool)
     def ToggleAnimationMode(self,state):
-        self.AnimationMode = False
+        self.communityDetectionEngine.AnimationMode = False
 
     @Slot(int)
     def changeStuffDuetoTowChange(self,value):
@@ -219,11 +215,10 @@ class GraphWidget(QtGui.QGraphicsView):
         self.DeriveNewCommunities(self.Min1)
     
     def ClusterChangeHappening(self,ClusteringAlgorithm):
-        # print "This is the clustering algorithm that is changed",ClusteringAlgorithm
         self.changeStuffDuetoTowChange(self.communityDetectionEngine.TowValue)
 
     def changeTimeStepSyllable(self,Syllable, TimeStep):
-        self.AnimationMode = True
+        self.communityDetectionEngine.AnimationMode = True
         self.TimeStep = TimeStep
         self.Syllable = Syllable
 
@@ -266,7 +261,7 @@ class GraphWidget(QtGui.QGraphicsView):
             else:
                 self.communityDetectionEngine.ChangeCommunityColor(-1)
 
-        if not(self.AnimationMode): 
+        if not(self.communityDetectionEngine.AnimationMode): 
             self.UpdateThresholdDegree()
             self.Scene_to_be_updated.update()
 

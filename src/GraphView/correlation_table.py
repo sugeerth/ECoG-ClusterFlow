@@ -26,7 +26,10 @@ class CorrelationTable(object):
 
         self.RegionName.append((self.header))
         # Getting the data for each timestep in temrs of syllables and the timestep of the data  
+
         self.data = self.dataProcess.ElectodeData[dataProcess.syllableUnit][dataProcess.Timestep]
+        self.data = self.FindAbsoluteValue(self.data)
+        
     """
     Function for finding the absolute value of correlation values 
     """
@@ -46,8 +49,7 @@ class CorrelationTable(object):
         for i in range(len(data)):
             for j in range(len(data)):
                     if data[i,j] < 0: 
-                        data[i,j] = 0
-                        data[i,j] = (-1)*MinimumValue + data[i,j]
+                        data[i,j] = (-1)*data[i,j]
         return data
 
     """
