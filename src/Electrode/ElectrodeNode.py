@@ -40,7 +40,6 @@ class ElectrodeNode(QtGui.QGraphicsItem):
         self.slices = 1
         self.ElectrodeData = ImageLabel
         self.ImageLabel = ImageLabel.ElectrodeData
-        # self.ImageLabel = ImageLabel.ElectrodeData
 
         self.communityMemebership = []
         self.TimeStepRange = []
@@ -94,7 +93,6 @@ class ElectrodeNode(QtGui.QGraphicsItem):
     Note this is done for all nodes of the available Electrode Views 
     """
     def PutColor(self,colorvalue, alphaValue = 255, AlphaDraw = False):
-        # self.CommunityColor = QtGui.QColor(QtCore.Qt.black)
         self.colorvalue = colorvalue
 
         if self.Glyph:
@@ -128,7 +126,6 @@ class ElectrodeNode(QtGui.QGraphicsItem):
 
         self.colorvalue = colorvalue
         if self.Glyph:
-            # self.CommunityColor.setAlpha(opacity)
             self.communityMemebership.append(communityMemebership)
             self.TimeStepRange.append(timesterange) 
             self.ColorQ.append(self.CommunityColor)
@@ -174,7 +171,6 @@ class ElectrodeNode(QtGui.QGraphicsItem):
 
     def setNodeSize(self,value,nodeSizeFactor):
         self.degreeCentrality = float(value)
-        # self.setToolTip(str(self.counter)+"\n"+str(nodeSizeFactor)+":" + "{0:.2f}".format(self.degreeCentrality) + "\nElectrodeSignal:" + str(self.ElectrodeData.ElectrodeOpacity[self.counter].value))
         self.nodesize = self.minNodeVal + 1 * value
 
     def PutEA(self,EA):
@@ -196,21 +192,17 @@ class ElectrodeNode(QtGui.QGraphicsItem):
         Highlight everywhere the color that is selected here???
         """
         # color of the communitycolor, communitynumber, timestep range,source to destination
-        # CommunitySelectPerTime = QtCore.Signal(list, int ,list, list, int)
         timesteprange = [0,1,2,3] # data from electrodeview
         self.ElectrodeData.CommunitySelectAcrossTime.emit(self.ColorQ[0], self.ColorQ,self.ElectrodeData.ChunkNo)
-        print 'Triggered'
 
     def SelectingCommunityInThisTimestep(self):
         # color of the communitycolor, communitynumber, timestep range,source to destination
         timesteprange = [0,1,2,3] # data from electrodeview
         self.ElectrodeData.CommunitySelectPerTime.emit(self.ColorQ[0], self.ColorQ,self.ElectrodeData.ChunkNo)
-        print 'newTriggered'
 
     def paint(self, painter, option, widget):
         painter.setPen(QtCore.Qt.NoPen)
         self.radius = self.nodesize
-
 
         if self.AlphaValue < self.ImageLabel.opacityThreshold: 
             return
@@ -227,6 +219,7 @@ class ElectrodeNode(QtGui.QGraphicsItem):
                 startAngle = 270
 
                 if not(self.AcrossCommunityMode): 
+
                     if self.slices==1: 
                         painter.setPen(QtGui.QPen(self.CommunityColor, 0.1))
                         radius = (float(self.opacity/255)*18)
@@ -350,6 +343,7 @@ class ElectrodeNode(QtGui.QGraphicsItem):
                                 startAngle = startAngle % 360
                             j = j+1
                     else: 
+
                         if self.slices==1: 
                             painter.setPen(QtGui.QPen(QtCore.Qt.blue, 2))
                             self.drawOnePie(painter, (float(self.opacity/255)*20))
@@ -377,7 +371,6 @@ class ElectrodeNode(QtGui.QGraphicsItem):
             if not(self.ImageLabel.graphWidget.ColorNodesBasedOnCorrelation):
                 if self.CommunityColor: 
                     painter.setBrush(self.CommunityColor)
-                    # painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))
                     painter.drawEllipse(QtCore.QPointF(0,0),self.nodesize,self.nodesize)
                 else: 
                     painter.setBrush(self.CommunityColor)
@@ -386,15 +379,12 @@ class ElectrodeNode(QtGui.QGraphicsItem):
             else: 
                     nodeColor = QtGui.QColor(self.ImageLabel.graphWidget.DataColor[self.counter+1])
                     painter.setBrush(nodeColor)
-                    # painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))
                     painter.drawEllipse(QtCore.QPointF(0,0),self.nodesize,self.nodesize)
-
             if option.state & QtGui.QStyle.State_Selected:
                 circle_path = QtGui.QPainterPath()
                 painter.setPen(QtGui.QPen(QtCore.Qt.blue, 2))        
                 circle_path.addEllipse(QtCore.QPointF(0,0),self.nodesize+1,self.nodesize+1);
                 painter.drawPath(circle_path)
-
 
     def drawRoundGlyphs(self, row,startAngle, angle, painter, rectangle):
         if row == self.slices-1:
@@ -409,7 +399,7 @@ class ElectrodeNode(QtGui.QGraphicsItem):
 
     def drawBarChart(self, painter, Highlight): 
         radiusOld = 10
-        # rectangle = QtCore.QRectF(0, 0, (self.radius+12), (self.radius+12))
+
         width = float(radiusOld*2/self.slices)
         assert self.slices == len(self.ColorQ)
         setWidth = 0 
@@ -422,7 +412,6 @@ class ElectrodeNode(QtGui.QGraphicsItem):
 
             painter.setBrush(self.ColorQ[j])
             radius = (float(self.AlphaValue[j]/255)*20)
-            print "ASDASD",10-setWidth, 10, width, -radius
             rectangle = QtCore.QRectF(10-setWidth, 10, width, -radius);
             painter.drawRect(rectangle)
             setWidth += width 
@@ -443,29 +432,6 @@ class ElectrodeNode(QtGui.QGraphicsItem):
 
         painter.setBrush(self.CommunityColor)
         painter.drawEllipse(QtCore.QPointF(0,0),radius, radius)
-
-    def drawSubClusters(self, painter, option, radius):
-        Clusters = 4 
-        if not(Clusters==0): 
-            step = float(math.pi/Clusters) 
-        else:
-            step = 0 
-        Radius = radius
-        angle = 0.0 
-        c = 0
-        
-        colorq = self.ColorQ[-4:]
-
-        for i in colorq:
-            painter.setBrush(i)
-            painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))  
-
-            x = Radius * math.sin((2*c*math.pi)/Clusters)
-            y = Radius * math.cos((2*c*math.pi)/Clusters)
-
-            c = c + 1
-            painter.drawEllipse(x,y,radius, radius)
-            angle = angle + step
 
     def makeOpaqueCommunityNodes(self,communityNode):
         for node1 in communityNode:
@@ -500,19 +466,15 @@ class ElectrodeNode(QtGui.QGraphicsItem):
 
         # Assertion error with community multiple
 
-        membershipNo = self.ImageLabel.graphWidget.partition[self.counter]
+        membershipNo = self.ImageLabel.graphWidget.communityDetectionEngine.FinalClusterPartition[self.counter]
         clusterIds = self.ImageLabel.CommunitiesAcrossTimeStep.communityMultiple[membershipNo]
-        ratio = np.zeros((len(clusterIds),int(len(self.ImageLabel.graphWidget.partition))))
+        ratio = np.zeros((len(clusterIds),int(len(self.ImageLabel.graphWidget.communityDetectionEngine.FinalClusterPartition))))
         # see if the community across timestep is consistant
-        assert len(self.ImageLabel.CommunitiesAcrossTimeStep.communityMultiple.keys()) == len(set(self.ImageLabel.graphWidget.partition.values()))
+        assert len(self.ImageLabel.CommunitiesAcrossTimeStep.communityMultiple.keys()) == len(set(self.ImageLabel.graphWidget.communityDetectionEngine.FinalClusterPartition.values()))
 
-        # ratio = dict()    
-        # nodeRatio = dict()
         i= 0
         for node in self.ElectrodeData.NodeIds:
             if not(node.counter in clusterIds):
-                # print node.counter
-                # print node.counter, clusterIds
                 x,y = node.xy
                 node.setSelected(False)
                 node.nodesize = 2
@@ -521,12 +483,7 @@ class ElectrodeNode(QtGui.QGraphicsItem):
                 try: 
                     k=0
                     for j in clusterIds:
-                        # print j,node.counter
-                        # nodeRatio[i] = self.electrodeDistance(x,y,self.ElectrodeData.NodeIds[j].xy,radius) 
-                        # ratio[j] = nodeRatio
                         ratio[k][node.counter] = self.electrodeDistance(x,y,self.ElectrodeData.NodeIds[j].xy,radius)
-                        if ratio[k][node.counter] == 0: 
-                            print self.ElectrodeData.NodeIds[j].counter, clusterIds, j
                         k=k+1
                 except ZeroDivisionError:
                     continue
@@ -535,48 +492,31 @@ class ElectrodeNode(QtGui.QGraphicsItem):
                 node.nodesize = 1.4
                 node.radius = 1.4
                 node.opacity = 40
-                # print self.ImageLabel.graphWidget.communityMultiple[self.ImageLabel.graphWidget.partition[self.counter]]
                 assert (node.counter in clusterIds)
                 for j in range(len(clusterIds)):
                     ratio[j][node.counter] = 0
 
-        # minV = min(ratio.values())
-        # maxV = max(ratio.values())
-
-        # rangeV = maxV-minV
-        # pprint.pprint(ratio)
-
         for k in range(len(clusterIds)):
-            # print k, clusterIds
             minV = min(ratio[k])
             maxV = max(ratio[k])
             rangeV = maxV-minV
 
-            # print HighlightId
             for i,j in enumerate(ratio[k]):
                     ratio1 = (j-minV)/rangeV
-                    # print i, j, ratio1
-                    # print ratio1, minV, maxV, rangeV
                     if ratio1 < 0.3 and ratio1 > 0:
                         try:
-                            # self.ElectrodeData.NodeIds[i].nodesize= (1/ratio1)* 2 
-                            # self.ElectrodeData.NodeIds[i].radius = (1/ratio1)* 2
                             value = opacityCare((1/ratio1)* 20)
                             self.ElectrodeData.NodeIds[i].opacity = 255
                         except ZeroDivisionError:
-                            print "Zero division Error"
                             self.ElectrodeData.NodeIds[i].nodesize=16.3 * 1.4
                             self.ElectrodeData.NodeIds[i].radius=16.3 * 1.4
                             self.ElectrodeData.NodeIds[i].opacity = 255
-                            # self.ElectrodeData.NodeIds[i].setSelected(True)
                         node.update()
                     if ratio1 == 0:
                         assert i in clusterIds
-                        # print self.ElectrodeData.NodeIds[i].counter, i, HighlightId, self.counter
                         self.ElectrodeData.NodeIds[i].nodesize= 16.3 * 1.4
                         self.ElectrodeData.NodeIds[i].radius=16.3 * 1.4
                         self.ElectrodeData.NodeIds[i].opacity = 255
-                        # self.ElectrodeData.NodeIds[i].setSelected(True)
                         node.update()
 
     def clustervalue(self, i, clusterIds):

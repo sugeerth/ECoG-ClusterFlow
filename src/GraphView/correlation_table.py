@@ -307,13 +307,11 @@ class CorrelationTableDisplay(ParentCommunityDisplay):
         super(CorrelationTableDisplay, self).__init__(n, n)
         from collections import defaultdict
         start_time = time.time()
-        # print "CommunityCorrelationTableDisplay",counter 
         self.CommunityMode = False 
         self.MouseReleased = True
         # self.setCacheMode(QtGui.QGraphicsView.CacheBackground)
         self.colorTable = colorTable
         self.sortedDict= defaultdict(list)
-        # self.counter = counter
         self.newWindowWidget = []
         self.Selectionmode = True
         self.GraphDataStructure = weakref.ref(GraphDataStructure)
@@ -328,7 +326,6 @@ class CorrelationTableDisplay(ParentCommunityDisplay):
         self.isElementSorted = False
         # self.queue =queue
 
-        ## If "counter" value is 1 it represents adjacency matrix "counter" value is 0 represents correlation
         self.ColorNumpyArray = np.empty([len(self.GraphDataStructure().ThresholdData),len(self.GraphDataStructure().ThresholdData),3])
 
         self.correlationTable = correlationTable
@@ -350,15 +347,9 @@ class CorrelationTableDisplay(ParentCommunityDisplay):
         for i in range(n):
             self.setColumnWidth(i,CellSize) 
             self.setRowHeight(i, CellSize)
-            # self.resizeRowToContents(i);
             self.horizontalHeaderItem(i).setToolTip(self.correlationTable.header[i])
             self.verticalHeaderItem(i).setToolTip(self.correlationTable.header[i])
 
-        # self.verticalHeader().hide()
-        # self.horizontalHeader().hide()
-
-        # self.resizeColumnsToContents();
-        
         for i in range(len(self.correlationTable.header)):
             for j in range(len(self.correlationTable.header)):
                 table_item = QtGui.QTableWidgetItem()
@@ -381,7 +372,6 @@ class CorrelationTableDisplay(ParentCommunityDisplay):
     """ Logic for multiple selection of cells in the adjacency matrix"""
     def mouseReleaseEvent(self, e):
         super(CorrelationTableDisplay, self).mouseReleaseEvent(e)
-        # print "asd"
         if not(self.Selectionmode):
             regionIDS =  []
             for i in self.selectedItems():
@@ -457,7 +447,6 @@ class CorrelationTableDisplay(ParentCommunityDisplay):
     """ Selecting cells in the adjacency matrix"""
     def selectRegion(self, regionId):
         # should be able to differentiate between the events that is being clicked on and the events the this class generates 
-        # print "receiving correlationtabledisplay end",self.sender() 
         self.isElementSorted = not(isinstance(self.sender(),CorrelationTableDisplay))
         
         """ Logic only when the system is in communtiy mode """
@@ -610,8 +599,6 @@ class CommunityCorrelationTableDisplay(ParentCommunityDisplay):
         """Sorting the header labels vertical and horizontalHeader"""
         self.setVerticalHeaderLabels(self.ClusteredOrder)
         self.setHorizontalHeaderLabels(['\n'.join(name) for name in self.ClusteredOrder])
-        # print "sorted order in correlationTable",self.sortedOrder
-
         for i in range(len(self.correlationTable.header)):
             for j in range(len(self.correlationTable.header)):
                 table_item = self.item(i,j)
@@ -626,9 +613,7 @@ class CommunityCorrelationTableDisplay(ParentCommunityDisplay):
 
     """ Selecting cells in the adjacency matrix"""
     def selectRegion(self, regionId):
-
         # should be able to differentiate between the events that is being clicked on and the events the this class generates 
-
         if not(self.CommunityMode):
             return
 

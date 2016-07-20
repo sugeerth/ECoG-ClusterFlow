@@ -9,6 +9,7 @@ from sys import platform as _platform
 import weakref
 import cProfile
 import os
+from scipy.cluster.hierarchy import dendrogram, linkage
 
 import Pycluster
 import networkx as nx
@@ -75,7 +76,10 @@ class ClusterAlgorithms(QtCore.QObject):
     def HierarchicalClustering(self,data):
         distances = nx.to_numpy_matrix(data)
         hierarchy = linkage(distances)
-        # print hierarchy,type(hierarchy)
+        print hierarchy,"HIERRATCJY"
+        Z = dendrogram(hierarchy)
+        print Z
+        return hierarchy
 
     def computeKmeansCustom(self,Number_of_clusters,data, iterations = 100):
         distances = nx.to_numpy_matrix(data)

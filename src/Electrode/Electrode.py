@@ -92,10 +92,6 @@ class PreComputeShared:
         self.PreComputeCommunities = defaultdict(list)
 
     def ComputeCommunities(self,syllable, ClusteringAlgo, Number_of_clusters): 
-        print "compute with ", ClusteringAlgo
-        print "PRECOMPUTING WITH SYLLABLE check if \
-        its is actually 1 for baa", syllable
-
         self.DataSyllable = self.ElectrodeData[syllable]
 
         # assert np.shape(self.DataSyllable) == (256,64)
@@ -109,7 +105,6 @@ class PreComputeShared:
             # compute the clusters 
             self.graphWidget.Timestep = int(i)
             self.PreComputeCommunities[int(i)] = self.graphWidget.communityDetectionEngine.resolveCluster(ClusteringAlgo,graphData, Number_of_clusters, i)
-        # pprint.pprint(self.PreComputeCommunities)
         return self.PreComputeCommunities
 
     def WriteOnaFile(self, name):
@@ -121,10 +116,8 @@ class PreComputeShared:
         assert not(self.PreComputeCommunities == None)
         output_json = pickle.load(open(name))
         assert output_json == self.PreComputeCommunities
-        print "SUCCESFUL"
 
     def setters(self):
-        print type(self.state)
         return self.state
 
 class ImageLabel(QtGui.QGraphicsView):
@@ -226,8 +219,6 @@ class ImageLabel(QtGui.QGraphicsView):
 
         self.selectedColor = selectedcolor
         self.AddWidgets()
-        # self.electrodeUIConnections()
-        # self.DisplayImageLabel()
 
     def AddWidgets(self):
         im = self.dataProcess.im
@@ -247,15 +238,10 @@ class ImageLabel(QtGui.QGraphicsView):
         self.ElectrodeView = ElectrodeView(self)
         x_interval = LayoutWidth/6 
         y_interval = LayoutHeight/6
-        print self.Chunks
 
         for i in range(self.Chunks+1):
             self.SmallMultipleElectrode.append(ElectrodeView(self, i, x_interval,y_interval))
-            # self.SmallMultipleElectrode[i].setGeometry(30 + (i%4)*x_interval, 30+(i/4)*y_interval, x_interval, y_interval)
-            # self.SmallMultipleElectrode[i].show()
             CommunitySelectPerTime = QtCore.Signal(list, int ,list, list)
-            # if i in [0,1,2,4,5,6,7,8,9,10]: 
-            #     self.SmallMultipleElectrode[i].show()
             self.SmallMultipleElectrode[i].CommunitySelectPerTime.connect(self.SelectingCommunitiesInaTimestep)
             self.SmallMultipleElectrode[i].DataLink.connect(self.GettingDataFromSmallMultiples)
             self.SmallMultipleElectrode[i].CommunitySelectAcrossTime.connect(self.SelectingCommunitiesAcrossaTimestep)
@@ -275,16 +261,9 @@ class ImageLabel(QtGui.QGraphicsView):
         vbox.addLayout(self.ImageView2)
         vbox.setContentsMargins(0, 0, 0, 0)
 
-        # buttonAndSliderLayout = QtGui.QHBoxLayout()
-        # buttonAndSliderLayout.setContentsMargins(0, 0, 0, 0)
-
-        # buttonAndSliderLayout.addWidget(self.timeStepSlider)
         self.scene = QtGui.QGraphicsScene(0, 0,500 ,600)
-
         self.setContentsMargins(0, 0, 0, 0)
 
-        # Slider widgets
-        # vbox.addLayout(buttonAndSliderLayout)
         self.setLayout(vbox)
 
     @Slot(bool)
@@ -374,7 +353,6 @@ class ImageLabel(QtGui.QGraphicsView):
     """
     @Slot()
     def SaveState(self):
-        print self.timeStep, self.syllableUnit 
         print "Will save the dataset as filename",str(self.timeStep)+str(self.syllableUnit)+str(self.graphWidget.ClusteringAlgorithm)+".json"
 
     @Slot()

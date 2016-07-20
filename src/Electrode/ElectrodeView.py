@@ -70,7 +70,9 @@ class GraphicsBalloonTextItem(QtGui.QGraphicsTextItem):
         """
         painter.setPen(QtCore.Qt.darkGray)
         painter.setBrush(QtGui.QColor(250, 245, 209))
+        
         adjustedRect = self.boundingRect() # the rectangle around the text
+
         if self.orientation == 'above':
             # should draw the label balloon above the point
             adjustedRect.adjust(0, 0, 0, -12)
@@ -96,6 +98,7 @@ class GraphicsBalloonTextItem(QtGui.QGraphicsTextItem):
 
         # paint the balloon arrow triangle stroke
         painter.setPen(QtCore.Qt.darkGray)
+
         painter.drawLine(vertices[0], vertices[1])
         painter.drawLine(vertices[2], vertices[1])
 
@@ -111,7 +114,6 @@ class Translate(QtCore.QObject):
 
 class ElectrodeOpacity(object):
         def __init__(self, ElectrodView, ElectrodeNumber, counter): 
-            # print counter, "Electrode counter", ElectrodeNumber, ElectrodView.ChunkNo 
             self.ElectrodeSignalData = ElectrodView.ElectrodeData.ElectrodeSignal[ElectrodeSignalDataName]
             self.ElectrodView = ElectrodView
             self.ElectrodeNumber = ElectrodeNumber
@@ -128,7 +130,6 @@ class ElectrodeOpacity(object):
 
         def RegenerateMaxMin(self,timeStep):
             global MaxVal, MinVal
-            # print "MinVal", MinVal, "MaxVal", MaxVal
             CurrentSyllable = self.ElectrodView.ElectrodeData.syllableUnit
             if not(self.ElectrodView.MaxButtonCheck):
                 list1 = [] 
@@ -136,9 +137,6 @@ class ElectrodeOpacity(object):
                     list1.append(self.ElectrodeSignalData[CurrentSyllable][i][timeStep])
                 MaxVal = max(list1)
                 MinVal = min(list1)
-            # else:
-            #     MaxVal = np.nanmax(self.ElectrodeSignalData[CurrentSyllable])
-            #     MinVal = np.nanmin(self.ElectrodeSignalData[CurrentSyllable])
         """
         1) Given the values of a electrode finds out the normalized min max values for every 
         along every timestep
@@ -156,27 +154,20 @@ class ElectrodeOpacity(object):
             "Given the timestep the function computes opacity per channel based on all of the timesteps"
 
             CurrentSyllable = self.ElectrodView.ElectrodeData.syllableUnit
-            #Change
             actualValue = self.ElectrodeSignalData[CurrentSyllable][Number][timestep]
-            # print self.ElectrodeNumber,timestep,Number, actualValue
             x = actualValue
-            # print self.ElectrodeNumber ,timestep, MaxVal, MinVal, ElementNumber, self.counter, self.ElectrodView.ChunkNo
             
             OpacityValue = None
             if x >= MaxVal: 
                 x = MaxVal
-                # print "CUTTING OFF MAXVALUES", x
             if x < MinVal-0.01:
-                # print "CUTTING OFF MINVALUES", x
                 x = None
 
             if x or x == 0: 
                 PercentDistrbution = float((x-MinVal)/(MaxVal-MinVal))
-                # PercentDistrbution = PercentDistrbution * 10
                 OpacityValue = float(PercentDistrbution)*(maxOpac-minOpac) + minOpac
             else: 
                 assert (x == None and OpacityValue == None)
-                # print "X is None, Warning X is None"
 
             if OpacityValue > 255:
                     OpacityValue = 255
@@ -184,7 +175,6 @@ class ElectrodeOpacity(object):
                     OpacityValue = 0
 
             self.value = x
-            # print OpacityValue, PercentDistrbution
             return OpacityValue, actualValue
 
 
@@ -266,7 +256,6 @@ class ElectrodeView(QtGui.QGraphicsView):
         self.ballon.setPos(550,300)
         self.scene.addItem(self.ballon)
 
-
         self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
         self.setScene(self.Scene_to_be_updated)
 
@@ -329,7 +318,6 @@ class ElectrodeView(QtGui.QGraphicsView):
         for node in self.NodeIds:
             node.AcrossCommunityMode =True
             node.Highlight = False
-            print len(node.ColorQ)
             if node.ColorQ == ColorQ: 
                 node.Highlight = True
             node.update()
@@ -373,6 +361,7 @@ class ElectrodeView(QtGui.QGraphicsView):
                     self.scene.addItem(node_value)
                     counter = counter+1 
                 k = k + 1
+
 
     def setMaxVal(self,value):
         global MaxVal

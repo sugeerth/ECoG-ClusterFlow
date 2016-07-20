@@ -215,6 +215,7 @@ class GraphWidget(QtGui.QGraphicsView):
         self.DeriveNewCommunities(self.Min1)
     
     def ClusterChangeHappening(self,ClusteringAlgorithm):
+        self.communityDetectionEngine.ClusteringAlgorithm = ClusteringAlgorithm
         self.changeStuffDuetoTowChange(self.communityDetectionEngine.TowValue)
 
     def changeTimeStepSyllable(self,Syllable, TimeStep):

@@ -58,7 +58,6 @@ class CommunityGraphNode(QtGui.QGraphicsItem):
 
 	def boundingRect(self):
 		adjust = 2.0
-		print -40 - adjust, -40 - adjust,70 + adjust, 70 + adjust
 		return QtCore.QRectF(-40 - adjust, -40 - adjust,
 							 70 + adjust, 70 + adjust)
 

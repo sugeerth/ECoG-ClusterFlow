@@ -118,137 +118,23 @@ class Node(QtGui.QGraphicsItem):
 
     def PutColorFromOtherClass(self,colorvalue, alphaValue = -1, AlphaDraw = False):
         pass
-        # self.colorvalue = colorvalue
-        # self.CommunityColor = QtGui.QColor(colorvalue)
-        # self.AlphaValue = alphaValue
-        # # set the graph nodes to the transparent
-        # if not(alphaValue==-1):
-        #     if AlphaDraw: 
-        #         self.CommunityColor.setAlpha(alphaValue)
-        #     else:
-        #         self.CommunityColor.setAlpha(255)
-        # self.NodeCommunityColor = True
-        # self.update()
 
     def ChangeNodeSize(self,value):
         self.nodesize = 10 + value
-        # self.update()
 
     def setNodeSize(self,value,nodeSizeFactor,Rank,Zscore):
         pass
-        # self.degreeCentrality = float(value)
-        # self.setToolTip(str("\n"+nodeSizeFactor+":" + "{0:.2f}".format(self.degreeCentrality) + "\nRank:" + str(Rank) + "\nZ-score:" + "{0:.2f}".format(Zscore)))
-        # self.nodesize = 7 + 15 * value
-        # self.nodesize = 17
 
     def shape(self):
         path = QtGui.QPainterPath()
         path.addEllipse(-10, -10, 20, 20)
         return path
 
-    def paint(self, painter, option, widget):
-        pass
- #        painter.setPen(QtCore.Qt.NoPen)
- #        self.font =  painter.font()
- #        self.font.setBold(False)
- #        fm = QtGui.QFontMetrics(painter.font())
- #        wi=fm.maxWidth()
- #        ht=fm.height()
-
- #        if not(self.ForCommunities):
- #            mess = self.Translate.set(str(self.Brain_Regions[self.counter-1]))
-    #     self.font.setPointSize(11)
- #            rect= fm.boundingRect(mess+str(22))
- #            painter.setFont(self.font)
- #            dx = -rect.width()/2 + rect.width()/5 + 3
- #            dy = rect.height()/2- 0.5
- #            # self.nodesize = 16
- #            rect.translate(dx,dy)
-    # else: 
- #            mess = self.Translate.set(str(self.counter))
- #            self.font.setPointSize(11)
- #            rect= fm.boundingRect(mess+str(25))
- #            painter.setFont(self.font)
- #            dx = -rect.width()/2 + rect.width()/5 +1
- #            dy = rect.height()/2 - 2.5 -1
- #            self.nodesize = 17
- #            rect.translate(dx,dy)
-
- #        # from BrainViewer import DataColor
- #        if self.NodeCommunityColor:
- #            if option.state & QtGui.QStyle.State_Selected:
- #                painter.save()
- #                self.Selected = True 
- #                self.WhitePaint = True
- #                self.CommunityColor.setAlpha(255)
- #                painter.setBrush(self.CommunityColor)
- #            else:
- #                painter.save()
- #                self.Selected = False
- #                self.WhitePaint = False
- #                painter.setBrush(self.CommunityColor)
-
- #        else: 
- #            if (option.state & QtGui.QStyle.State_Selected):
- #                painter.save()
- #                self.Selected = True
- #                self.WhitePaint = True
- #                #FIXME Green 
- #                painter.setBrush(QtCore.Qt.darkGreen)
- #                # painter.setBrush(self.NodeColor)
- #            else:
- #                painter.save()
- #                self.Selected = False
- #                self.WhitePaint = False
- #                painter.setBrush(self.nodeColor)
-
- #        painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))        
- #        painter.drawEllipse(QtCore.QPointF(0,0),self.nodesize,self.nodesize-2)
-        
- #        if self.NodeCommunityColor:
- #            painter.setPen(self.CommunityTextColor)
- #        else:
- #            painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))        
-
- #        if self.WhitePaint:
- #                circle_path = QtGui.QPainterPath()
- #                painter.setPen(QtGui.QPen(QtCore.Qt.blue, 2))        
- #                circle_path.addEllipse(QtCore.QPointF(0,0),self.nodesize,self.nodesize-2);
- #                painter.drawPath(circle_path)
- #                painter.drawText(rect,QtCore.Qt.TextSingleLine,mess)
- #        else:
- #                painter.drawText(rect,QtCore.Qt.TextSingleLine,mess)
- #        painter.restore()
-
-        # if self.NodeCommunityColor:
-        #     painter.setPen(self.CommunityTextColor)
-        # else:
-        #     painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))        
-
-        # if self.Red:    
-        #     # Color the stuff as Red
-        #     painter.save()
-        #     red = QtGui.QColor(255,0,0,self.AlphaValue)
-        #     painter.setBrush(red)
-        #     self.WhitePaint = True
-        #     painter.setPen(QtGui.QPen(QtCore.Qt.red, 0))        
-        #     painter.drawEllipse(QtCore.QPointF(0,0),self.nodesize,self.nodesize-2)
-        # else: 
-        #     painter.save()
-        #     red = QtGui.QColor(0,0,0,self.AlphaValue)
-        #     painter.setBrush(red)
-        #     self.WhitePaint = True
-        #     painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))        
-        #     painter.drawEllipse(QtCore.QPointF(0,0),self.nodesize,self.nodesize-2)
-
     def itemChange(self, change, value):
         return QtGui.QGraphicsItem.itemChange(self, change, value)
 
     def Flush(self):
         pass
-        # edges = [item for item in self.scene().items() if isinstance(item, Edge)]
-        # for edge in edges:
-        #     edge.ColorEdgesFlag = False
 
     """ Bitwise operation to change the alpha values"""
     @staticmethod

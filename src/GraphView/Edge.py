@@ -39,6 +39,7 @@ class Edge(QtGui.QGraphicsItem):
         self.edgeThickness = 1
         self.thickHighlightedEdges = 3 
         self.ColorOnlySelectedNodesFlag =False
+
         if math.isnan(weight):
             weight = 0
         
@@ -131,7 +132,6 @@ class Edge(QtGui.QGraphicsItem):
         self.update()
 
     def Threshold(self,value):
-        # print "Threshold in Edge"
         self.EdgeThreshold = float(value)
         self.update()
 

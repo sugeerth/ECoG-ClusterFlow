@@ -1,3 +1,4 @@
+
 import numpy as np
 import pprint
 import weakref
@@ -54,9 +55,9 @@ Interval = 13
 # ('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',24,36),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',36,48)\
 # ,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',48,60)]
 
-FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,4),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_2.json',4,8)\
-,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',8,12),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',12,16)\
-,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',16,20)]
+FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,11),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_2.json',12,23)\
+,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',23,34),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',34,45)\
+,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',45,56)]
 
 HeatmapFilename = "/Users/sugeerthmurugesan/Sites/Sankey/DeltaAreaChange4Heatmap.tsv"
 
@@ -123,8 +124,6 @@ class SimilarityData(object):
 				val2 = CommunityObject.SimiliarElements(nodes1,nodes2, community1, community2)
 				No_Of_Elements[community1][community2] = val2
 				Kappa_matrix[community1][community2] = val
-		# assert len(Kappa_matrix) == 
-		# pprint.pprint(Kappa_matrix)
 		return Kappa_matrix,self.ThresholdAssignment(Kappa_matrix, CommunityObject) 
 		"""
 		 static boolean safeToAdd(int[] Q, int row, int col) {
@@ -232,14 +231,11 @@ class SimilarityData(object):
 		for i in PermuteIndexes[(height,width)]: 
 			Sum = 0
 			for j,k in i: 
-				# print j,k
 				if matrix[j][k] == -1:
 					matrix[j][k] = 0
 				Sum = Sum + matrix[j][k]
-			# print "----"
 			AllSum.append(Sum)
 
-		pprint.pprint(AllSum)
 		Assignment = PermuteIndexes[(height,width)][np.argmax(AllSum)]
 
 		return Assignment
@@ -251,18 +247,14 @@ class SimilarityData(object):
 		"""
 		Color assignementt is happengin one by one, which should not be the case
 		"""
-		# for i in PreviousNodes:
-		# 	print i.CommunityColor
 		KappaMatrixForComputation = []
 		PermuteDict = dict()
 		PermuteAssignment = []
 		x, y = Kappa_matrix.shape
 		
-		# print x,y
 		KappaMatrixForComputation = copy.deepcopy(Kappa_matrix)
 		ColorAssignment = dict()
 		if x >= 1 and y >= 1: 
-			# pprint.pprint(Assignment)
 			values= KappaMatrixForComputation < CommunityObject.thresholdValue  # Where values are low
 			KappaMatrixForComputation[values] = 0
 			height = len(KappaMatrixForComputation[:,0])
@@ -288,12 +280,8 @@ class SimilarityData(object):
 			else:
 				PermuteAssignment = dict()
 
-			# print "ColorAssignment"
 			for l,q in PermuteAssignment:
 				PermuteDict[q] = l
-			# ColorAssignment = Permt
-			# print "printing"
-			# pprint.pprint(PermuteDict)
 
 			"""adding new colors"""
 			AssignedValues = set(ColorAssignment.values())
@@ -339,7 +327,6 @@ class SimilarityData(object):
 						PermuteDict[q] = (0,0,0)
 
 
-		print PermuteDict, ColorAssignment, PermuteDict == ColorAssignment
 		if self.Permute:
 			return PermuteDict
 		else: 
@@ -611,11 +598,10 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			self.TowMultiple[value1].append(key)
 		self.AssigNewValuesToGraphWidget(True)
 		self.widget.Refresh()
-		# print "WARNING: Comunity coloring has been changed"
+		print "WARNING: Comunity coloring has been changed"
 		self.changeViewinGraph()
 
 	def noDuplicates(self, list1):
-		print list1
 		items = set([i for i in list1 if sum([1 for a in list1 if a == i]) > 1])
 		return True
 
@@ -636,7 +622,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
  		5) Sends out the color information to the detection engine so that everyone can use the same coloring scheme 
 		"""
 
-		print "is it here"
 		if self.firstTime:
 			self.startTime = pg.ptime.time()
 			self.firstTime = False
@@ -919,7 +904,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.NodeIds1 = []
 		# Create the nodes which are rated in the way that it is organized
 		# Just create one layer of the nodes here!! for now
-		# print "Current partition Value",partitionValues
 
 		for communities, sub_communities in partitionValues.items():
 			i = i + 1
@@ -933,7 +917,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		# now make a hashmap of this range to write it onto the place
 		# make it really hard and fast ends at 8:00 pm
 		hashmap = dict()
-		# print
 		c= 0 
 		list1 = []
 		hashmap[0] = 0
@@ -982,28 +965,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 
 	def animate(self):
 		self.elapsed = (self.eFFlapsed + self.sender().interval()) % 1000
-		self.repaint()
-
-	def paint(self, painter, option, widget):
-		painter.setPen(QtCore.Qt.NoPen)
-		painter.setBrush(QtCore.Qt.black)
-		painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))
-		painter.drawEllipse(-4, -4, 10, 10)
-
-	def drawBackground(self, painter, rect):
-		sceneRect = self.sceneRect()
-		textRect = QtCore.QRectF(sceneRect.left() + 4, sceneRect.top() + 4,
-								 sceneRect.width() - 4, sceneRect.height() - 4)
-		message = self.tr("Link Graph")
-
-		font = painter.font()
-		font.setBold(True)
-		font.setPointSize(14)
-		painter.setFont(font)
-		painter.setPen(QtCore.Qt.lightGray)
-		painter.drawText(textRect.translated(2, 2), message)
-		painter.setPen(QtCore.Qt.black)
-		painter.drawText(textRect, message)
 
 	def changeViewinGraph(self):
 		self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())

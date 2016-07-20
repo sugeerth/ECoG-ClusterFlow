@@ -12,6 +12,8 @@ from PySide import QtCore, QtGui , QtUiTools
 
 import warnings
 warnings.filterwarnings("ignore")
+import warnings
+import traceback
 
 import matplotlib
 import numpy
@@ -269,5 +271,4 @@ Visualizer.setLayout(ElectrodeLayout)
 Visualizer.setContentsMargins(0,0,0,0)
 
 Visualizer.show()
-
 sys.exit(app.exec_())

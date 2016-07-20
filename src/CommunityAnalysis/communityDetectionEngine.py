@@ -118,48 +118,48 @@ class CustomCluster(object):
         ClusterStart = [[0,10,20,30], [2,9,11], [8,12,13], [1,12,14], [6,7,10], [1,15,20]] 
         #* MADE CHANGES 
         
-        if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]: 
-            for i in range(len(distances)):
-                self.partition[i] = 0
-                if i in x: 
-                    self.partition[i] = 0
-                elif i in y: 
-                    self.partition[i] = 1
-                elif i in z: 
-                    self.partition[i] = 2
+        # if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]: 
+        #     for i in range(len(distances)):
+        #         self.partition[i] = 0
+        #         if i in x: 
+        #             self.partition[i] = 0
+        #         elif i in y: 
+        #             self.partition[i] = 1
+        #         elif i in z: 
+        #             self.partition[i] = 2
 
-        if timestep >= ClusterStart[syllable][0] and timestep <= ClusterStart[syllable][1]:
-            for i in range(len(distances)):
-                if i in x: 
-                    self.partition[i] = 0
-                elif i in y: 
-                    self.partition[i] = 1
-                elif i in z: 
-                    self.partition[i] = 2
-        elif timestep >= ClusterStart[syllable][1] and timestep <= ClusterStart[syllable][2]:
-            self.partition = self.timestepPartition[timestep-10]
-            try: 
-                self.partition = copy.deepcopy(self.timestepPartition[timestep])
-                if timestep == 0: 
-                    assert not(self.partition == None) 
-                assert self.partition == self.timestepPartition[timestep]
-            except KeyError:
-                for j in range(len(distances)):
-                    if syllable == 0: 
-                        self.partition[j] = randint(0, 1)
-                    else: 
-                        if j in q:
-                            self.partition[j] = 0
-                        else:
-                            self.partition[j] = randint(1, 2)
+        # if timestep >= ClusterStart[syllable][0] and timestep <= ClusterStart[syllable][1]:
+        #     for i in range(len(distances)):
+        #         if i in x: 
+        #             self.partition[i] = 0
+        #         elif i in y: 
+        #             self.partition[i] = 1
+        #         elif i in z: 
+        #             self.partition[i] = 2
+        # elif timestep >= ClusterStart[syllable][1] and timestep <= ClusterStart[syllable][2]:
+        #     self.partition = self.timestepPartition[timestep-10]
+        #     try: 
+        #         self.partition = copy.deepcopy(self.timestepPartition[timestep])
+        #         if timestep == 0: 
+        #             assert not(self.partition == None) 
+        #         assert self.partition == self.timestepPartition[timestep]
+        #     except KeyError:
+        #         for j in range(len(distances)):
+        #             if syllable == 0: 
+        #                 self.partition[j] = randint(0, 1)
+        #             else: 
+        #                 if j in q:
+        #                     self.partition[j] = 0
+        #                 else:
+        #                     self.partition[j] = randint(1, 2)
 
 
-        elif timestep >= ClusterStart[syllable][2] and timestep <= ClusterStart[syllable][3]: 
-            for i in range(len(distances)):
-                if i in q: 
-                    self.partition[i] = 0
-                elif i in r: 
-                    self.partition[i] = 1
+        # elif timestep >= ClusterStart[syllable][2] and timestep <= ClusterStart[syllable][3]: 
+        #     for i in range(len(distances)):
+        #         if i in q: 
+        #             self.partition[i] = 0
+        #         elif i in r: 
+        #             self.partition[i] = 1
 
         print timestep
 
@@ -275,7 +275,7 @@ class ConsensusMediator(object):
                 outfile.write("{}\t{}\t{}\n".format(timeSteps,kValues,value))
                 for i,j in self.DeltaAreaTimestep.iteritems():
                     KDict = j
-                    print i, KDict
+                    # print i, KDict
                     for k,value in KDict.iteritems():
                         outfile.write("{}\t{}\t{}\n".format(i,k,value))
 
@@ -591,7 +591,7 @@ class communityDetectionEngine(QtCore.QObject):
         1) When one is intending to freeze the colors inside of there 
         """
         self.level = level
-        print "This is the level", level, self.AnimationMode, self.TowChanged
+        # print "This is the level", level, self.AnimationMode, self.TowChanged
         
         if self.AnimationMode:
             """For now the signal emits stuff that will 
@@ -648,6 +648,7 @@ class communityDetectionEngine(QtCore.QObject):
             partition=cm.best_partition(graph)
         elif value == 1: 
             """Hierarchical"""
+            print "Hierarchical"
             partition=self.ClusterAlgorithms.HierarchicalClustering(graph)
         elif value == 2:
             """Kmeans algorithm"""
@@ -749,7 +750,6 @@ class communityDetectionEngine(QtCore.QObject):
 
     def ChangeGraphWeights(self):
         for edge in self.Graphwidget.edges:
-            print self.Graphwidget.Graph_data().ThresholdData[edge().sourceNode().counter-1][edge().destNode().counter-1]
             edge().setWeight(self.Graphwidget.Graph_data().ThresholdData[edge().sourceNode().counter-1][edge().destNode().counter-1])
             edge().update()
 

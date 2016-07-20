@@ -18,7 +18,6 @@ from graphviz import Digraph
 from OpenGL.GLUT import *
 from OpenGL.GL import *
 
-#include <QWebFrame>
 from PySide.QtWebKit import QWebFrame
 
 from time import time
@@ -28,7 +27,6 @@ Default = 1420.36
 
 url = 'http://localhost/~sugeerthmurugesan/Sankey/index.html'
 url2 = 'http://localhost/~sugeerthmurugesan/Sankey/Working.html'
-# url = "http://localhost/~sugeerthmurugesan/"
 
 class StupidClass(QtCore.QObject): 
     IntervalSignal = QtCore.Signal(int, int, int, int)
@@ -49,7 +47,6 @@ class StupidClass(QtCore.QObject):
 
   	@QtCore.Slot(str,str,str,str)
 	def brushTimesteps(self, Start, End, StartSliceNoGlobal, EndSliceNoGlobal):
-		# print "Came TO BrushTImesteps"
 		print Start, End, StartSliceNoGlobal, EndSliceNoGlobal
 
     def _pyVersion(self):  
@@ -82,8 +79,8 @@ class CustomWebView(QtWebKit.QWebView):
 	def __init__(self):
 		QtWebKit.QWebView.__init__(self)
 
-		self.setMaximumSize(1430,210) 
-		self.setMinimumSize(1430,210) 
+		self.setMaximumSize(1930,210) 
+		self.setMinimumSize(1930,210) 
 
 		self.SmallMultipleLayout = None
 		self.js = None
@@ -101,16 +98,7 @@ class CustomWebView(QtWebKit.QWebView):
 	def signalConnection(self):
 		self.connect(self.page().mainFrame(), QtCore.SIGNAL("javaScriptWindowObjectCleared ()"), self.javaScriptWindowObjectCleared)
 		self.settings().setAttribute(QtWebKit.QWebSettings.WebAttribute.DeveloperExtrasEnabled, True)
-
-		# QtCore.QObject.connect(self, QtCore.SIGNAL('loadStarted ()'), self.loadStarted)
-		# QtCore.QObject.connect(self, QtCore.SIGNAL('loadFinished(bool)'), self.loadFinished)
-		# QtCore.QObject.connect(self, QtCore.SIGNAL('loadProgress(int)'), self.loadProgress)
-		# QtCore.QObject.connect(self.page(), QtCore.SIGNAL('linkHovered(const QString&,const QString&,const QString&)'), self.linkHovered)
-
-		# QtCore.QObject.connect(self, QtCore.SIGNAL('urlChanged(const QUrl &)'), self.urlChanged)
 		QtCore.QObject.connect(self.page(), QtCore.SIGNAL('selectionChanged()'), self.selectionChanged)
-		# QtCore.QObject.connect(self, QtCore.SIGNAL('titleChanged(const QString & )'), self.titleChanged)
-		# QtCore.QObject.connect(self.page(), QtCore.SIGNAL('statusBarMessage(const QString&)'), self.statusBarMessage)
 	
 	def javaScriptConsoleMessage(self, msg, line, source):
 		print '%s line %d: %s' % (source, line, msg)
@@ -138,12 +126,6 @@ class CustomWebView(QtWebKit.QWebView):
 
 	def loadProgress(prog):
 		pass
-		 
-	# def linkHovered(a, b, c):
-	# 	print "link hovered!"
-	# 	print a
-	# 	print b
-	# 	print c
 
 	def javaScriptWindowObjectCleared(self):
 		self.js = StupidClass(self)
@@ -156,14 +138,6 @@ class CustomWebView(QtWebKit.QWebView):
 
 	def slicesChanged(self,slices):
 		print "slices are being changed please take a look"
-		
-
-
-				
-		# print "Slices have been changed",self.SmallMultipleLayout.lengthPixels
-		# self.setMaximumSize(self.SmallMultipleLayout.lengthPixels,100) 
-		# self.setMinimumSize(self.SmallMultipleLayout.lengthPixels,100) 
-		# self.js.SliceSignal.emit(slices, self.SmallMultipleLayout.lengthPixels)
 
 	def EmitTimestepRanges(self, Start, End, slices):
 		self.js.Start1 = Start
