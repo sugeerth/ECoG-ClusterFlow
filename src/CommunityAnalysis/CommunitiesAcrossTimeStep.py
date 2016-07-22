@@ -1,4 +1,3 @@
-
 import numpy as np
 import pprint
 import weakref
@@ -51,22 +50,16 @@ except:
 Capture = [0,15]
 Interval = 13
 
-# FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,12),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_2.json',12,24),\
-# ('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',24,36),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',36,48)\
-# ,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',48,60)]
-
 FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,11),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_2.json',12,23)\
 ,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',23,34),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',34,45)\
 ,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',45,56)]
 
 HeatmapFilename = "/Users/sugeerthmurugesan/Sites/Sankey/DeltaAreaChange4Heatmap.tsv"
 
-# Changes for RealData
-# ElectrodeSignalDataName = 'sigData'
-
 ElectrodeSignalDataName = 'muDat'
 
 timestep = 12
+THRESHOLD_VALUE_TRACKING_GRAPH = 0.3
 NumberOfSelectedEletrodes = 30
 Number_of_Communities = 4
 WIDTH = 1200
@@ -107,7 +100,6 @@ class SimilarityData(object):
 	"""
 
 	def computeSimilarityMatrices(self, CommunityObject):
-		# CommunityObject.communityMultiple.clear()
 
 		Kappa_matrix = np.zeros((len(CommunityObject.dataAccumalation), len(CommunityObject.communityMultiple)))
 		
@@ -125,47 +117,7 @@ class SimilarityData(object):
 				No_Of_Elements[community1][community2] = val2
 				Kappa_matrix[community1][community2] = val
 		return Kappa_matrix,self.ThresholdAssignment(Kappa_matrix, CommunityObject) 
-		"""
-		 static boolean safeToAdd(int[] Q, int row, int col) {
-		    // Unoccupied!
-		    if (Q[col] != MT) {
-		      return false;
-		    }
-		    // Do any columns have a rook in this row?
-		    // Could probably stop at col here rather than Q.length
-		    for (int c = 0; c < Q.length; c++) {
-		      if (Q[c] == row) {
-		        // Yes!
-		        return false;
-		      }
-		    }
-		    // All clear.
-		    return true;
-		  }
 
-		solutions = 0;
-		k = number_of_rooks;
-		recurse(0,k);
-		print solutions;
-		...
-
-		recurse(row, numberOfRooks) {
-		   if (numberOfRooks == 0) {
-		      ++solution;
-		      return;
-		      }
-		   for(i=row; i<n; i++) {
-		      for(j=0; j<n; j++) {
-		         if (rook_is_ok_at(i, j)) {
-		            place rook at i, j
-		            recurse(i+1, numberOfRooks-1)
-		            remove rook from i, j
-		         }
-		      }
-		   }
-		}
-
-		"""
 	def rook_is_ok_at(self,matrix, row, col):
 		a= matrix.any(axis=1)
 		b = matrix.any(axis=0) 
@@ -342,6 +294,7 @@ class SimilarityData(object):
 			# 	continue
 				# if any(j in z for z in Assignment.values()):
 				# 	continue
+				print CommunityObject.thresholdValue, Kappa_matrix[i][j]  
 				if CommunityObject.thresholdValue < Kappa_matrix[i][j]:
 					Assignment[i].append(j)
 				elif CommunityObject.thresholdValue > Kappa_matrix[i][j]:
@@ -420,18 +373,12 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.electrode = electrode
 		self.Visualizer = Visualizer
 
-		# plotWidget = pg.PlotWidget()
-		# self.PlotWidget= plotWidget
-		# self.PlotWidget = None
 		self.widget = widget
 		self.distinguishableColors = self.widget.communityDetectionEngine.distinguishableColors
 
 		self.setWindowTitle('Analysis Across Timesteps')
 		self.Order =[]
 		self.previousTimestep = []
-
-		# self.writer = csv.writer(open('data4.csv', 'wb'))
-		# self.writer.writerow( ('source', 'target', 'value') )
 
 		self.height = 340
 		self.Offset = 0
@@ -465,7 +412,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.TrackOfAllData = []
 		self.edgelist = []
 
-		self.thresholdValue = 0.0
+		self.thresholdValue = THRESHOLD_VALUE_TRACKING_GRAPH
 		self.array_value = 0
 		self.NodeIds = []
 		self.stabilityValues = []
@@ -1049,7 +996,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		for i in range(self.height):
 			if i in Assignment.keys():
 				continue
-			MaxValuesAssignment = -3
+			# MaxValuesAssignment = -3
 			CurrentColumn = matrix[:,i]
 			ColumnList = CurrentColumn.tolist()
 			
@@ -1097,26 +1044,13 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			
 		if TowValues: 
 			PartitionValueToBeVisit= copy.deepcopy(self.TowPartitionValue) 
-			self.widget.communityDetectionEngine.\
-			AssignCommuntiesFromDerivedFromTow(\
-				self.TowPartitionValue,
-				self.TowInducedGraph,
-				self.TowMultiple,
-				self.TowGraphdataStructure,
-				self.discreteTimesteps,
-				self.electrode.syllableUnit)
-			self.widget.communityDetectionEngine.\
-							timeStepColorGenerator(\
-								len(set(PartitionValueToBeVisit.values())),\
-			 					PartitionValueToBeVisit)
+			self.widget.communityDetectionEngine.AssignCommuntiesFromDerivedFromTow(self.TowPartitionValue,self.TowInducedGraph,self.TowMultiple,self.TowGraphdataStructure,self.discreteTimesteps,self.electrode.syllableUnit)
+			self.widget.communityDetectionEngine.timeStepColorGenerator(len(set(PartitionValueToBeVisit.values())),PartitionValueToBeVisit)
 			self.widget.partition = copy.deepcopy(self.TowPartitionValue)
 			self.widget.ColorForVisit(self.TowPartitionValue)
 		else:
 			PartitionValueToBeVisit= copy.deepcopy(self.communityMultiple)
-			self.widget.communityDetectionEngine.\
-							timeStepAnimationGenerator(\
-								len(set(Assignment.keys())),
-								Assignment, self.communityDetectionEngine.ClusterPartitionOfInterest)
+			self.widget.communityDetectionEngine.timeStepAnimationGenerator(len(set(Assignment.keys())),Assignment, self.communityDetectionEngine.ClusterPartitionOfInterest)
 		
 		""" Fix me for now just happen to coment this line out because at every timestep you just need the same colors"""
 

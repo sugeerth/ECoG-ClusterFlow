@@ -1,46 +1,23 @@
-import csv
-import math
-from collections import defaultdict
-import time
-from sys import platform as _platform
-import weakref
-import cProfile
-from PySide import QtWebKit
 import sys
-import pprint
-from PySide import QtCore, QtGui , QtUiTools
+from PySide import QtGui
+import warnings
 
 import warnings
 warnings.filterwarnings("ignore")
-import warnings
-import traceback
 
-import matplotlib
-import numpy
-from optparse import OptionParser
-import os
-import sys
-
-from pycallgraph import PyCallGraph
-from pycallgraph.output import GraphvizOutput
-
-# import tie
-import warnings
 with warnings.catch_warnings(): 
-           warnings.simplefilter("ignore", category=RuntimeWarning)
+            warnings.simplefilter("ignore", category=RuntimeWarning)
 
-import community as cm
 try:
     # ... reading NIfTI 
-    import nibabel as nib
     import numpy as np
-    import pyqtgraph as pgp
-    import networkx as nx
 except:
     print "Couldn't import all required packages. See README.md for a list of required packages and installation instructions."
     raise
 
 app = QtGui.QApplication(sys.argv)
+OFFSET = 4 
+
 
 ### BrainViewer packages
 from GraphView.correlation_table import CorrelationTable, CorrelationTableDisplay, CommunityCorrelationTableDisplay
@@ -98,12 +75,9 @@ print "Creating files that will read the paths"
 execfile('BrainViewerDataPathsArtificial.py')
 print "Creating correlation table display"
 
-if ElectrodeWindowShowFlag:
-    print "Processing electrodeFiles"
-    dataProcess = dataProcessing(Brain_image_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename, ElectrodeSignals)
-    correlationTable = CorrelationTable(dataProcess)
-else:
-    correlationTable = CorrelationTable(matrix_filename,centres_abbreviation)
+print "Processing Electrode Files"
+dataProcess = dataProcessing(Brain_image_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename, ElectrodeSignals)
+correlationTable = CorrelationTable(dataProcess)
 
 colorTable = CreateColorTable(colorTableName)
 colorTable.setRange(correlationTable.valueRange())
@@ -118,10 +92,7 @@ Counter = len(correlationTable.data)
 DataColor = np.zeros(Counter+1)
 
 # Offset for the table widgets and everything 
-if Counter < 50:
-        Offset= Counter/2 - Counter/28
-else: 
-        Offset = 4
+OFFSET = 4 
 
 # Layout for the tablewidget 
 BoxTableWidget =QtGui.QWidget()
@@ -147,7 +118,7 @@ Tab_1_CorrelationTable.setMinimumSize(390, 460)
 print "Setting Graph Widget"
 
 """ Controlling graph widgets  """
-widget = GraphWidget(Tab_2_AdjacencyMatrix,Tab_2_CorrelationTable,correlationTable,colorTable,selectedColor,BoxGraphWidget,BoxTableWidget,Offset,distinguishableColors,FontBgColor, ui, electrodeUI,dataProcess, Visualizer)
+widget = GraphWidget(Tab_2_AdjacencyMatrix,Tab_2_CorrelationTable,correlationTable,colorTable,selectedColor,BoxGraphWidget,BoxTableWidget,OFFSET,distinguishableColors,FontBgColor, ui, electrodeUI,dataProcess, Visualizer)
 
 
 communityDetectionEngine = communityDetectionEngine(widget,distinguishableColors,FontBgColor)
@@ -173,7 +144,7 @@ Box.setContentsMargins(0, 0, 0, 0)
 
 window_CorrelationTable.setLayout(Box)
 window_CorrelationTable.setWindowTitle("CorrelationTable")
-window_CorrelationTable.resize(Offset*(Counter)-0,Offset*(Counter)+170)
+window_CorrelationTable.resize(OFFSET*(Counter)-0,OFFSET*(Counter)+170)
 
 Tab_2_CorrelationTable.hide()
 BoxTable = QtGui.QHBoxLayout()
@@ -199,50 +170,47 @@ if GraphWindowShowFlag:
 
 # For image label 
 print "Setting up Electrode data"
-if ElectrodeWindowShowFlag: 
-    Electrode = ImageLabel(dataProcess, correlationTable, colorTable, selectedColor, Counter, widget, electrodeUI, Visualizer)
-    communitiesAcrossTimeStep = CommunitiesAcrossTimeStep(widget, Electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine)
-    Electrode.CommunitiesAcrossTimeStep = communitiesAcrossTimeStep 
+Electrode = ImageLabel(dataProcess, correlationTable, colorTable, selectedColor,Counter, widget, electrodeUI, Visualizer)
 
-    communitiesAcrossTimeStep.AcrossTimestepUI = AcrossTimestep
-    CommunitiesLayout = CommunitiesAcrossTimeStepInterface(AcrossTimestep, communitiesAcrossTimeStep)
+communitiesAcrossTimeStep = CommunitiesAcrossTimeStep(widget, Electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine)
+Electrode.CommunitiesAcrossTimeStep = communitiesAcrossTimeStep 
 
-    syllable = Syllable()
+communitiesAcrossTimeStep.AcrossTimestepUI = AcrossTimestep
+CommunitiesLayout = CommunitiesAcrossTimeStepInterface(AcrossTimestep, communitiesAcrossTimeStep)
 
-    InterfaceSignals= Interface(widget,ui,Electrode,electrodeUI,\
-        communitiesAcrossTimeStep,Tab_1_CorrelationTable,\
-        Tab_2_CorrelationTable, Visualizer, quantData, quantTableObject, Graph_Layout)
+syllable = Syllable()
 
-    ElectrodeInterface = ElectrodeInterface(widget,ui,Electrode,electrodeUI,\
-        communitiesAcrossTimeStep,Tab_1_CorrelationTable,Tab_2_CorrelationTable, Visualizer)
-    
-    Electrode.ElectrodeInterface = ElectrodeInterface
+InterfaceSignals= Interface(widget,ui,Electrode,electrodeUI,communitiesAcrossTimeStep,Tab_1_CorrelationTable,Tab_2_CorrelationTable, Visualizer, quantData, quantTableObject, Graph_Layout)
 
-    FinalLayout = QtGui.QHBoxLayout()
-  
-    vbox = QtGui.QVBoxLayout()
-    plotLayout = QtGui.QHBoxLayout()
+ElectrodeInterface = ElectrodeInterface(widget,ui,Electrode,electrodeUI,communitiesAcrossTimeStep,Tab_1_CorrelationTable,Tab_2_CorrelationTable, Visualizer)
 
-    # Faster debugging
-    def debug():
-        """
-        Easy to debug module, streaming data can be simulated 
-        here
-        """
+Electrode.ElectrodeInterface = ElectrodeInterface
 
-        widget.SelectNodeColor("communities")
-        Visualizer.correlation.setCurrentIndex(1)
+FinalLayout = QtGui.QHBoxLayout()
 
-        Electrode.ClusterActivated("ConsensusPreComputed")
-        Visualizer.NodeSize1.setCurrentIndex(6)
+vbox = QtGui.QVBoxLayout()
+plotLayout = QtGui.QHBoxLayout()
 
-        Electrode.TowValueChanged("5")
-        Visualizer.Tow1.setValue(5)
+# Faster debugging
+def debug():
+    """
+    Easy to debug module, streaming data can be simulated 
+    here
+    """
 
-        Electrode.MultipleTimeGlyph(True) 
-        Visualizer.Glyphs.setChecked(True)
- 
-    debug()
+    widget.SelectNodeColor("communities")
+    Visualizer.correlation.setCurrentIndex(1)
+
+    Electrode.ClusterActivated("ConsensusPreComputed")
+    Visualizer.NodeSize1.setCurrentIndex(6)
+
+    Electrode.TowValueChanged("5")
+    Visualizer.Tow1.setValue(5)
+
+    Electrode.MultipleTimeGlyph(True) 
+    Visualizer.Glyphs.setChecked(True)
+
+debug()
 
 """Window for correlation Table"""
 view = CustomWebView()

@@ -497,7 +497,6 @@ class DataModel(object):
         scipy.io.savemat(name, mdict={'electrode': obj_arr[0], 'C': self.adjacencyMatrix})
 
     def GenerateBrainFileFormat(self):
-        Data=scipy.io.loadmat(Electrode_mat_filename)
         self.im = Image.open(Brain_image_filename)
         self.TotalX, self.TotalY = np.shape(self.im)
         foo = np.array(self.im)

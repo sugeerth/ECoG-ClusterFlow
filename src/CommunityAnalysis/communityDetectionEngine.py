@@ -1,8 +1,4 @@
-import csv
-import colorsys
 import math
-import colorsys
-import time
 from collections import defaultdict
 from PySide import QtCore, QtGui
 from PySide.QtCore import *
@@ -10,7 +6,6 @@ from ConsensusClster.cluster import ConsensusCluster
 import warnings
 warnings.filterwarnings("ignore")
 
-import pyqtgraph as pg
 
 import math, numpy, sys, random
 import operator
@@ -54,8 +49,6 @@ class ConsensusCustomCluster(object):
         self.graphWidget = graphwidget
         self.partition = dict()
         self.timestepPartition = dict()
-        timestepDict = dict()
-        length = self.graphWidget.counter
 
         syllable = self.graphWidget.Syllable
         self.syllable = syllable
@@ -66,14 +59,14 @@ class ConsensusCustomCluster(object):
     def prepareClsuterData(self, graph, timestep, syllable): 
         if not(self.syllable == syllable):
             self.syllable = syllable
-            FileNames = '/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json'
-            nameHeatmap = "ConsensusData/DeltaAreaChange"+str(syllable)+str(4)+"Heatmap.tsv"
+            # FileNames = '/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json'
+            # nameHeatmap = "ConsensusData/DeltaAreaChange"+str(syllable)+str(4)+"Heatmap.tsv"
 
             name = "ConsensusData/ConsensusCluster"+str(syllable)+str(4)+".json"
             print "The new Cluster Data has been loaded", name
             self.timestepPartition = pickle.load(open(name))
 
-        distances = copy.deepcopy(nx.to_numpy_matrix(graph))
+        # distances = copy.deepcopy(nx.to_numpy_matrix(graph))
         try: 
             self.partition = copy.deepcopy(self.timestepPartition[timestep])
             if timestep == 0: 
@@ -99,8 +92,8 @@ class CustomCluster(object):
         self.partition = dict()
         self.partition1 = dict()
         self.timestepPartition = dict()
-        timestepDict = dict()
-        length = self.graphWidget.counter
+        # timestepDict = dict()
+        # length = self.graphWidget.counter
 
         name = "ConsensusData/TenRandomTimesteps.json"
         self.timestepPartition = pickle.load(open(name))
@@ -163,8 +156,6 @@ class CustomCluster(object):
 
         print timestep
 
-
-
         if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]:
             for i in range(len(distances)):
                 if i in x: 
@@ -197,7 +188,7 @@ class CustomCluster(object):
                             self.partition[j] = 0
                         else:
                             self.partition[j] = randint(1, 2)
-        if  timestep == 0:
+        if timestep == 0:
             self.partition.clear()
             for i in range(len(distances)):
                 if i in x: 
@@ -229,7 +220,7 @@ class ConsensusMediator(object):
         self.pca_only = False
         self.kvalues = [2,3,4,5,6]
         self.subsamples = 30
-        self.FinalPartiction =  dict() 
+        self.FinalPartiction = dict() 
         self.subsample_fraction = 1
         self.ParsedData = None
         self.norm_var = False # variance == 1
@@ -266,7 +257,7 @@ class ConsensusMediator(object):
 
         if Timestep == 62:
             ChangeInDeltaArea = "ConsensusData/DeltaAreaChange"+str(self.graphWidget.Syllable)+str(4)+"Heatmap.tsv"
-            AllClusterData  = "ConsensusData/AllClusterings"+str(self.graphWidget.Syllable)+str(4)+"Heatmap.tsv"
+            AllClusterData = "ConsensusData/AllClusterings"+str(self.graphWidget.Syllable)+str(4)+"Heatmap.tsv"
 
             with open(ChangeInDeltaArea, 'w') as outfile:
                 kValues = 'day' #K-values
@@ -364,7 +355,7 @@ class ConsensusMediator(object):
         threshold = 0.5
         
         #Initialise the various dictionaries
-        colour_map = kwds['colour_map']
+        # colour_map = kwds['colour_map']
 
         if hasattr(self, 'defined_clusters'):
             sample_id_to_cluster_def = {}
@@ -397,7 +388,6 @@ class ConsensusMediator(object):
 
         M = clust_data.M
         
-        buffer = []
         clsbuffer = []
         
         if hasattr(self.ParsedData, 'gene_names'):
@@ -541,6 +531,7 @@ class communityDetectionEngine(QtCore.QObject):
 
         self.AnimationMode = False
         self.TowChanged = False
+        self.oneLengthCommunities = []
         self.ClusteringAlgorithm = 0
 
         self.ColorVisit = []
@@ -727,16 +718,14 @@ class communityDetectionEngine(QtCore.QObject):
 
             for key, Color in Assignment.items():
                 if not(isinstance(Color, tuple)):
-                    self.clut[key] =  clut[Color] 
+                    self.clut[key] = clut[Color] 
                     self.ColorVisit[key] = ColorVisit[Color]
                 else:
                     self.clut[key] = ColorToInt(Color[0], Color[1], Color[2])
                     self.ColorVisit[key] = (Color[0], Color[1], Color[2])
 
-    def AssignCommuntiesFromDerivedFromTow(self,TowPartition, TowInducedGraph,\
-                                            TowMultipleValue, TowDataStructure,\
-                                            timestep,syllable):
-        self.TimeStepNetworkxGraphData =  copy.deepcopy(TowDataStructure)
+    def AssignCommuntiesFromDerivedFromTow(self,TowPartition, TowInducedGraph,TowMultipleValue, TowDataStructure,timestep,syllable):
+        self.TimeStepNetworkxGraphData = copy.deepcopy(TowDataStructure)
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
 
         self.FinalClusterPartition.clear() 
@@ -754,7 +743,6 @@ class communityDetectionEngine(QtCore.QObject):
             edge().update()
 
     def GenerateNewColors(self,counter):
-        k=self.updateCommunityColors(counter)
         self.ColorVisit = []
         l = 1 
         for i in range(counter):
@@ -775,7 +763,7 @@ class communityDetectionEngine(QtCore.QObject):
 def ColorBasedOnBackground(r,g,b):
     """Perceptive lumincance"""
     a = 1 - (0.299*r + 0.587*g + 0.114*b)/255
-    if  (a < 0.5):
+    if (a < 0.5):
         """dark bg"""
         return (255 << 24 | 0 << 16 | 0 << 8 | 0)
     else:
