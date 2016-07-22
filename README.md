@@ -15,10 +15,3 @@ We present ECoG ClusterFlow, an interactive visual analysis system for the explo
     communtiy (BrainViewer)
 ################################
 
-
-
-***********************************************************************
-matrix_filename = '/<edit your path to these files>/27nodeMatrix.csv'
-template_filename = '/<edit your path to these files>/ch2better.nii.gz'
-parcelation_filename = '/<edit your path to these files>/allROIs.nii.gz'
-************************************************************************
