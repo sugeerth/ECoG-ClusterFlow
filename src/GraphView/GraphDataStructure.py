@@ -42,7 +42,6 @@ class GraphVisualization(QtGui.QWidget):
         """
         # np.savetxt('test2.txt', self.ThresholdData, delimiter=',', fmt='%1.4e')
         self.g = nx.from_numpy_matrix(self.ThresholdData)  
-        # pprint.pprint(self.ThresholdData), "Check if data is right values, etc are right"
 
     def DrawHighlightedGraph(self,weight=None):
         # print "Data in highlighted graph",self.data

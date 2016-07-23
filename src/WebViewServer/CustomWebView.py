@@ -25,7 +25,7 @@ from math import *
 
 Default = 1420.36
 
-url = 'http://localhost/~sugeerthmurugesan/Sankey/index.html'
+url = 'http://localhost/~sugeerthmurugesan/Sankey/.html'
 url2 = 'http://localhost/~sugeerthmurugesan/Sankey/Working.html'
 
 class StupidClass(QtCore.QObject): 

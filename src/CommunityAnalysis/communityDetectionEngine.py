@@ -197,10 +197,8 @@ class CustomCluster(object):
                     self.partition[i] = 1
                 elif i in z: 
                     self.partition[i] = 2
-                # self.partition[20] = 0
-                # self.partition[39] = 1
 
-            pprint.pprint(self.partition)
+            # pprint.pprint(self.partition)
         return self.partition
 
 class ConsensusMediator(object):

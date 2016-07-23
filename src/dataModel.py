@@ -256,7 +256,6 @@ class DataModel(object):
     def writeSignalData(self): 
         name = "SyntheticGeneratedData/SyntheticElectric.mat"
         muDat = [self.Electrode]
-        pprint.pprint(self.Electrode[0][109][0])
         scipy.io.savemat(name, mdict={'muDat': self.Electrode})
 
     def GenerateDataSets(self):
@@ -303,7 +302,7 @@ class DataModel(object):
                     for r in range(sq):
                         self.adjacencyMatrix[i][j][q][r] = random.uniform(0,1)
 
-        pprint.pprint(self.adjacencyMatrix[i][5])
+        # pprint.pprint(self.adjacencyMatrix[i][5])
         # print "x=",self.x
         # print "y=",self.y
         # print "z=",self.z
