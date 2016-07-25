@@ -154,7 +154,6 @@ class CustomCluster(object):
         #         elif i in r: 
         #             self.partition[i] = 1
 
-        print timestep
 
         if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]:
             for i in range(len(distances)):

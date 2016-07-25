@@ -15,6 +15,7 @@ except:
 	raise
 
 """Class responsible for analysis of communities across timesteps"""
+No_Of_Elements = [[0.0]*16 for _ in xrange(16)]
 
 class SimilarityData(object): 
 	"""
@@ -37,6 +38,52 @@ class SimilarityData(object):
 				Kappa_matrix[community1][community2] = val
 
 		return Kappa_matrix,No_Of_Elements,self.ThresholdAssignment(Kappa_matrix, CommunityObject) 
+
+
+	def NormalizedMutualInformation(self, Number_Of_Elements, CommunityObject):
+		FinalValue = 0.0
+		Numerator = 0.0
+		Denominator = 0.0
+		TermFactor = 0.0
+		SumFactor = 0.0
+		TermFactor1 = 0.0
+		SumFactor1 = 0.0
+		TermFactor2 = 0.0
+		SumFactor2 = 0.0
+
+		N = CommunityObject.widget.counter
+
+		for community1, nodes1 in CommunityObject.dataAccumalation.items(): 
+			SumFactor+= TermFactor
+			for community2, nodes2 in CommunityObject.communityMultiple.items():
+				x = np.sum(Number_Of_Elements[:community2])
+				y =  np.sum(Number_Of_Elements[community1])
+				Cij= Number_Of_Elements[community1][community2]
+				print Cij,x,y
+				if Cij == -1:
+					continue
+				TermFactor = Cij * log1p((Cij*N)/(x*y))
+
+		Numerator = (-2) * SumFactor
+		for community1, nodes1 in CommunityObject.dataAccumalation.items():
+				x =  np.sum(Number_Of_Elements[community1])
+				TermFactor1 = x * log1p(x/N)
+				SumFactor1+= TermFactor1
+		
+		for community2, nodes2 in CommunityObject.communityMultiple.items():
+				x = np.sum(Number_Of_Elements[:community2])
+				TermFactor2 = x * log1p(x/N)
+				SumFactor2+= TermFactor2
+		Denominator = SumFactor2 + SumFactor1
+
+		try: 
+			FinalValue = Numerator/Denominator
+		except ZeroDivisionError:
+			print "HI"
+
+		print FinalValue
+
+		return FinalValue
 
 	"""
 	@/ Assign colors to different nodes are created, 
@@ -137,6 +184,7 @@ class LogicForTimestep(object):
 		"""
 		Kappa_matrix, No_Of_Elements, Assignment = self.Data.computeSimilarityMatrices(CommunityObject)
 		ColorAssignment = self.Data.AssignColors(CommunityObject, Kappa_matrix, Assignment, PreviousNodes)
+		NormalizedMutualInformation = self.Data.NormalizedMutualInformation(No_Of_Elements, CommunityObject)
 		return Kappa_matrix,No_Of_Elements,Assignment, ColorAssignment
 
 	def changeColorsForNodesJustRendered(self, CommunityObject, ColorAssignment, Nodes, PreviousNodes, Kappa_matrix):

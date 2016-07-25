@@ -50,16 +50,16 @@ from StaticColorLogic import LogicForTimestep, SimilarityData
 Capture = [0,15]
 Interval = 13
 
-FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,11),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_2.json',12,23)\
-,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',23,34),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',34,45)\
-,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',45,56)]
+FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,8),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_2.json',9,16)\
+,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',17,24),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',25,32)\
+,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',33,40)]
 
 HeatmapFilename = "/Users/sugeerthmurugesan/Sites/Sankey/DeltaAreaChange4Heatmap.tsv"
 
 ElectrodeSignalDataName = 'muDat'
 
 timestep = 12
-THRESHOLD_VALUE_TRACKING_GRAPH = 0
+THRESHOLD_VALUE_TRACKING_GRAPH = 0.18
 NumberOfSelectedEletrodes = 30
 Number_of_Communities = 4
 WIDTH = 1200
@@ -74,8 +74,6 @@ counter =  0
 Width_value = 0 
 Similarity = [[0.0]*16 for _ in xrange(16)] 
 
-
-
 """ Work remaining to do is mainly deploying the tracking graph with different parameters
 Working on consistent stuff """
 class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
@@ -85,6 +83,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		QtGui.QGraphicsView.__init__(self)
 		self.Graph_interface = widget
 		self.AggregateList = []
+		
 		global timestep
 		self.Logic = LogicForTimestep()
 		timestep = widget.OverallTimestep
@@ -184,8 +183,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		2) Sends out the values to all the other listerners 
  		5) Sends out the color information to the detection engine so that everyone can use the same coloring scheme 
 		"""
-		print self.firstTime, "FIRST"
-
 		self.communityMultiple.clear()
 
 		if self.communityMultiple:
@@ -288,8 +285,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 
 				nodeDict["color"] = str("rgb"+str(Color)+"").replace("[", "").replace("]", "")
 				nodeDict["opacity"] = opacity
-				print nodeDict["color"]
-
  	  			self.nodelist.append(nodeDict)
 	  			self.nodelist1.append(nodeDict)
 
@@ -462,7 +457,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		hashmap[0] = 0
 		ElectrodeViewObjectDummy = self.electrode.SmallMultipleElectrode[1]
 
-		print "Slices",ElectrodeViewObjectDummy.slices
 		for i in range(1,self.electrode.dataProcess.timestep):
 			if not(i % ElectrodeViewObjectDummy.slices) == 0: 
 				hashmap[i-1 - Offset] = c
