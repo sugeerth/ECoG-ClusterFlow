@@ -238,5 +238,5 @@ Visualizer.setContentsMargins(0,0,0,0)
 Visualizer.setLayout(ElectrodeLayout)
 Visualizer.setContentsMargins(0,0,0,0)
 
-Visualizer.show()
+# Visualizer.show()
 sys.exit(app.exec_())

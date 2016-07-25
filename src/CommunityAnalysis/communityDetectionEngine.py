@@ -580,7 +580,6 @@ class communityDetectionEngine(QtCore.QObject):
         1) When one is intending to freeze the colors inside of there 
         """
         self.level = level
-        # print "This is the level", level, self.AnimationMode, self.TowChanged
         
         if self.AnimationMode:
             """For now the signal emits stuff that will 
@@ -591,7 +590,6 @@ class communityDetectionEngine(QtCore.QObject):
             """
             self.calculateNewGraphPropertiesAndCommunitiesForAnimation(level)
             self.CalculateFormulae.emit(True)
-        else: 
             if self.TowChanged:
                 self.calculateNewGraphPropertiesAndCommunities(level)
                 self.CalculateColors.emit(self.TowValue)
@@ -611,7 +609,6 @@ class communityDetectionEngine(QtCore.QObject):
         # gets the graph data!! 
         self.TimeStepNetworkxGraphData =  self.Graphwidget.Graph_data().DrawHighlightedGraph(self.Graphwidget.EdgeSliderValue)
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
-
 
         if not(self.PreComputeState):
             self.FinalClusterPartition=self.resolveCluster(self.ClusteringAlgorithm,self.TimeStepNetworkxGraphData,self.Number_of_Communities)
