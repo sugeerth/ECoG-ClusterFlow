@@ -686,7 +686,7 @@ class ImageLabel(QtGui.QGraphicsView):
         # self.ElectrodeInterface.electrodeUI.PreCompute.setChecked(False)
         self.RefreshPreComputeData()
         # print "Syllable changes but with the same tow value", self.graphWidget.TowValue 
-        self.graphWidget.changeStuffDuetoTowChange(self.graphWidget.TowValue)
+        self.graphWidget.changeStuffDuetoTowChange(self.graphWidget.communityDetectionEngine.TowValue)
         self.ElectrodeView.UpdateColors()
         self.UpdateColorsSmallMultiples()
 

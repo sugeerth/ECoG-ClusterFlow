@@ -184,7 +184,7 @@ class LogicForTimestep(object):
 		"""
 		Kappa_matrix, No_Of_Elements, Assignment = self.Data.computeSimilarityMatrices(CommunityObject)
 		ColorAssignment = self.Data.AssignColors(CommunityObject, Kappa_matrix, Assignment, PreviousNodes)
-		NormalizedMutualInformation = self.Data.NormalizedMutualInformation(No_Of_Elements, CommunityObject)
+		# NormalizedMutualInformation = self.Data.NormalizedMutualInformation(No_Of_Elements, CommunityObject)
 		return Kappa_matrix,No_Of_Elements,Assignment, ColorAssignment
 
 	def changeColorsForNodesJustRendered(self, CommunityObject, ColorAssignment, Nodes, PreviousNodes, Kappa_matrix):

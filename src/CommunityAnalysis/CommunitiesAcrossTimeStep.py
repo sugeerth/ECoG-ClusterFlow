@@ -50,16 +50,16 @@ from StaticColorLogic import LogicForTimestep, SimilarityData
 Capture = [0,15]
 Interval = 13
 
-FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,8),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_2.json',9,16)\
-,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',17,24),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',25,32)\
-,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',33,40)]
+FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,12),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_2.json',12,24)\
+,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',24,36),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',36,48)\
+,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',48,6)]
 
 HeatmapFilename = "/Users/sugeerthmurugesan/Sites/Sankey/DeltaAreaChange4Heatmap.tsv"
 
 ElectrodeSignalDataName = 'muDat'
 
 timestep = 12
-THRESHOLD_VALUE_TRACKING_GRAPH = 0.18
+THRESHOLD_VALUE_TRACKING_GRAPH = 0.10
 NumberOfSelectedEletrodes = 30
 Number_of_Communities = 4
 WIDTH = 1200
@@ -83,7 +83,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		QtGui.QGraphicsView.__init__(self)
 		self.Graph_interface = widget
 		self.AggregateList = []
-		
+
 		global timestep
 		self.Logic = LogicForTimestep()
 		timestep = widget.OverallTimestep

@@ -54,6 +54,7 @@ class ConsensusCustomCluster(object):
         self.syllable = syllable
         name = "ConsensusData/ConsensusCluster"+str(syllable)+str(4)+".json"
 
+        print name
         self.timestepPartition = pickle.load(open(name))
 
     def prepareClsuterData(self, graph, timestep, syllable): 
@@ -646,7 +647,6 @@ class communityDetectionEngine(QtCore.QObject):
             partition = self.CustomCluster.prepareClsuterData(graph, self.Graphwidget.TimeStep, self.Graphwidget.Syllable)
         elif value == 6: 
             partition = self.ConsensusCustomCluster.prepareClsuterData(graph, self.Graphwidget.TimeStep, self.Graphwidget.Syllable)
-
         return partition
 
     def absolutizeData(self, graph):
