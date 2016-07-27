@@ -84,6 +84,10 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.Graph_interface = widget
 		self.AggregateList = []
 
+		scene = QtGui.QGraphicsScene(self)
+		scene.setItemIndexMethod(QtGui.QGraphicsScene.NoIndex)
+		self.setScene(scene)
+
 		global timestep
 		self.Logic = LogicForTimestep()
 		timestep = widget.OverallTimestep
@@ -167,12 +171,25 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.initUI()
 		self.Assignment2 = dict()
 
+		self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
+		self.setScene(self.Scene_to_be_updated)
+		self.fitInView(self.Scene_to_be_updated.itemsBoundingRect(),QtCore.Qt.KeepAspectRatio)
+
 	def truncate(self,no):
 		if no < 20: 
 			no = 45
 		elif no > 230: 
 			no = 200
 		return no
+
+	def noDuplicates(self, list1):
+		print list1
+		items = set([i for i in list1 if sum([1 for a in list1 if a == i]) > 1])
+		# if items:
+		# 	return True
+		# else:
+		# 	return False
+		return True
 
 	@Slot(bool)
 	def CalculateStabilityOfMatrices(self,state):
@@ -217,6 +234,10 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		if self.Graph_interface.TimeStep > -1:
 			self.Logic.changeColorsForNodesJustRendered(self,colorAssignment,self.presentNodeObjects,self.previousNodeObjects, self.Kappa_matrixForSimilarityComputation)
 
+		#* Check for duplicates
+		# self.noDuplicates
+		self.CreateTrackingEdges(self.communityMultiple, self.dataAccumalation, AssignmentAcrossTime)
+
 		Name = ""
 		End = -1 
 		Start = -1
@@ -242,6 +263,8 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 
 		if AssignmentAcrossTime:
 			self.AssigNewValuesToGraphWidget(False, colorAssignment)
+
+		self.changeViewinGraph()
 
 	def WriteTrackingData(self,AssignmentAcrossTime,Name ,Start ,End):
 		sankeyJSON = dict()
@@ -412,11 +435,14 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 	def changeVizOffset(self):
 		self.Offset+=1
 		self.SendValuesToElectrodeNodes(self.nodelist1, self.Offset)
+		self.changeViewinGraph()
+		
 
 	def CreateTrackingNodes(self, partitionValues):
 		i = 0
 		self.counter = self.counter+1
 		self.presentNodeObjects = []
+		sceneRect = self.sceneRect()
 
 		# Create the nodes which are rated in the way that it is organized
 		# Just create one layer of the nodes here!! for now
@@ -424,11 +450,13 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		for communities, sub_communities in partitionValues.items():
 			i = i + 1
 			node_value=CommunityGraphNode(self,communities, sub_communities)
+			node_value.setPos(sceneRect.left() + self.variableWidth*100, i*40)
 			self.presentNodeObjects.append(node_value)
+			self.scene.addItem(node_value)
 
-		if self.firstTime:
+		if self.first:
 			value = len(partitionValues.values())
-			self.firstTime = False #*
+			self.first = False #*
 			self.NewCommunitiesToBeAssigned = []
 			self.NewCommunitiesToBeAssigned = deque([j for i,j in enumerate(self.distinguishableColors) if i > (10)])
 			for i in self.presentNodeObjects: 
@@ -446,7 +474,22 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		for communities, sub_communities in partitionValues.items():
 			i = i + 1
 			node_value=CommunityGraphNode(self,communities, sub_communities)
+			node_value.setPos(sceneRect.left() + self.variableWidth*100, i*40)
 			self.previousNodeObjects.append(node_value)
+			self.scene.addItem(node_value)
+
+	def CreateTrackingEdges(self, partitionValues, BeforeTimestep, AssignmentAcrossTime):
+		i = 0
+		k = 0
+		for community1 in BeforeTimestep.keys():
+			for community in partitionValues.keys(): 
+				if self.ThresholdChange:
+					k = k + 1 
+					if community in AssignmentAcrossTime[community1]: 
+						self.scene.addItem(CommunitiesEdge(self,self.NodeIds1[community1],self.NodeIds[community],k,community1,community, self.Kappa_matrix1[community1][community]))
+				elif AssignmentAcrossTime[community1] == community: 
+					k = k + 1 
+					self.scene.addItem(CommunitiesEdge(self,self.NodeIds1[community1],self.NodeIds[community],k,community1,community, self.Kappa_matrix1[community1][community]))
 
 	def SendValuesToElectrodeNodes(self, nodelist, Offset = 0):
 		# timestep at a range ONLY update that electrodeView, only then move onto the next one
@@ -500,6 +543,53 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 	def animate(self):
 		self.elapsed = (self.eFFlapsed + self.sender().interval()) % 1000
 
+	def paint(self, painter, option, widget):
+		painter.setPen(QtCore.Qt.NoPen)
+		painter.setBrush(QtCore.Qt.black)
+		painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))
+		painter.drawEllipse(-4, -4, 10, 10)
+
+	def drawBackground(self, painter, rect):
+		sceneRect = self.sceneRect()
+		textRect = QtCore.QRectF(sceneRect.left() + 4, sceneRect.top() + 4,
+								 sceneRect.width() - 4, sceneRect.height() - 4)
+		message = self.tr("Link Graph")
+
+		font = painter.font()
+		font.setBold(True)
+		font.setPointSize(14)
+		painter.setFont(font)
+		painter.setPen(QtCore.Qt.lightGray)
+		painter.drawText(textRect.translated(2, 2), message)
+		painter.setPen(QtCore.Qt.black)
+		painter.drawText(textRect, message)
+
+	def changeViewinGraph(self):
+		self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
+		self.setScene(self.Scene_to_be_updated)
+		x1,y1,x2,y2 = (self.Scene_to_be_updated.itemsBoundingRect()).getCoords()
+		# x2-
+		# self.fitInView(self.Scene_to_be_updated.itemsBoundingRect(),QtCore.Qt.KeepAspectRatio)
+		self.fitInView(QtCore.QRectF(x2-50,y1,x2+100,y2), QtCore.Qt.KeepAspectRatio)
+		# self.fitInView(QtCore.QRectF(x2+50+self.width/4+50, self.height/4+50, x2+250,3*self.height/6),QtCore.Qt.KeepAspectRatio)
+		self.Scene_to_be_updated.update()
+		self.update()
+
+	def updateScene(self):
+		self.update()
+		self.Scene_to_be_updated.update()
+
+	def wheelEvent(self, event):
+		self.scaleView(math.pow(2.0, -event.delta() / 1040.0))
+
+	def scaleView(self, scaleFactor):
+		factor = self.matrix().scale(scaleFactor, scaleFactor).mapRect(QtCore.QRectF(0, 0, 1, 1)).width()
+		if factor < 0.07 or factor > 100:
+			return
+		self.scale(scaleFactor, scaleFactor)
+		del factor
+
+
 	"""Identifies the intersecting elements in the two lists"""
 	def SimiliarElements(self,nodes1, nodes2, community1, community2):
 		intersectingElements = list(set(nodes1).intersection(nodes2))
@@ -539,6 +629,25 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		"""
 		self.presentNodeObjects = []
 		self.centrality = []
+
+		scene = QtGui.QGraphicsScene(self)
+		scene.setItemIndexMethod(QtGui.QGraphicsScene.NoIndex)
+		scene.setSceneRect(-200, -200, 400, 400)
+		self.setScene(scene)
+		self.scene = scene
+		self.setCacheMode(QtGui.QGraphicsView.CacheBackground)
+		self.setRenderHint(QtGui.QPainter.Antialiasing)
+		self.setTransformationAnchor(QtGui.QGraphicsView.AnchorUnderMouse)
+		self.setResizeAnchor(QtGui.QGraphicsView.AnchorViewCenter)
+		
+		self.Scene_to_be_updated = scene
+		self.setCacheMode(QtGui.QGraphicsView.CacheBackground)
+		i = 0
+		self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
+		self.setScene(self.Scene_to_be_updated)
+		self.fitInView(self.Scene_to_be_updated.itemsBoundingRect(),QtCore.Qt.KeepAspectRatio)
+		self.scaleView(math.pow(2.0, -900/ 1040.0))
+
 
 	@Slot(object)
 	def initializePrecomputationObject(self, PreComputeObject):
@@ -603,6 +712,8 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			self.TowMultiple[value1].append(key)
 		self.AssigNewValuesToGraphWidget(True)
 		self.widget.Refresh()
+		self.widget.scaleView(1.0001)
+		self.changeViewinGraph()
 		print "WARNING: Comunity coloring has been changed"
 
 

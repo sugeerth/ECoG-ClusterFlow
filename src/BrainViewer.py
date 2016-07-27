@@ -178,6 +178,8 @@ Electrode.CommunitiesAcrossTimeStep = communitiesAcrossTimeStep
 communitiesAcrossTimeStep.AcrossTimestepUI = AcrossTimestep
 CommunitiesLayout = CommunitiesAcrossTimeStepInterface(AcrossTimestep, communitiesAcrossTimeStep)
 
+communitiesAcrossTimeStep.show()
+
 syllable = Syllable()
 
 InterfaceSignals= Interface(widget,ui,Electrode,electrodeUI,communitiesAcrossTimeStep,Tab_1_CorrelationTable,Tab_2_CorrelationTable, Visualizer, quantData, quantTableObject, Graph_Layout)
