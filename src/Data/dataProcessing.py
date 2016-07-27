@@ -20,13 +20,18 @@ class dataProcessing(object):
 			self.Timestep =0
 
 			self.ElectrodeSignals = scipy.io.loadmat(ElectrodeSignals)
-			Data=scipy.io.loadmat(Electrode_ElectrodeData_filename)
-
 			self.mat = scipy.io.loadmat(Electrode_mat_filename)
 
-			temp = Data['electrode']
-			self.ElectrodeIds = temp[0]
-			self.ElectodeData = Data['C']
+			# Changes for artificial data 
+			# Data=scipy.io.loadmat(Electrode_ElectrodeData_filename)
+			# temp = Data['electrode']
+			# self.ElectrodeIds = temp[0]
+			# self.ElectodeData = Data['C']
+
+			print len(self.ElectodeData)
+			# Changes for RealData
+			self.ElectrodeIds = [i for i in range(len(self.ElectrodeSignals[ElectrodeSignalDataName][0]))]
+			self.ElectodeData = connectivityData['conData']
 
 			self.syllable, self.timestep, self.N , self.N  = np.shape(self.ElectodeData)
 			self.timestep = self.timestep - 1

@@ -27,8 +27,8 @@ import networkx as nx
 
 # Changes for RealData
 
-# ElectrodeSignalDataName = 'sigData'
-ElectrodeSignalDataName = 'muDat'
+ElectrodeSignalDataName = 'sigData'
+# ElectrodeSignalDataName = 'muDat'
 
 timesteps = 12
 NumberofTimesteps = 85
