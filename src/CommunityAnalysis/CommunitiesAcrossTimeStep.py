@@ -20,6 +20,8 @@ from time import time
 from math import *
 
 from TrackingGraph.CommunitiesNode import CommunityGraphNode
+from TrackingGraph.CommunitiesEdge import CommunitiesEdge
+
 from LegacyAPI import LegacyAPI
 
 """
@@ -436,7 +438,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.Offset+=1
 		self.SendValuesToElectrodeNodes(self.nodelist1, self.Offset)
 		self.changeViewinGraph()
-		
+
 
 	def CreateTrackingNodes(self, partitionValues):
 		i = 0
@@ -486,10 +488,10 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 				if self.ThresholdChange:
 					k = k + 1 
 					if community in AssignmentAcrossTime[community1]: 
-						self.scene.addItem(CommunitiesEdge(self,self.NodeIds1[community1],self.NodeIds[community],k,community1,community, self.Kappa_matrix1[community1][community]))
+						self.scene.addItem(CommunitiesEdge(self,self.previousNodeObjects[community1],self.presentNodeObjects[community],k,community1,community, self.Kappa_matrixForSimilarityComputation[community1][community]))
 				elif AssignmentAcrossTime[community1] == community: 
 					k = k + 1 
-					self.scene.addItem(CommunitiesEdge(self,self.NodeIds1[community1],self.NodeIds[community],k,community1,community, self.Kappa_matrix1[community1][community]))
+					self.scene.addItem(CommunitiesEdge(self,self.previousNodeObjects[community1],self.presentNodeObjects[community],k,community1,community, self.Kappa_matrixForSimilarityComputation[community1][community]))
 
 	def SendValuesToElectrodeNodes(self, nodelist, Offset = 0):
 		# timestep at a range ONLY update that electrodeView, only then move onto the next one
@@ -639,6 +641,10 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.setRenderHint(QtGui.QPainter.Antialiasing)
 		self.setTransformationAnchor(QtGui.QGraphicsView.AnchorUnderMouse)
 		self.setResizeAnchor(QtGui.QGraphicsView.AnchorViewCenter)
+		
+		self.setDragMode(QtGui.QGraphicsView.ScrollHandDrag)
+		self.setInteractive(True)
+		self.setTransformationAnchor(QtGui.QGraphicsView.AnchorUnderMouse)
 		
 		self.Scene_to_be_updated = scene
 		self.setCacheMode(QtGui.QGraphicsView.CacheBackground)

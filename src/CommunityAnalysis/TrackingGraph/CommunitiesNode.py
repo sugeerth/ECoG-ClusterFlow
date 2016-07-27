@@ -156,7 +156,8 @@ class CommunityGraphNode(QtGui.QGraphicsItem):
 			painter.setBrush(self.CommunityColor)
 			painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))	
 
-			radius = float(self.graphWidget.widget.Centrality[i]*100)
+			# radius = float(self.graphWidget.widget.communityDetectionEngine.Centrality[i]*100)
+			radius = 10
 			Thickness = float(radius) * 2
 
 			if (option.state & QtGui.QStyle.State_Selected):
@@ -188,7 +189,8 @@ class CommunityGraphNode(QtGui.QGraphicsItem):
 			y = Radius * math.cos((2*c*math.pi)/Clusters)
 
 			c = c + 1
-			radius = float(self.graphWidget.widget.Centrality[i]*100)
+			# radius = float(self.graphWidget.widget.Centrality[i]*100)
+			radius = 10 
 			# print radiuss
 			painter.drawEllipse(x,y,radius, radius)
 			angle = angle + step
@@ -320,7 +322,8 @@ class CommunityGraphNode(QtGui.QGraphicsItem):
 			painter.setBrush(self.CommunityColor)
 			painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))	
 
-			radius = float(self.graphWidget.widget.Centrality[i]*100)
+			# radius = float(self.graphWidget.widget.Centrality[i]*100)
+			radius = 10
 			Thickness = float(radius) * 2
 
 			if (option.state & QtGui.QStyle.State_Selected):
@@ -352,7 +355,8 @@ class CommunityGraphNode(QtGui.QGraphicsItem):
 			y = Radius * math.cos((2*c*math.pi)/Clusters)
 
 			c = c + 1
-			radius = float(self.graphWidget.widget.Centrality[i]*100)
+			# radius = float(self.graphWidget.widget.Centrality[i]*100)
+			radius = 10 
 			# print radiuss
 			painter.drawEllipse(x,y,radius, radius)
 			angle = angle + step
