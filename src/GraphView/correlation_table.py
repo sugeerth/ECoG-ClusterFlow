@@ -41,7 +41,7 @@ class CorrelationTable(object):
         application to application
         WE can eventually make this something intelligent
         """
-        self.FindAbsoluteValue(self.data)
+        # self.FindAbsoluteValue(self.data)
 
     @staticmethod
     def FindAbsoluteValue(data):

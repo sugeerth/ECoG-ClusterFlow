@@ -36,8 +36,8 @@ NumberofTimesteps = 85
 #Max and Min are either computed per channel 
 from ElectrodeNode import ElectrodeNode
 
-MaxVal = -9
-MinVal = 9
+MaxVal = -99999
+MinVal = 999999
 minOpac = 40
 maxOpac = 255
 MaxToggling = True
@@ -127,6 +127,8 @@ class ElectrodeOpacity(object):
             global MaxVal, MinVal
             MaxVal = np.nanmax(self.ElectrodeSignalData)
             MinVal = np.nanmin(self.ElectrodeSignalData)
+            # MinVal*=100
+            # MaxVal*=100
 
         def RegenerateMaxMin(self,timeStep):
             global MaxVal, MinVal
@@ -137,34 +139,45 @@ class ElectrodeOpacity(object):
                     list1.append(self.ElectrodeSignalData[CurrentSyllable][i][timeStep])
                 MaxVal = max(list1)
                 MinVal = min(list1)
+            
+
         """
         1) Given the values of a electrode finds out the normalized min max values for every 
         along every timestep
         2) Normalization is performed for at every timestep, can be precomputed, later 
         """
         def normalize(self, timestep, ElementNumber):
+            """
+            I HAVE NO IDEA WHAT THIS FUNCTION DOES 
+            """
             global MaxVal, MinVal
             global minOpac, maxOpac 
 
             ElementNumber = int(ElementNumber)
-            Number= np.nonzero(self.ElectrodView.ElectrodeData.ElectrodeIds == ElementNumber)[0][0]
+
+            # Synthetic Dataset
+            # Number= np.nonzero(self.ElectrodView.ElectrodeData.ElectrodeIds == ElementNumber)[0][0]
+
+            # Real Dataset
+            Number = ElementNumber
+            
             assert self.ElectrodeNumber == ElementNumber
             self.TimesVisited = self.TimesVisited + 1
-
             "Given the timestep the function computes opacity per channel based on all of the timesteps"
 
             CurrentSyllable = self.ElectrodView.ElectrodeData.syllableUnit
             actualValue = self.ElectrodeSignalData[CurrentSyllable][Number][timestep]
+      
             x = actualValue
-            
-            OpacityValue = None
+
             if x >= MaxVal: 
                 x = MaxVal
             if x < MinVal-0.01:
                 x = None
 
             if x or x == 0: 
-                PercentDistrbution = float((x-MinVal)/(MaxVal-MinVal))
+                # Multiplying by 10 to identify structure
+                PercentDistrbution = float((x-MinVal)/(MaxVal-MinVal)) * 10
                 OpacityValue = float(PercentDistrbution)*(maxOpac-minOpac) + minOpac
             else: 
                 assert (x == None and OpacityValue == None)
@@ -201,7 +214,6 @@ class ElectrodeView(QtGui.QGraphicsView):
             self.width  =1301
             self.height =861
             self.setMinimumSize(QtCore.QSize(275,275))
-            
 
         self.Translate = Translate()
         timesteps = ElectrodeData.dataProcess.timestep

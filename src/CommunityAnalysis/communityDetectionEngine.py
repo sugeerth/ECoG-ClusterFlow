@@ -52,8 +52,8 @@ class ConsensusCustomCluster(object):
 
         syllable = self.graphWidget.Syllable
         self.syllable = syllable
-        name = "ConsensusData/ConsensusCluster"+str(syllable)+str(4)+".json"
-
+        # name = "ConsensusData/ConsensusCluster"+str(syllable)+str(4)+".json"
+        name = "ConsensusData/DyNMOGAResult/DyNMOGAResultFirstDataPublication.json"
         print name
         self.timestepPartition = pickle.load(open(name))
 
@@ -629,8 +629,8 @@ class communityDetectionEngine(QtCore.QObject):
         Number_of_Communities = self.Number_of_Communities
         if value == 0: 
             """Louvain"""
-            print "Using Louvain for Community Analysis\nWARNING: edges wieghts are absolute for louvain"
-            self.absolutizeData(graph)
+            # print "Using Louvain for Community Analysis\nWARNING: edges wieghts are absolute for louvain"
+            graph = self.absolutizeData(graph)
             partition=cm.best_partition(graph)
         elif value == 1: 
             """Hierarchical"""
@@ -653,10 +653,12 @@ class communityDetectionEngine(QtCore.QObject):
         for i,j,weight in graph.edges(data=True):
             if weight['weight'] < 0: 
                graph[i][j]['weight'] = abs(weight['weight'])
+        return graph
 
     def calculateNewGraphPropertiesAndCommunities(self,level):
         self.TimeStepNetworkxGraphData =  self.Graphwidget.Graph_data().DrawHighlightedGraph(self.Graphwidget.EdgeSliderValue)
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
+        # print len(self.TimeStepNetworkxGraphData.nodes())
         self.FinalClusterPartition=self.resolveCluster(self.ClusteringAlgorithm,self.TimeStepNetworkxGraphData, self.Number_of_Communities)
                 
     def updateCommunityColors(self,counter,TowPartition=None):
@@ -746,8 +748,16 @@ class communityDetectionEngine(QtCore.QObject):
                 self.FontBgColor[i] = self.FontBgColor[0]
                 self.ColorVisit.append((r,g,b,255))
             else:
-                r, g, b = self.distinguishableColors[l]
-                self.FontBgColor[i] = self.FontBgColor[l]
+                try: 
+                    r, g, b = self.distinguishableColors[l]
+                except IndexError:
+                    r, g, b = self.distinguishableColors[l % len(self.distinguishableColors)]
+
+                try: 
+                    self.FontBgColor[i] = self.FontBgColor[l]
+                except IndexError:
+                    self.FontBgColor[i% len(self.FontBgColor)] = self.FontBgColor[0]
+
                 self.clut[i] = (255 << 24 | r << 16 | g << 8 | b)
                 self.ColorVisit.append((r,g,b,255))
                 l = l + 1

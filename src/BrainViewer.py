@@ -15,6 +15,7 @@ except:
     print "Couldn't import all required packages. See README.md for a list of required packages and installation instructions."
     raise
 
+QtGui.QApplication.setGraphicsSystem("raster")
 app = QtGui.QApplication(sys.argv)
 OFFSET = 4 
 

@@ -28,10 +28,13 @@ class CommunityGraphNode(QtGui.QGraphicsItem):
 
 		self.Nodeidss = communities
 		self.CommunityColor = []
+			
+		self.X_Size = len(correspondingNodes)
 
 		Tooltip = ""
 		for i in correspondingNodes:
 			Tooltip+= str(i) +"\n"
+		Tooltip+= "TIMESTEP:" + str(self.graphWidget.Graph_interface.TimeStep-1)
 
 		self.setToolTip(str(Tooltip))
 
@@ -157,7 +160,7 @@ class CommunityGraphNode(QtGui.QGraphicsItem):
 			painter.setPen(QtGui.QPen(QtCore.Qt.black, 0))	
 
 			# radius = float(self.graphWidget.widget.communityDetectionEngine.Centrality[i]*100)
-			radius = 10
+			radius = self.X_Size*10
 			Thickness = float(radius) * 2
 
 			if (option.state & QtGui.QStyle.State_Selected):

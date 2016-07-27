@@ -54,7 +54,9 @@ Interval = 13
 
 FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,12),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_2.json',12,24)\
 ,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',24,36),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',36,48)\
-,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',48,6)]
+,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',48,60)]
+
+# FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,50)]
 
 HeatmapFilename = "/Users/sugeerthmurugesan/Sites/Sankey/DeltaAreaChange4Heatmap.tsv"
 
@@ -63,7 +65,7 @@ HeatmapFilename = "/Users/sugeerthmurugesan/Sites/Sankey/DeltaAreaChange4Heatmap
 ElectrodeSignalDataName = 'sigData'
 
 timestep = 12
-THRESHOLD_VALUE_TRACKING_GRAPH = 0.10
+THRESHOLD_VALUE_TRACKING_GRAPH = 0.16
 NumberOfSelectedEletrodes = 30
 Number_of_Communities = 4
 WIDTH = 1200
@@ -76,7 +78,7 @@ folding_factors = [1] * 12
 counter =  0
 
 Width_value = 0 
-Similarity = [[0.0]*16 for _ in xrange(16)] 
+Similarity = [[0.0]*250 for _ in xrange(250)] 
 
 """ Work remaining to do is mainly deploying the tracking graph with different parameters
 Working on consistent stuff """
@@ -146,7 +148,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self._2NodeIds = []
 		self.nodelist = [] 
 		self.nodelist1 = [] 
-		self.No_Of_Elements = [[0.0]*16 for _ in xrange(16)]
+		self.No_Of_Elements = [[0.0]*250 for _ in xrange(250)]
 		self.TrackOfAllData = []
 		self.edgelist = []
 
@@ -228,8 +230,10 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		Similarity = 1 - (all clusters in A (Delta) all clusters in B)/ (Sum of all elements in A and B) 
 		Can be replaced by NMI 
 		"""
+		self.variableWidth 
 		self.previousNodeObjects = [] 
 		self.previousNodeObjects = self.presentNodeObjects #stuff in previous timestep 
+		self.variableWidth += 1
 
 		self.CreateTrackingNodes(self.communityMultiple) #stuff in current timestep 
 		self.Kappa_matrixForSimilarityComputation = []
@@ -478,7 +482,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		for communities, sub_communities in partitionValues.items():
 			i = i + 1
 			node_value=CommunityGraphNode(self,communities, sub_communities)
-			node_value.setPos(sceneRect.left() + self.variableWidth*100, i*40)
+			node_value.setPos(sceneRect.left() + self.variableWidth*100, i*(-40))
 			self.previousNodeObjects.append(node_value)
 			self.scene.addItem(node_value)
 

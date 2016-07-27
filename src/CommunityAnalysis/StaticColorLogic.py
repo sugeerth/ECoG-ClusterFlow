@@ -15,7 +15,7 @@ except:
 	raise
 
 """Class responsible for analysis of communities across timesteps"""
-No_Of_Elements = [[0.0]*16 for _ in xrange(16)]
+No_Of_Elements = [[0.0]*250 for _ in xrange(250)]
 
 class SimilarityData(object): 
 	"""
@@ -149,7 +149,7 @@ class SimilarityData(object):
 			for q in NewBornCommunities:
 				if CommunityObject.NewCommunitiesToBeAssigned:
 					ColorTobeAssigned = CommunityObject.NewCommunitiesToBeAssigned.popleft()
-					ColorAssignment[q] = ColorTobeAssigned
+					ColorAssignment[q] = (ColorTobeAssigned)
 					PermuteDict[q] = ColorTobeAssigned
 				else: 
 					if CommunityObject.communitiesThatDie:

@@ -19,7 +19,7 @@ import pickle
 try:
     # ... reading NIfTI 
     import numpy as nm
-# ... graph drawing
+# ... graph drawing655g
     import networkx as nx
 
 except:
