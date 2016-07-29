@@ -53,7 +53,13 @@ class ConsensusCustomCluster(object):
         syllable = self.graphWidget.Syllable
         self.syllable = syllable
         # name = "ConsensusData/ConsensusCluster"+str(syllable)+str(4)+".json"
-        name = "ConsensusData/DyNMOGAResult/DyNMOGAResultFirstDataPublication.json"
+        
+        # DyNMOGA Results       
+        # name = "ConsensusData/DyNMOGAResult/DyNMOGAResultFirstDataPublication.json"
+        
+        # Louvain Results       
+        name = '/Users/sugeerthmurugesan/ProjectRepos/DataWrangling/SeizureLouvain.json'
+
         print name
         self.timestepPartition = pickle.load(open(name))
 
