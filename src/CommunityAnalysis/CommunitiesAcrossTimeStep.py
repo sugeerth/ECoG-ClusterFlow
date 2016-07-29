@@ -481,7 +481,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		for communities, sub_communities in partitionValues.items():
 			i = i + 1
 			node_value=CommunityGraphNode(self,communities, sub_communities)
-			node_value.setPos(sceneRect.left() + self.variableWidth*100, i*(-40))
+			node_value.setPos(sceneRect.left() + self.variableWidth*100, i*(40))
 			self.previousNodeObjects.append(node_value)
 			self.scene.addItem(node_value)
 
