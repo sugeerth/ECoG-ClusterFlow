@@ -27,7 +27,6 @@ import numpy as np
 from mpi_compat import *
 from itertools import combinations as comb
 
-from scipy import cluster as cl
 
 class BaseCluster(object):
     """
@@ -128,13 +127,13 @@ class HierarchicalCluster(BaseCluster):
 
         tree, num_clusters = self.tree, self.num_clusters
 
-        Z = cl.hierarchy.linkage(distance_matrix, method=linkage)
+        # Z = cl.hierarchy.linkage(distance_matrix, method=linkage)
     
-        for i, j, dist, k in Z:
-            tree.append(treetype.Tree(left=tree[int(i)], right=tree[int(j)], dist=dist))
+        # for i, j, dist, k in Z:
+        #     tree.append(treetype.Tree(left=tree[int(i)], right=tree[int(j)], dist=dist))
     
-        fclust = cl.hierarchy.fcluster(Z, num_clusters, criterion='maxclust')
-        nodes, node_ids = cl.hierarchy.leaders(Z, fclust)
+        # fclust = cl.hierarchy.fcluster(Z, num_clusters, criterion='maxclust')
+        # nodes, node_ids = cl.hierarchy.leaders(Z, fclust)
     
         for i in xrange(num_clusters):
             self._assign_node_clust(tree[nodes[i]], node_ids[i])

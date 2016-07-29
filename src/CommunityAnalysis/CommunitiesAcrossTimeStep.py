@@ -10,7 +10,6 @@ from collections import deque
 from PySide.QtCore import *
 import simplejson
 import traceback
-from kmedoids import ClusterAlgorithms as cl
 from graphviz import Digraph
 
 from OpenGL.GLUT import *

@@ -1,5 +1,4 @@
 from PySide import QtCore, QtGui
-import scipy.io
 import tempfile
 import pprint
 import colorsys
@@ -27,7 +26,6 @@ except:
     raise
 
 from ElectrodeView import ElectrodeView
-from CommunityAnalysis.kmedoids import ClusterAlgorithms as cl
 from collections import defaultdict
 # from CommunityAnalysis.CommunitiesAcrossTimeStep import CommunitiesAcrossTimeStep
 
