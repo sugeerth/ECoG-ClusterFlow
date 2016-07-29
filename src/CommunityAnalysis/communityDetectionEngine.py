@@ -37,7 +37,7 @@ import ConsensusClster.pca as pca
 from random import shuffle
 
 
-Number_of_Communities = 2
+Number_of_Communities = 3
 starttime = 4 
 endtime = 9
 DEFAULT_NO_OF_COMMUNITIES = 4
