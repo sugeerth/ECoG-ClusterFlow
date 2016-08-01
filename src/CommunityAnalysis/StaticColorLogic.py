@@ -155,7 +155,7 @@ class SimilarityData(object):
 					if CommunityObject.communitiesThatDie:
 						ColorAssignment[q] = CommunityObject.communitiesThatDie.popleft()
 					else: 
-						ColorAssignment[q] = (0,0,0)
+						ColorAssignment[q] = (1,1,1)
 		if self.Permute:
 			return PermuteDict
 		else: 

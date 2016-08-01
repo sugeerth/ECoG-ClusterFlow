@@ -188,7 +188,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		return no
 
 	def noDuplicates(self, list1):
-		print list1
 		items = set([i for i in list1 if sum([1 for a in list1 if a == i]) > 1])
 		# if items:
 		# 	return True
@@ -292,7 +291,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 				nodeDict["timestep"] = self.Graph_interface.TimeStep-1
 				nodeDict["name"] = str(valueRowName)
 				nodeDict["OriginalAssignmentValue"] = str(row)
-
 				nodeDict["color"] = str("rgb"+str(self.previousNodeObjects[row].CommunityColor.getRgb()[:3])+"").replace("[", "").replace("]", "")
 
 				NElements = self.dataAccumalation[row]
@@ -465,8 +463,9 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			value = len(partitionValues.values())
 			self.first = False #*
 			self.NewCommunitiesToBeAssigned = []
-			self.NewCommunitiesToBeAssigned = deque([j for i,j in enumerate(self.distinguishableColors) if i > (10)])
-			for i in self.presentNodeObjects: 
+			self.NewCommunitiesToBeAssigned = deque([j for i,j in enumerate(self.distinguishableColors) if i > (13)])
+			for i in self.presentNodeObjects:
+				print self.NewCommunitiesToBeAssigned 
 				color = self.NewCommunitiesToBeAssigned.popleft()
 				colorNew = QtGui.QColor(color[0],color[1],color[2])
 				i.PutColor(colorNew)
