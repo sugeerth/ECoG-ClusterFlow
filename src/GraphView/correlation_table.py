@@ -52,50 +52,6 @@ class CorrelationTable(object):
                         data[i,j] = (-1)*data[i,j]
         return data
 
-    """
-    This is where the KMeans clustering algorithms are performed 
-    DEfault number of centers for K is found to be 3
-    """
-    def cluster(self, distances, k= 3):
-        def assign_points_to_clusters(medoids, distances):
-            distances_to_medoids = distances[:,medoids]
-            clusters = medoids[np.argmin(distances_to_medoids, axis=1)]
-            clusters[medoids] = medoids
-            return clusters
-
-        def compute_new_medoid(cluster, distances):
-            mask = np.ones(distances.shape)
-            mask[np.ix_(cluster,cluster)] = 0.
-            cluster_distances = np.ma.masked_array(data=distances, mask=mask, fill_value=10e9)
-            costs = cluster_distances.sum(axis=1)
-            return costs.argmin(axis=0, fill_value=10e9)
-
-        m = distances.shape[0] # number of points
-        print "number of points",m
-
-        # Pick k random medoids.
-        curr_medoids = np.array([-1]*k)
-        while not len(np.unique(curr_medoids)) == k:
-            curr_medoids = np.array([random.randint(0, m - 1) for _ in range(k)])
-
-        old_medoids = np.array([-1]*k) # Doesn't matter what we initialize these to.
-        new_medoids = np.array([-1]*k)
-        # Until the medoids stop updating, do the following:
-        while not ((old_medoids == curr_medoids).all()):
-            # Assign each point to cluster with closest medoid.
-            clusters = assign_points_to_clusters(curr_medoids, distances)
-
-            # Update cluster medoids to be lowest cost point. 
-            for curr_medoid in curr_medoids:
-                cluster = np.where(clusters == curr_medoid)[0]
-                new_medoids[curr_medoids == curr_medoid] = compute_new_medoid(cluster, distances)
-
-            old_medoids[:] = curr_medoids[:]
-            curr_medoids[:] = new_medoids[:]
-            print curr_medoids
-
-        return clusters, curr_medoids
-
     def WritedataTocsv(self,filename):
         self.data.tofile(filename,sep=',',format='%10.5f')
 
@@ -590,9 +546,7 @@ class CommunityCorrelationTableDisplay(ParentCommunityDisplay):
     def ChangeColors(self):
         """
         Clustered Order is the sorted order of different brain regions based on the communities detected   
-
         """
-
         """Calling the Parent Method for Sorting the cells"""
         self.sortDataStructure(self.Order,self.Brain_Regions)
 

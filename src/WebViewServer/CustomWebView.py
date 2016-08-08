@@ -138,6 +138,10 @@ class CustomWebView(QtWebKit.QWebView):
 
 	def slicesChanged(self,slices):
 		print "slices are being changed please take a look"
+		# print "Slices have been changed",self.SmallMultipleLayout.lengthPixels
+		# self.setMaximumSize(self.SmallMultipleLayout.lengthPixels,100) 
+		# self.setMinimumSize(self.SmallMultipleLayout.lengthPixels,100) 
+		# self.js.SliceSignal.emit(slices, self.SmallMultipleLayout.lengthPixels)
 
 	def EmitTimestepRanges(self, Start, End, slices):
 		self.js.Start1 = Start

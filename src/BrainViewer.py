@@ -156,8 +156,11 @@ BoxTable.addWidget(widget.wid)
 BoxTableWidget.setLayout(BoxTable)
 
 print "something is going on "
+BoxTableWidget.show()
+
 if CorrelationTableShowFlag:
-    BoxTableWidget.hide()
+    print "Comething is there"
+    BoxTableWidget.show()
 
 print "Setting Graph Layout_interface"
 
@@ -166,8 +169,11 @@ Graph.setContentsMargins(0, 0, 0, 0)
 Graph.addWidget(widget.wid)
 BoxGraphWidget.setLayout(Graph)
 
+BoxGraphWidget.show()
+
 if GraphWindowShowFlag:
-    BoxGraphWidget.hide()
+    print "Comething is there"
+    BoxGraphWidget.show()
 
 # For image label 
 print "Setting up Electrode data"
@@ -214,6 +220,7 @@ def debug():
     Visualizer.Glyphs.setChecked(True)
 
 debug()
+
 
 """Window for correlation Table"""
 view = CustomWebView()

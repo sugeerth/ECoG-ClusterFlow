@@ -4,17 +4,21 @@ import math
 import weakref
 import scipy
 from PIL import Image
+import json
+from pprint import pprint
 import numpy as np
 import pprint
 
+# ElectrodeSignalDataName = 'muDat'
 ElectrodeSignalDataName = 'sigData'
-ElectrodeConnectivityDataName = 'conDat'
 
-# Changes for RealData
-Connectvity_filename ='/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/enhancedConData.mat'
+"""
+This is the data that needs to be changed based on the format of the data
+"""
+Network_File='/Users/sugeerthmurugesan/ProjectRepos/OrthoProject/GraphData/karate.json'
 
 class dataProcessing(object):
-	    def __init__(self, Brain_image_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename,ElectrodeSignals):
+    	def __init__(self, Brain_image_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename,ElectrodeSignals):
 			self.im = Image.open(Brain_image_filename)
 			self.syllableUnit = 0 
 			self.Timestep =0
@@ -44,3 +48,4 @@ class dataProcessing(object):
 			time = mapping between electrodes
 			electrode == 58 electrodes  
 			"""
+
