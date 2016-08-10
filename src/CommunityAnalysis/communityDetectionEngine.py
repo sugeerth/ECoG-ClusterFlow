@@ -5,13 +5,10 @@ from PySide.QtCore import *
 from ConsensusClster.cluster import ConsensusCluster
 import warnings
 warnings.filterwarnings("ignore")
-
-
 import math, numpy, sys, random
 import operator
 import numpy as np
 from itertools import combinations as comb
-
 from scipy import cluster as cl
 
 from sys import platform as _platform
@@ -52,6 +49,7 @@ class ConsensusCustomCluster(object):
 
         syllable = self.graphWidget.Syllable
         self.syllable = syllable
+        
         # name = "ConsensusData/ConsensusCluster"+str(syllable)+str(4)+".json"
         
         # DyNMOGA Results       
@@ -60,7 +58,6 @@ class ConsensusCustomCluster(object):
         # Louvain Results       
         name = '/Users/sugeerthmurugesan/ProjectRepos/DataWrangling/SeizureLouvain.json'
 
-        print name
         self.timestepPartition = pickle.load(open(name))
 
     def prepareClsuterData(self, graph, timestep, syllable): 
