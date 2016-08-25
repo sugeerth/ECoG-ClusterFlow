@@ -1,9 +1,13 @@
 from PySide import QtCore, QtGui , QtUiTools
 import os
+import sys
 
 #Loading UI Files
 loader = QtUiTools.QUiLoader()
-CURR = os.environ['PYTHONPATH']+'/UIFiles'
+
+CURR = sys.path[0]
+CURR+='/UIFiles'
+
 ui = loader.load(os.path.join(CURR, "interface.ui"))
 dataSetLoader = loader.load(os.path.join(CURR, "datasetviewer.ui"))
 screenshot = loader.load(os.path.join(CURR, "screeshot.ui"))
