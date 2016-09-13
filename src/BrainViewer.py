@@ -67,16 +67,11 @@ LAYOUT=QtGui.QHBoxLayout()
 colorTableName = 'blue_lightblue_red_yellow'
 selectedColor = (0, 100, 0, 255)
 
-CorrelationTableShowFlag = False
-MainWindowShowFlag = False
-GraphWindowShowFlag = False
-ElectrodeWindowShowFlag = True
-
 print "Creating files that will read the paths"
 execfile('BrainViewerDataPathsArtificial.py')
+
 print "Creating correlation table display"
 
-print "Processing Electrode Files"
 dataProcess = dataProcessing(Brain_image_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename, ElectrodeSignals)
 correlationTable = CorrelationTable(dataProcess)
 
@@ -104,19 +99,19 @@ BoxGraphWidget =QtGui.QWidget()
 # Layout for the electrode
 BoxElectrodeWidget = QtGui.QWidget() 
 
-print "Setting GraphDataStructure"
+print "Setting up GraphDataStructure"
 Tab_2_AdjacencyMatrix = GraphVisualization(correlationTable.data)
 
-print "Setting CorrelationTable for communities"
+print "Setting up CorrelationTable for communities"
 Tab_2_CorrelationTable = CommunityCorrelationTableDisplay(correlationTable, colorTable,Tab_2_AdjacencyMatrix)
 Tab_2_CorrelationTable.setMinimumSize(390, 460)
 
-print "Setting CorrelationTable"
+print "Setting up CorrelationTable"
 Tab_1_CorrelationTable = CorrelationTableDisplay(correlationTable, colorTable,Tab_2_AdjacencyMatrix)
 Tab_1_CorrelationTable.setMinimumSize(390, 460)
 
 # Method to add graphs inside this
-print "Setting Graph Widget"
+print "Setting up Graph Widget"
 
 """ Controlling graph widgets  """
 widget = GraphWidget(Tab_2_AdjacencyMatrix,Tab_2_CorrelationTable,correlationTable,colorTable,selectedColor,BoxGraphWidget,BoxTableWidget,OFFSET,distinguishableColors,FontBgColor, ui, electrodeUI,dataProcess, Visualizer)
@@ -130,11 +125,11 @@ communityDetectionEngine.CalculateFormulae.connect(widget.CalculateFormulae)
 
 
 """ Controlling Quant Table """
-print "Initializing Quant Table"
+print "Setting up Quant Table"
 quantData=QuantData(widget)
 quantTableObject = quantTable(quantData,widget)
 
-print "Setting Graph interface"
+print "Setting up Graph interface"
 Graph_Layout=LayoutInit(widget,quantTableObject,ui,Visualizer,dataSetLoader,screenshot)
 
 """Window for correlation Table"""
@@ -155,13 +150,14 @@ BoxTable.addWidget(Tab_2_CorrelationTable)
 BoxTable.addWidget(widget.wid)
 BoxTableWidget.setLayout(BoxTable)
 
-print "something is going on "
 BoxTableWidget.show()
 
 if CorrelationTableShowFlag:
     BoxTableWidget.show()
+else: 
+    BoxTableWidget.hide()
 
-print "Setting Graph Layout_interface"
+print "Setting up Graph Layout_interface"
 
 Graph = QtGui.QHBoxLayout()
 Graph.setContentsMargins(0, 0, 0, 0)
@@ -172,6 +168,8 @@ BoxGraphWidget.show()
 
 if GraphWindowShowFlag:
     BoxGraphWidget.show()
+else: 
+    BoxGraphWidget.hide()
 
 # For image label 
 print "Setting up Electrode data"
@@ -183,7 +181,10 @@ Electrode.CommunitiesAcrossTimeStep = communitiesAcrossTimeStep
 communitiesAcrossTimeStep.AcrossTimestepUI = AcrossTimestep
 CommunitiesLayout = CommunitiesAcrossTimeStepInterface(AcrossTimestep, communitiesAcrossTimeStep)
 
-communitiesAcrossTimeStep.show()
+if debugTrackingView:
+    communitiesAcrossTimeStep.show()
+else: 
+    communitiesAcrossTimeStep.hide()
 
 syllable = Syllable()
 

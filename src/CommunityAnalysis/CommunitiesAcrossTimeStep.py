@@ -55,8 +55,8 @@ FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,12),('/Users
 HeatmapFilename = "/Users/sugeerthmurugesan/Sites/Sankey/DeltaAreaChange4Heatmap.tsv"
 
 
-# ElectrodeSignalDataName = 'muDat'
-ElectrodeSignalDataName = 'sigData'
+ElectrodeSignalDataName = 'muDat'
+# ElectrodeSignalDataName = 'sigData'
 
 timestep = 12
 THRESHOLD_VALUE_TRACKING_GRAPH = 0.16
@@ -100,7 +100,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.firstTIme = True
 		self.LegacyAPI=LegacyAPI("AcrossTimestep")
 
-		# self.dot = Digraph(comment="The tracking graph")
 		self.dot = []
 		
 		self.AcrossTimestep = AcrossTimestep
@@ -253,9 +252,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 					self.toK = 0 
 					self.fromK = 0
 
-		# if self.firstTime:
-		# 	self.firstTime = False
-
 		self.WriteTrackingData(AssignmentAcrossTime, Name, Start , End)
 		self.ExchangeHeatmapData()
 
@@ -315,7 +311,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 
 				if self.firstTIme:
 					self.firstTIme = False 
-					self.dot.node(str(valueRow),str(valueRow))
+					# self.dot.node(str(valueRow),str(valueRow))
 				j = np.array(j)
 
 				for column in j:  
