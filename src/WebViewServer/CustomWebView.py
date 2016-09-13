@@ -10,13 +10,7 @@ import copy
 import csv
 from collections import deque
 from PySide.QtCore import *
-import simplejson
-import pyqtgraph as pg
 import traceback
-from graphviz import Digraph
-
-from OpenGL.GLUT import *
-from OpenGL.GL import *
 
 from PySide.QtWebKit import QWebFrame
 

@@ -8,12 +8,9 @@ import csv
 import math
 from collections import deque
 from PySide.QtCore import *
-import simplejson
 import traceback
-from graphviz import Digraph
 
-from OpenGL.GLUT import *
-from OpenGL.GL import *
+# from pygraphviz import Digraph
 
 from time import time
 from math import *
@@ -34,13 +31,11 @@ try:
 	# ... reading NIfTI 
 	import nibabel as nib
 	import numpy as np
-	import pyqtgraph as pg
 	# ... graph drawing
 	import networkx as nx
 	import operator
 	from PySide.QtCore import *
 	from PySide.QtGui import *
-	from PySide.QtOpenGL import *
 except:
 	print "Couldn't import all required packages. See README.md for a list of required packages and installation instructions."
 	raise
@@ -104,7 +99,9 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.communityDetectionEngine = communityDetectionEngine
 		self.firstTIme = True
 		self.LegacyAPI=LegacyAPI("AcrossTimestep")
-		self.dot = Digraph(comment="The tracking graph")
+
+		# self.dot = Digraph(comment="The tracking graph")
+		self.dot = []
 		
 		self.AcrossTimestep = AcrossTimestep
 		self.electrodeUI = electrodeUI

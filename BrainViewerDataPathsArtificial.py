@@ -18,7 +18,7 @@ Electrode_ElectrodeData_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectro
 # Electrode_ElectrodeData_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerProject/KrisDataset/Bolasso_output_algnd.mat' 
 
 #set the flag data around here for convenience
-GraphWindowShowFlag = True
+GraphWindowShowFlag = False
 MainWindowShowFlag = True
 ElectrodeWindowShowFlag = True
-CorrelationTableShowFlag = True
+CorrelationTableShowFlag = False

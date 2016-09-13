@@ -159,7 +159,6 @@ print "something is going on "
 BoxTableWidget.show()
 
 if CorrelationTableShowFlag:
-    print "Comething is there"
     BoxTableWidget.show()
 
 print "Setting Graph Layout_interface"
@@ -172,7 +171,6 @@ BoxGraphWidget.setLayout(Graph)
 BoxGraphWidget.show()
 
 if GraphWindowShowFlag:
-    print "Comething is there"
     BoxGraphWidget.show()
 
 # For image label 

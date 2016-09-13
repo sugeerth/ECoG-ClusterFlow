@@ -10,7 +10,6 @@ from PySide.QtCore import QTimer, SIGNAL
 from PIL import Image, ImageDraw
 
 import community as cm
-import pyqtgraph as pg
 
 import json
 import yaml

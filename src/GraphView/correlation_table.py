@@ -8,7 +8,6 @@ import random
 import time
 import math
 from PySide import QtCore, QtGui
-import Pycluster
 import matplotlib.pyplot as plt
 
 """Class responsible for transferring data from files to self.data"""

@@ -2,9 +2,7 @@ from collections import defaultdict
 from collections import OrderedDict
 import copy
 from collections import deque
-import simplejson
 import traceback
-from graphviz import Digraph
 
 from time import time
 from math import *

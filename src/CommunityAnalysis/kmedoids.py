@@ -11,9 +11,9 @@ import cProfile
 import os
 from scipy.cluster.hierarchy import dendrogram, linkage
 
-import Pycluster
+from sklearn.cluster import KMeans
 import networkx as nx
-from hcluster import pdist, linkage, dendrogram
+
 from ConsensusClster.cluster import ConsensusCluster
 
 import pprint
@@ -51,7 +51,7 @@ class ClusterAlgorithms(QtCore.QObject):
         distances = nx.to_numpy_matrix(data)
 
         for i in kvalues:
-            clusterid, error, nfound = Pycluster.kcluster(distances, nclusters= i, npass=300)
+            clusterid, error, nfound = KMeans(distances, nclusters= i, npass=300)
             uniq_ids = list(set(clusterid))
             new_ids = [ uniq_ids.index(val) for val in clusterid]
 
@@ -64,7 +64,7 @@ class ClusterAlgorithms(QtCore.QObject):
         nb_clusters = Number_of_clusters # this is the number of cluster the dataset is supposed to be partitioned into
         distances = nx.to_numpy_matrix(data)
 
-        clusterid, error, nfound = Pycluster.kcluster(distances, nclusters= nb_clusters, npass=300)
+        clusterid, error, nfound = KMeans(distances, nclusters= nb_clusters, npass=300)
 
         uniq_ids = list(set(clusterid))
         new_ids = [ uniq_ids.index(val) for val in clusterid]
