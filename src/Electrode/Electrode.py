@@ -51,6 +51,8 @@ Row = 4
 Column = 16
 TotalNo = 64
 
+timeOffset = 2
+
 RowXColumn =4
 
 from PySide import QtGui
@@ -195,7 +197,7 @@ class ImageLabel(QtGui.QGraphicsView):
         self.fromAnimate = 0 
         self.TowValue = -1
         self.opacityThreshold = -1 
-        self.toAnimate1 = timestep - 2
+        self.toAnimate1 = timestep - timeOffset
         self.No_Clusters = DefaultNumberOfClusters
         self.nodeSizeFactor = 1 
 

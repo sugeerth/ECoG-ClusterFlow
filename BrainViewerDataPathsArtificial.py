@@ -1,14 +1,14 @@
 # Artificial Data 
-Electrode_mat_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerProject/KrisDataset/EC2.reg_grd.mat'
-Brain_image_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerProject/KrisDataset/EC2.brain_redo1.jpg'
-ElectrodeSignals ='/Users/sugeerthmurugesan/LBLProjects/BackECoGClusterFlow/brain-visWorkingRealData/SyntheticGeneratedData/SyntheticElectric.mat'
-Electrode_ElectrodeData_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerProject/KrisDataset/Bolasso_output_algnd.mat' 
+# Electrode_mat_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerProject/KrisDataset/EC2.reg_grd.mat'
+# Brain_image_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerProject/KrisDataset/EC2.brain_redo1.jpg'
+# ElectrodeSignals ='/Users/sugeerthmurugesan/LBLProjects/BackECoGClusterFlow/brain-visWorkingRealData/SyntheticGeneratedData/SyntheticElectric.mat'
+# Electrode_ElectrodeData_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerProject/KrisDataset/Bolasso_output_algnd.mat' 
 
 #Real dataset to be visualzed 
-# Electrode_mat_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/regData.mat'
-# Brain_image_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/ec58_blank_clean_enhanced.png'
-# ElectrodeSignals = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/enhancedSigData.mat'
-# Electrode_ElectrodeData_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/enhancedConData.mat' 
+Electrode_mat_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/regData.mat'
+Brain_image_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/ec58_blank_clean_enhanced.png'
+ElectrodeSignals = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/enhancedSigData.mat'
+Electrode_ElectrodeData_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerEpilepsyData/enhancedConData.mat' 
 
 
 # Electrode_mat_filename = '/Users/sugeerthmurugesan/LBLProjects/ELectrode/SummerProject/KrisDataset/EC2.reg_grd.mat'
@@ -22,4 +22,4 @@ GraphWindowShowFlag = False
 MainWindowShowFlag = True
 ElectrodeWindowShowFlag = False
 CorrelationTableShowFlag = False
-debugTrackingView = False
+debugTrackingView = True

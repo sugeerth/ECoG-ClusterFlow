@@ -55,8 +55,8 @@ FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,12),('/Users
 HeatmapFilename = "/Users/sugeerthmurugesan/Sites/Sankey/DeltaAreaChange4Heatmap.tsv"
 
 
-ElectrodeSignalDataName = 'muDat'
-# ElectrodeSignalDataName = 'sigData'
+# ElectrodeSignalDataName = 'muDat'
+ElectrodeSignalDataName = 'sigData'
 
 timestep = 12
 THRESHOLD_VALUE_TRACKING_GRAPH = 0.16

@@ -31,9 +31,9 @@ class GraphVisualization(QtGui.QWidget):
 
     def Find_HighlightedEdges(self,weight = 0):
         self.ThresholdData = np.copy(self.data)
-        # low_values_indices = self.ThresholdData < weight  # Where values are low
-        # self.ThresholdData[low_values_indices] = 0
-    # graterindices = [ (i,j) for i,j in np.ndenumerate(self.ThresholdData) if any(i > j) ] 
+        low_values_indices = self.ThresholdData < weight  # Where values are low
+        self.ThresholdData[low_values_indices] = 0
+        # graterindices = [ (i,j) for i,j in np.ndenumerate(self.ThresholdData) if any(i > j) ] 
         # self.ThresholdData[graterindices[:1]] = 0
         # self.ThresholdData = np.tril(self.ThresholdData)
         # print self.ThresholdData, "is the data same??" 

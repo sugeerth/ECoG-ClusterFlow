@@ -103,7 +103,7 @@ class GraphWidget(QtGui.QGraphicsView):
         self.DataColor = np.zeros(self.counter)
         self.EdgeColor = np.zeros(self.counter * self.counter)
         self.ColorToBeSentToVisit = list() 
-        self.EdgeSliderValue = self.Min
+        self.EdgeSliderValue = 0.0
         self.nodesize = 7
         self.grayOutNodes = True
         self.PositionPreserve = True
@@ -151,7 +151,9 @@ class GraphWidget(QtGui.QGraphicsView):
         k = 0 
         Min1 = np.min(self.Graph_data().data)
         Max1 = np.max(self.Graph_data().data)
-        self.Min1 = Min1
+
+        # WARNING minimum value changed to 0
+        self.Min1 = 0.0
 
         for i in range(1, self.counter):
             for j in range(1, self.counter):

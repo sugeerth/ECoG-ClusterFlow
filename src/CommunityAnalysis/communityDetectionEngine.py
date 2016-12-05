@@ -115,48 +115,47 @@ class CustomCluster(object):
         ClusterStart = [[0,10,20,30], [2,9,11], [8,12,13], [1,12,14], [6,7,10], [1,15,20]] 
         #* MADE CHANGES 
         
-        # if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]: 
-        #     for i in range(len(distances)):
-        #         self.partition[i] = 0
-        #         if i in x: 
-        #             self.partition[i] = 0
-        #         elif i in y: 
-        #             self.partition[i] = 1
-        #         elif i in z: 
-        #             self.partition[i] = 2
+        if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]: 
+            for i in range(len(distances)):
+                self.partition[i] = 0
+                if i in x: 
+                    self.partition[i] = 0
+                elif i in y: 
+                    self.partition[i] = 1
+                elif i in z: 
+                    self.partition[i] = 2
 
-        # if timestep >= ClusterStart[syllable][0] and timestep <= ClusterStart[syllable][1]:
-        #     for i in range(len(distances)):
-        #         if i in x: 
-        #             self.partition[i] = 0
-        #         elif i in y: 
-        #             self.partition[i] = 1
-        #         elif i in z: 
-        #             self.partition[i] = 2
-        # elif timestep >= ClusterStart[syllable][1] and timestep <= ClusterStart[syllable][2]:
-        #     self.partition = self.timestepPartition[timestep-10]
-        #     try: 
-        #         self.partition = copy.deepcopy(self.timestepPartition[timestep])
-        #         if timestep == 0: 
-        #             assert not(self.partition == None) 
-        #         assert self.partition == self.timestepPartition[timestep]
-        #     except KeyError:
-        #         for j in range(len(distances)):
-        #             if syllable == 0: 
-        #                 self.partition[j] = randint(0, 1)
-        #             else: 
-        #                 if j in q:
-        #                     self.partition[j] = 0
-        #                 else:
-        #                     self.partition[j] = randint(1, 2)
+        if timestep >= ClusterStart[syllable][0] and timestep <= ClusterStart[syllable][1]:
+            for i in range(len(distances)):
+                if i in x: 
+                    self.partition[i] = 0
+                elif i in y: 
+                    self.partition[i] = 1
+                elif i in z: 
+                    self.partition[i] = 2
+        elif timestep >= ClusterStart[syllable][1] and timestep <= ClusterStart[syllable][2]:
+            self.partition = self.timestepPartition[timestep-10]
+            try: 
+                self.partition = copy.deepcopy(self.timestepPartition[timestep])
+                if timestep == 0: 
+                    assert not(self.partition == None) 
+                assert self.partition == self.timestepPartition[timestep]
+            except KeyError:
+                for j in range(len(distances)):
+                    if syllable == 0: 
+                        self.partition[j] = randint(0, 1)
+                    else: 
+                        if j in q:
+                            self.partition[j] = 0
+                        else:
+                            self.partition[j] = randint(1, 2)
 
-
-        # elif timestep >= ClusterStart[syllable][2] and timestep <= ClusterStart[syllable][3]: 
-        #     for i in range(len(distances)):
-        #         if i in q: 
-        #             self.partition[i] = 0
-        #         elif i in r: 
-        #             self.partition[i] = 1
+        elif timestep >= ClusterStart[syllable][2] and timestep <= ClusterStart[syllable][3]: 
+            for i in range(len(distances)):
+                if i in q: 
+                    self.partition[i] = 0
+                elif i in r: 
+                    self.partition[i] = 1
 
 
         if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]:
@@ -201,7 +200,6 @@ class CustomCluster(object):
                 elif i in z: 
                     self.partition[i] = 2
 
-            # pprint.pprint(self.partition)
         return self.partition
 
 class ConsensusMediator(object):
@@ -633,7 +631,7 @@ class communityDetectionEngine(QtCore.QObject):
         if value == 0: 
             """Louvain"""
             # print "Using Louvain for Community Analysis\nWARNING: edges wieghts are absolute for louvain"
-            graph = self.absolutizeData(graph)
+            # graph = self.absolutizeData(graph)
             partition=cm.best_partition(graph)
         elif value == 1: 
             """Hierarchical"""
@@ -653,6 +651,7 @@ class communityDetectionEngine(QtCore.QObject):
         return partition
 
     def absolutizeData(self, graph):
+        print graph.edges()
         for i,j,weight in graph.edges(data=True):
             if weight['weight'] < 0: 
                graph[i][j]['weight'] = abs(weight['weight'])
@@ -661,7 +660,6 @@ class communityDetectionEngine(QtCore.QObject):
     def calculateNewGraphPropertiesAndCommunities(self,level):
         self.TimeStepNetworkxGraphData =  self.Graphwidget.Graph_data().DrawHighlightedGraph(self.Graphwidget.EdgeSliderValue)
         self.Graphwidget.ColorNodesBasedOnCorrelation = False 
-        # print len(self.TimeStepNetworkxGraphData.nodes())
         self.FinalClusterPartition=self.resolveCluster(self.ClusteringAlgorithm,self.TimeStepNetworkxGraphData, self.Number_of_Communities)
                 
     def updateCommunityColors(self,counter,TowPartition=None):
