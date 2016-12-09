@@ -154,30 +154,33 @@ class DataModel(object):
         i = BAA
         for j in range(sq):
             for k in range(timeStep):
-                if k >= ClusterStart[0][0] and k <= ClusterStart[0][1]:
-                    if j in self.x: 
-                        self.Electrode[i][j][k] = LOW
-                    elif j in self.y: 
-                        self.Electrode[i][j][k] = LOW
-                    elif j in self.z: 
-                        self.Electrode[i][j][k] = LOW
-                elif k >= ClusterStart[0][2] and k <= ClusterStart[0][3]:
-                    if j in self.x: 
-                        self.Electrode[i][j][k] = HIGH
-                    elif j in self.y: 
-                        self.Electrode[i][j][k] = HIGH
-                    elif j in self.z: 
-                        self.Electrode[i][j][k] = HIGH
-                else:
-                    if j in self.x: 
-                        if j in self.start1:
-                            self.Electrode[i][j][k] = HIGH
-                        else:
-                            self.Electrode[i][j][k] = LOW
-                    else: 
-                        self.Electrode[i][j][k] = LOW
-                    # self.start.append(self.start[-1]+1)
-                    # print self.start[-1]
+                self.Electrode[i][j][k] = HIGH
+                # if k >= ClusterStart[0][0] and k <= ClusterStart[0][1]:
+                #     if j in self.x: 
+                #         self.Electrode[i][j][k] = LOW
+                #     elif j in self.y: 
+                #         self.Electrode[i][j][k] = LOW
+                #     elif j in self.z: 
+                #         self.Electrode[i][j][k] = LOW
+                # elif k >= ClusterStart[0][2] and k <= ClusterStart[0][3]:
+                #     if j in self.x: 
+                #         self.Electrode[i][j][k] = HIGH
+                #     elif j in self.y: 
+                #         self.Electrode[i][j][k] = HIGH
+                #     elif j in self.z: 
+                #         self.Electrode[i][j][k] = HIGH
+                # else:
+                #     if j in self.x: 
+                #         if j in self.start1:
+                #             self.Electrode[i][j][k] = HIGH
+                #         else:
+                #             self.Electrode[i][j][k] = LOW
+                #     else: 
+                #         self.Electrode[i][j][k] = LOW
+                #     # self.start.append(self.start[-1]+1)
+                #     # print self.start[-1]
+
+        print self.Electrode[i]
     def ElectrodeSignalsBoo(self, sq):
         Data=scipy.io.loadmat(ElectrodeSignals)
         i = BOO
@@ -256,6 +259,7 @@ class DataModel(object):
     def writeSignalData(self): 
         name = "SyntheticGeneratedData/SyntheticElectric.mat"
         muDat = [self.Electrode]
+        print muDat
         scipy.io.savemat(name, mdict={'muDat': self.Electrode})
 
     def GenerateDataSets(self):

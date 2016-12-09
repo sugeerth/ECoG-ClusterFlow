@@ -18,7 +18,6 @@ class QuantData(QtCore.QObject):
 		self.data_list = []
 		self.header = ['Regions', 'Centrality','Participation','Betweenness']
 
-
 	def ThresholdChange(self,State):
 		self.data_list = []
 

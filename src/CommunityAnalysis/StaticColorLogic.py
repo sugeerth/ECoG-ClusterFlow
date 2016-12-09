@@ -59,7 +59,6 @@ class SimilarityData(object):
 				x = np.sum(Number_Of_Elements[:community2])
 				y =  np.sum(Number_Of_Elements[community1])
 				Cij= Number_Of_Elements[community1][community2]
-				print Cij,x,y
 				if Cij == -1:
 					continue
 				TermFactor = Cij * log1p((Cij*N)/(x*y))
@@ -97,7 +96,6 @@ class SimilarityData(object):
 		PermuteDict = dict()
 		PermuteAssignment = []
 		x, y = Kappa_matrix.shape
-		print x,y
 		
 		KappaMatrixForComputation = copy.deepcopy(Kappa_matrix)
 		ColorAssignment = dict()

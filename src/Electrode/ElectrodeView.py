@@ -111,7 +111,6 @@ class Translate(QtCore.QObject):
     def set(self,string):
         return  str(self.tr(string))
 
-
 class ElectrodeOpacity(object):
         def __init__(self, ElectrodView, ElectrodeNumber, counter): 
             self.ElectrodeSignalData = ElectrodView.ElectrodeData.ElectrodeSignal[ElectrodeSignalDataName]
@@ -167,7 +166,9 @@ class ElectrodeOpacity(object):
 
             CurrentSyllable = self.ElectrodView.ElectrodeData.syllableUnit
             actualValue = self.ElectrodeSignalData[CurrentSyllable][Number][timestep]
-      
+            
+            # print Number, timestep, actualValue
+
             x = actualValue
 
             if x >= MaxVal: 
@@ -355,7 +356,6 @@ class ElectrodeView(QtGui.QGraphicsView):
 
                 if counter == len(self.ElectrodeData.ElectrodeIds): 
                         break
-                # print self.ElectrodeData.ElectrodeIds[counter]
                 if k == self.ElectrodeData.ElectrodeIds[counter]:  
                     node_value=ElectrodeNode(self,counter,k,self.ElectrodeData.contextFlag)
                     
@@ -436,7 +436,7 @@ class ElectrodeView(QtGui.QGraphicsView):
     def keyPressEvent(self, event):
         key = event.key()
         if key == QtCore.Qt.Key_T:
-            print "tracsparetn"
+            print "transparent"
             self.transparent = not(self.transparent)
         if key == QtCore.Qt.Key_D:
             print "THIS IS THE TIMESTEP",(self.ChunkNo)*self.slices + self.ElectrodeData.CommunitiesAcrossTimeStep.Offset, (self.ChunkNo+1) * self.slices + self.ElectrodeData.CommunitiesAcrossTimeStep.Offset

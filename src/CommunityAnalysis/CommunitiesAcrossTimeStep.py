@@ -57,7 +57,7 @@ ElectrodeSignalDataName = 'muDat'
 # ElectrodeSignalDataName = 'sigData'
 
 timestep = 12
-THRESHOLD_VALUE_TRACKING_GRAPH = 0.16
+THRESHOLD_VALUE_TRACKING_GRAPH = 0.0
 NumberOfSelectedEletrodes = 30
 Number_of_Communities = 4
 WIDTH = 1200
@@ -371,7 +371,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 				json.dump(sankeyJSON, outfile,  indent=4)
 			outfile.close()
 
-
 	def ExchangeHeatmapData(self):
 		import csv
 		name = 'ConsensusData/DeltaAreaChange'+str(self.electrode.syllableUnit)+str(4)+'Heatmap.tsv'
@@ -451,7 +450,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			self.NewCommunitiesToBeAssigned = []
 			self.NewCommunitiesToBeAssigned = deque([j for i,j in enumerate(self.distinguishableColors) if i > (13)])
 			for i in self.presentNodeObjects:
-				print self.NewCommunitiesToBeAssigned 
 				color = self.NewCommunitiesToBeAssigned.popleft()
 				colorNew = QtGui.QColor(color[0],color[1],color[2])
 				i.PutColor(colorNew)
@@ -477,8 +475,9 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			for community in partitionValues.keys(): 
 				if self.ThresholdChange:
 					k = k + 1 
-					if community in AssignmentAcrossTime[community1]: 
-						self.scene.addItem(CommunitiesEdge(self,self.previousNodeObjects[community1],self.presentNodeObjects[community],k,community1,community, self.Kappa_matrixForSimilarityComputation[community1][community]))
+					if community in AssignmentAcrossTime[community1]:
+						pass 
+						# self.scene.addItem(CommunitiesEdge(self,self.previousNodeObjects[community1],self.presentNodeObjects[community],k,community1,community, self.Kappa_matrixForSimilarityComputation[community1][community]))
 				elif AssignmentAcrossTime[community1] == community: 
 					k = k + 1 
 					self.scene.addItem(CommunitiesEdge(self,self.previousNodeObjects[community1],self.presentNodeObjects[community],k,community1,community, self.Kappa_matrixForSimilarityComputation[community1][community]))
@@ -499,10 +498,8 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 				hashmap[i-1 - Offset] = c
 				c= c+1
 
-		print "----"
 		self.AggregateHashmap = copy.deepcopy(hashmap)
 		self.UpdateColorsInElectrodeView(nodelist, Offset)
-		# print "Calling another function to update the electrode View"
 
 	def UpdateColorsInElectrodeView(self, nodelist, Offset = 0):
 		ElectrodeViewObjectDummy = self.electrode.SmallMultipleElectrode[1]
@@ -525,7 +522,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			Color = map(int, Color)
 
 			for element in Elements: 
-				# print  element
 				ActualElectrodeNumber = self.electrode.ElectrodeIds[element]
 				norm = ElectrodeViewObject.ElectrodeOpacity[element].normalize(i['timestep'], ActualElectrodeNumber)
 				ElectrodeViewObject.NodeIds[element].PutFinalColors(norm[0],norm[1], QtGui.QColor(Color[0],Color[1],Color[2]),i['timestep'],CommunityNumber,ElectrodeViewObjectDummy.slices)
@@ -643,7 +639,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.setScene(self.Scene_to_be_updated)
 		self.fitInView(self.Scene_to_be_updated.itemsBoundingRect(),QtCore.Qt.KeepAspectRatio)
 		self.scaleView(math.pow(2.0, -900/ 1040.0))
-
 
 	@Slot(object)
 	def initializePrecomputationObject(self, PreComputeObject):

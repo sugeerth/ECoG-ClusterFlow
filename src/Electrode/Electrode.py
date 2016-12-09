@@ -57,7 +57,6 @@ from PySide import QtGui
 
 
 class LayoutForSmallMultiples(QtGui.QWidget):
-    
     def __init__(self, Electrode, smallMultiples, x_interval, y_interval):
         super(LayoutForSmallMultiples, self).__init__()
         self.smallMultiples = smallMultiples
@@ -402,8 +401,6 @@ class ImageLabel(QtGui.QGraphicsView):
 
     @Slot()
     def ResetButton(self):
-        print "Reset Button pressed"
-
         """ Make the funcitonality to re adjust all data structures etc"""  
         self.timer.stop()
         self.timeStep = self.fromAnimate 
@@ -421,7 +418,6 @@ class ImageLabel(QtGui.QGraphicsView):
         self.ResetButton()
         self.RefreshPreComputeData()
         self.changeClusterConfiguration(self.No_Clusters)
-        print "The number of clusters are",self.No_Clusters
 
     @Slot(int)
     def GettingDataFromSmallMultiples(self, data):
@@ -622,7 +618,6 @@ class ImageLabel(QtGui.QGraphicsView):
     def colorRelativeToRegion(self,regionId):
         self.ElectrodeView.UpdateColors()
         self.UpdateColorsSmallMultiples()
-
         self.ElectrodeView.SelectNode(regionId)
         #* in questions
 
@@ -655,7 +650,6 @@ class ImageLabel(QtGui.QGraphicsView):
     def selectGlyph(self,GlyphUnit):
         self.GlyphUnit = GlyphUnit
         print "Selecting Glyphs"
-
         print "WARNING THE Glyphs are changed please have a look" 
         self.CommunitiesAcrossTimeStep.UpdateColorsInElectrodeView(self.CommunitiesAcrossTimeStep.nodelist1,self.CommunitiesAcrossTimeStep.Offset)
         self.ElectrodeView.UpdateColors()

@@ -116,37 +116,9 @@ class CustomCluster(object):
 
         #* MADE CHANGES 
         
-        if timestep > ClusterStart[syllable][2] and timestep < ClusterStart[syllable][3]: 
-            for i in range(len(distances)):
-                self.partition[i] = 0
-                if i in x: 
-                    self.partition[i] = 0
-                elif i in y: 
-                    self.partition[i] = 1
-                elif i in z: 
-                    self.partition[i] = 2
-
-        if timestep >= ClusterStart[syllable][0] and timestep <= ClusterStart[syllable][1]:
-            for i in range(len(distances)):
-                if i in x: 
-                    self.partition[i] = 0
-                elif i in y: 
-                    self.partition[i] = 1
-                elif i in z: 
-                    self.partition[i] = 2
-        elif timestep > ClusterStart[syllable][1] and timestep <= ClusterStart[syllable][2]:
-            for i in range(len(distances)):
-                self.partition[i] = 0
-                if i in x: 
-                    self.partition[i] = 0
-                elif i in y: 
-                    self.partition[i] = 1
-                elif i in z: 
-                    self.partition[i] = 2
-
-
-        # if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]:
+        # if timestep > ClusterStart[syllable][2] and timestep < ClusterStart[syllable][3]: 
         #     for i in range(len(distances)):
+        #         self.partition[i] = 0
         #         if i in x: 
         #             self.partition[i] = 0
         #         elif i in y: 
@@ -154,7 +126,7 @@ class CustomCluster(object):
         #         elif i in z: 
         #             self.partition[i] = 2
 
-        # elif timestep > ClusterStart[syllable][2]-1 and timestep < ClusterStart[syllable][3]+1:
+        # if timestep >= ClusterStart[syllable][0] and timestep <= ClusterStart[syllable][1]:
         #     for i in range(len(distances)):
         #         if i in x: 
         #             self.partition[i] = 0
@@ -162,21 +134,49 @@ class CustomCluster(object):
         #             self.partition[i] = 1
         #         elif i in z: 
         #             self.partition[i] = 2
-        # else: 
-        #     try: 
-        #         self.partition = copy.deepcopy(self.timestepPartition[timestep])
-        #         if timestep == 0: 
-        #             assert not(self.partition == None) 
-        #         assert self.partition == self.timestepPartition[timestep]
-        #     except KeyError:
-        #         for j in range(len(distances)):
-        #             if syllable == 0: 
-        #                 self.partition[j] = randint(0, 2)
-        #             else: 
-        #                 if j in q:
-        #                     self.partition[j] = 0
-        #                 else:
-        #                     self.partition[j] = randint(1, 2)
+        # elif timestep > ClusterStart[syllable][1] and timestep <= ClusterStart[syllable][2]:
+        #     for i in range(len(distances)):
+        #         self.partition[i] = 0
+        #         if i in x: 
+        #             self.partition[i] = 0
+        #         elif i in y: 
+        #             self.partition[i] = 1
+        #         elif i in z: 
+        #             self.partition[i] = 2
+
+
+        if timestep > ClusterStart[syllable][0] and timestep < ClusterStart[syllable][1]:
+            for i in range(len(distances)):
+                if i in x: 
+                    self.partition[i] = 0
+                elif i in y: 
+                    self.partition[i] = 1
+                elif i in z: 
+                    self.partition[i] = 2
+
+        elif timestep > ClusterStart[syllable][2]-1 and timestep < ClusterStart[syllable][3]+1:
+            for i in range(len(distances)):
+                if i in x: 
+                    self.partition[i] = 0
+                elif i in y: 
+                    self.partition[i] = 1
+                elif i in z: 
+                    self.partition[i] = 2
+        else: 
+            try: 
+                self.partition = copy.deepcopy(self.timestepPartition[timestep])
+                if timestep == 0: 
+                    assert not(self.partition == None) 
+                assert self.partition == self.timestepPartition[timestep]
+            except KeyError:
+                for j in range(len(distances)):
+                    if syllable == 0: 
+                        self.partition[j] = randint(0, 2)
+                    else: 
+                        if j in q:
+                            self.partition[j] = 0
+                        else:
+                            self.partition[j] = randint(1, 2)
         if timestep == 0:
             self.partition.clear()
             for i in range(len(distances)):
@@ -332,7 +332,7 @@ class ConsensusMediator(object):
             cluster identity, and any SampleData objects that share it are considered to be in the same cluster.  This doesn't have to be
             1, 2, 3...etc.  In fact, it doesn't have to be a number.
 
-            See display.ConsoleDisplay for logging/display usage.
+        See display.ConsoleDisplay for logging/display usage.
 
             You may want to subclass _report if you want to report on additional information, or if you simply want to turn this logging feature off.
 
