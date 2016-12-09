@@ -344,8 +344,6 @@ class ElectrodeView(QtGui.QGraphicsView):
 
     def PaintElectrodes(self):
         counter = 0
-        # sa =[]
-
         k = 0
 
         for x,y in zip(self.ElectrodeData.mat['xy'][0],self.ElectrodeData.mat['xy'][1]):

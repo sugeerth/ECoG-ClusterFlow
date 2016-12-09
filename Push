@@ -5,4 +5,4 @@ read commitMessage
 
 git commit -m "$commitMessage"
 
-git push origin FinalWorkingTool
+git push origin artificialData

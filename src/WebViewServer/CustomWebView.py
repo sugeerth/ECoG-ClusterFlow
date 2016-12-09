@@ -19,8 +19,8 @@ from math import *
 
 Default = 1420.36
 
-url = 'http://localhost/~sugeerthmurugesan/ECoGClusterSankey'
-url2 = 'http://localhost/~sugeerthmurugesan/Sankey/Working.html'
+url =  'http://localhost/Sankey/artificialWorking.html'
+url2 = 'http://localhost/~sugeerthmurugesan/Sankey/artificialWorking.html'
 
 class StupidClass(QtCore.QObject): 
     IntervalSignal = QtCore.Signal(int, int, int, int)
@@ -131,8 +131,7 @@ class CustomWebView(QtWebKit.QWebView):
 		print Start, End, StartSliceNoGlobal, EndSliceNoGlobal
 
 	def slicesChanged(self,slices):
-		print "slices are being changed please take a look"
-		# print "Slices have been changed",self.SmallMultipleLayout.lengthPixels
+		print "Slices have been changed",self.SmallMultipleLayout.lengthPixels
 		# self.setMaximumSize(self.SmallMultipleLayout.lengthPixels,100) 
 		# self.setMinimumSize(self.SmallMultipleLayout.lengthPixels,100) 
 		# self.js.SliceSignal.emit(slices, self.SmallMultipleLayout.lengthPixels)

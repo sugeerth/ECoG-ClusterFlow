@@ -302,11 +302,6 @@ class DataModel(object):
                     for r in range(sq):
                         self.adjacencyMatrix[i][j][q][r] = random.uniform(0,1)
 
-        # pprint.pprint(self.adjacencyMatrix[i][5])
-        # print "x=",self.x
-        # print "y=",self.y
-        # print "z=",self.z
-
     def fillAdjacencyMatrixBoo(self):
         """
         matrix ordering

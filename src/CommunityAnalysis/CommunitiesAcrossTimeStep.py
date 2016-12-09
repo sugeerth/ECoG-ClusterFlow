@@ -9,8 +9,7 @@ import math
 from collections import deque
 from PySide.QtCore import *
 import traceback
-
-# from pygraphviz import Digraph
+import json
 
 from time import time
 from math import *
@@ -53,7 +52,6 @@ FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,12),('/Users
 # FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,50)]
 
 HeatmapFilename = "/Users/sugeerthmurugesan/Sites/Sankey/DeltaAreaChange4Heatmap.tsv"
-
 
 ElectrodeSignalDataName = 'muDat'
 # ElectrodeSignalDataName = 'sigData'
@@ -185,10 +183,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 
 	def noDuplicates(self, list1):
 		items = set([i for i in list1 if sum([1 for a in list1 if a == i]) > 1])
-		# if items:
-		# 	return True
-		# else:
-		# 	return False
 		return True
 
 	@Slot(bool)
@@ -331,7 +325,6 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 			self.AggregateList.append(AssignmentAcrossTime)
 
 		if (self.Graph_interface.TimeStep == End):
-			import json
 			with open(Name, 'w') as outfile:
 				c = 0 
 				for row in self.presentNodeObjects:
@@ -713,6 +706,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 
 		for key,value1 in self.TowPartitionValue.items():
 			self.TowMultiple[value1].append(key)
+			
 		self.AssigNewValuesToGraphWidget(True)
 		self.widget.Refresh()
 		self.widget.scaleView(1.0001)

@@ -24,7 +24,7 @@ class dataProcessing(object):
 
 			self.ElectrodeSignals = scipy.io.loadmat(ElectrodeSignals)
 			self.mat = scipy.io.loadmat(Electrode_mat_filename)
-			self.connectivityData=scipy.io.loadmat(Electrode_ElectrodeData_filename)
+			self.connectivityData = scipy.io.loadmat(Electrode_ElectrodeData_filename)
 
 			# Changes for artificial data 
 			Data=scipy.io.loadmat(Electrode_ElectrodeData_filename)
@@ -40,7 +40,7 @@ class dataProcessing(object):
 			self.timestep = self.timestep - 1
 
 			""" The variables names for the new connecivity matrices, 
-			C == correlation matrix 
+		C == correlation matrix 
 			syllable == 6 syllables
 			time = mapping between electrodes
 			electrode == 58 electrodes  
