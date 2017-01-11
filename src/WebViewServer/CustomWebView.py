@@ -19,8 +19,8 @@ from math import *
 
 Default = 1420.36
 
-url =  'http://localhost/Sankey/artificialWorking.html'
-url2 = 'http://localhost/~sugeerthmurugesan/Sankey/artificialWorking.html'
+url =  'http://localhost/Sankey/artificialWorsking.html'
+url2 = 'http://localhost/~sugeerthmurugesan/Sankey/artisficialWorking.html'
 
 class StupidClass(QtCore.QObject): 
     IntervalSignal = QtCore.Signal(int, int, int, int)

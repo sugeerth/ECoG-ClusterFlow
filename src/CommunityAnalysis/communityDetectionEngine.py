@@ -178,7 +178,9 @@ class CustomCluster(object):
                         else:
                             self.partition[j] = randint(1, 2)
         if timestep == 0:
+            
             self.partition.clear()
+
             for i in range(len(distances)):
                 if i in x: 
                     self.partition[i] = 0
@@ -187,7 +189,44 @@ class CustomCluster(object):
                 elif i in z: 
                     self.partition[i] = 2
 
-            # pprint.pprint(self.partition)
+        if timestep == 2:
+            import h5py
+            statDataName = "/Users/sugeerthmurugesan/ProjectRepos/temporalStats/data/ECoG_cluster.h5"
+            np_data1= None
+            with h5py.File(statDataName,'r') as hf:
+                data = hf.get('cluster.label1')
+                np_data1 = np.array(data)
+                print np_data1
+            self.partition.clear()
+
+            for i in range(len(distances)):
+                self.partition[i] = np_data1[i]-1
+        
+            dataStats = defaultdict(list)
+
+            for i, key in self.partition.items(): 
+                dataStats[key].append(i)
+
+            pprint.pprint(dataStats)
+
+        if timestep == 3:
+            import h5py
+            statDataName = "/Users/sugeerthmurugesan/ProjectRepos/temporalStats/data/ECoG_cluster.h5"
+            np_data2= None
+            with h5py.File(statDataName,'r') as hf1:
+                data = hf1.get('cluster.label2')
+                np_data2 = np.array(data)
+            self.partition.clear()
+            for i in range(len(distances)):
+                self.partition[i] = np_data2[i]-1
+
+            dataStats = defaultdict(list)
+
+            for i, key in self.partition.items(): 
+                dataStats[key].append(i)
+
+            pprint.pprint(dataStats)
+
         return self.partition
 
 class ConsensusMediator(object):
