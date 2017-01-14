@@ -1,6 +1,0 @@
-RunProjectMain2.py
-setup.py
-ECoGClusterFlow.egg-info/PKG-INFO
-ECoGClusterFlow.egg-info/SOURCES.txt
-ECoGClusterFlow.egg-info/dependency_links.txt
-ECoGClusterFlow.egg-info/top_level.txt

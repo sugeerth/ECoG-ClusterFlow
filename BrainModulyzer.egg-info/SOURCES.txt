@@ -1,6 +1,0 @@
-RunProjectMain2.py
-setup.py
-BrainModulyzer.egg-info/PKG-INFO
-BrainModulyzer.egg-info/SOURCES.txt
-BrainModulyzer.egg-info/dependency_links.txt
-BrainModulyzer.egg-info/top_level.txt
