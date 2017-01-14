@@ -617,9 +617,9 @@ class ConsensusCluster(object):
 
         print "\n\n\n \n\n\n shape of M ", np.shape(dataset)
 
-        pprint.pprint(M)
+        # pprint.pprint(M)
         # M = M.take(tuple(dataset_ind), 0)
-        pprint.pprint(M)
+        # pprint.pprint(M)
 
 
 

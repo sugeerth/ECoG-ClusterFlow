@@ -206,7 +206,7 @@ class CustomCluster(object):
             for i, key in self.partition.items(): 
                 dataStats[key].append(i)
 
-            pprint.pprint(dataStats)
+            # pprint.pprint(dataStats)
 
         if timestep == 3:
             import h5py
@@ -224,7 +224,7 @@ class CustomCluster(object):
             for i, key in self.partition.items(): 
                 dataStats[key].append(i)
 
-            pprint.pprint(dataStats)
+            # pprint.pprint(dataStats)
 
         return self.partition
 
@@ -494,8 +494,8 @@ class ConsensusMediator(object):
             k = 1 
         self.DeltaAreaTimestep[self.Timestep] = self.deltaArea
 
-        pprint.pprint(self.deltaArea)
-        print "Max",k
+        # pprint.pprint(self.deltaArea)
+        # print "Max",k
         return k
 
     def _preprocess(self):

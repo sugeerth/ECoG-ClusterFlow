@@ -768,9 +768,9 @@ class CommonCluster(Gtk_UI):
 
             import pprint
             print "idlist, sdata"
-            pprint.pprint(self.sdata)
-            pprint.pprint(idlist)
-            pprint.pprint(dict.fromkeys(idlist))
+            # pprint.pprint(self.sdata)
+            # pprint.pprint(idlist)
+            # pprint.pprint(dict.fromkeys(idlist))
 
             if len(dict.fromkeys(idlist)) != len(idlist):
                 raise ValueError, 'One or more Sample IDs are not unique!\n\n\nHere is the data'+str(len(dict.fromkeys(idlist)))+'len'+str(len(idlist))
