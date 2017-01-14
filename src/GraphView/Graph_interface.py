@@ -14,7 +14,6 @@ import pprint
 import community as cm
 try:
     # ... reading NIfTI 
-    import nibabel as nib
     import numpy as np
     # ... graph drawing
     import networkx as nx

@@ -20,7 +20,6 @@ import pprint
 # import time
 import community as cm
 # ... reading NIfTI 
-import nibabel as nibc
 import numpy as np
 # ... graph drawing
 import networkx as nx

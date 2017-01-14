@@ -21,7 +21,6 @@ import copy
 import community as cm
 
 # ... reading NIfTI 
-import nibabel as nib
 import numpy as np
 # ... graph drawing
 import networkx as nx

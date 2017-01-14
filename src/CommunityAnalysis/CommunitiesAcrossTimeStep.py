@@ -28,7 +28,6 @@ http://arxiv.org/pdf/1407.5105.pdf
 import community as cm
 try:
 	# ... reading NIfTI 
-	import nibabel as nib
 	import numpy as np
 	# ... graph drawing
 	import networkx as nx
