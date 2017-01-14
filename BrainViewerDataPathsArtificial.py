@@ -1,4 +1,4 @@
-# Artificial Data 
+#Artificial Data 
 import os
 import os.path as path
 import sys
