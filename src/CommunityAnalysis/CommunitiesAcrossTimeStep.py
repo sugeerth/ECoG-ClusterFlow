@@ -44,14 +44,6 @@ from StaticColorLogic import LogicForTimestep, SimilarityData
 Capture = [0,15]
 Interval = 13
 
-FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,12),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_2.json',12,24)\
-,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_3.json',24,36),('/Users/sugeerthmurugesan/Sites/Sankey/JSON_4.json',36,48)\
-,('/Users/sugeerthmurugesan/Sites/Sankey/JSON_5.json',48,60)]
-
-# FileNames = [('/Users/sugeerthmurugesan/Sites/Sankey/JSON_1.json',0,50)]
-
-HeatmapFilename = "/Users/sugeerthmurugesan/Sites/Sankey/DeltaAreaChange4Heatmap.tsv"
-
 ElectrodeSignalDataName = 'muDat'
 # ElectrodeSignalDataName = 'sigData'
 
@@ -76,7 +68,7 @@ Working on consistent stuff """
 class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 	sendLCDValues = QtCore.Signal(float)
 
-	def __init__(self,widget, electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine):
+	def __init__(self,widget, electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine, FileNames, HeatmapFilename):
 		QtGui.QGraphicsView.__init__(self)
 		self.Graph_interface = widget
 		self.AggregateList = []
@@ -98,6 +90,8 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.LegacyAPI=LegacyAPI("AcrossTimestep")
 
 		self.dot = []
+		self.FileNames = FileNames
+		self.HeatmapFilename = HeatmapFilename
 		
 		self.AcrossTimestep = AcrossTimestep
 		self.electrodeUI = electrodeUI
@@ -110,6 +104,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		self.setWindowTitle('Analysis Across Timesteps')
 		self.Order =[]
 		self.previousTimestep = []
+		self.FileNames = FileNames
 
 		self.height = 340
 		self.Offset = 0
@@ -236,7 +231,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		Name = ""
 		End = -1 
 		Start = -1
-		for name, start, end in FileNames:
+		for name, start, end in self.FileNames:
 			if self.Graph_interface.TimeStep > start and self.Graph_interface.TimeStep <= end:
 				Name = name 
 				Start = start 
@@ -377,7 +372,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		filedata = f.read()
 		f.close()
 
-		f = open(HeatmapFilename,'w')
+		f = open(self.HeatmapFilename,'w')
 		f.write(filedata)
 		f.close()
 

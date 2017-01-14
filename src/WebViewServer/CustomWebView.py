@@ -19,9 +19,6 @@ from math import *
 
 Default = 1420.36
 
-url =  'http://localhost/Sankey/artificialWorsking.html'
-url2 = 'http://localhost/~sugeerthmurugesan/Sankey/artisficialWorking.html'
-
 class StupidClass(QtCore.QObject): 
     IntervalSignal = QtCore.Signal(int, int, int, int)
     SliceSignal = QtCore.Signal(int, int)
@@ -70,7 +67,7 @@ class CustomWebView(QtWebKit.QWebView):
 	sendLCDValues = QtCore.Signal(float)
 	sendTimeStepFromSankey = QtCore.Signal(int, int, int)
 
-	def __init__(self):
+	def __init__(self, url):
 		QtWebKit.QWebView.__init__(self)
 
 		self.setMaximumSize(1930,210) 
@@ -84,6 +81,7 @@ class CustomWebView(QtWebKit.QWebView):
 		self.setContentsMargins(0, 0, 0, 0)
 
 		self.signalConnection()
+		self.url = url
 
 		frame = self.page().mainFrame()
 		frame.setScrollBarPolicy(QtCore.Qt.Vertical , QtCore.Qt.ScrollBarAlwaysOn)
@@ -141,4 +139,4 @@ class CustomWebView(QtWebKit.QWebView):
 		self.js.IntervalSignal.emit(Start, End, slices, 0)
 
 	def reload(self):
-		self.load(QtCore.QUrl(url))
+		self.load(QtCore.QUrl(self.url))

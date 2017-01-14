@@ -19,7 +19,6 @@ QtGui.QApplication.setGraphicsSystem("raster")
 app = QtGui.QApplication(sys.argv)
 OFFSET = 4 
 
-
 ### BrainViewer packages
 from GraphView.correlation_table import CorrelationTable, CorrelationTableDisplay, CommunityCorrelationTableDisplay
 from UIFiles.ProcessUi import ProcessQuantTable
@@ -174,7 +173,7 @@ else:
 print "Setting up Electrode data"
 Electrode = ImageLabel(dataProcess, correlationTable, colorTable, selectedColor,Counter, widget, electrodeUI, Visualizer)
 
-communitiesAcrossTimeStep = CommunitiesAcrossTimeStep(widget, Electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine)
+communitiesAcrossTimeStep = CommunitiesAcrossTimeStep(widget, Electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine, FileNames, HeatmapFilename)
 Electrode.CommunitiesAcrossTimeStep = communitiesAcrossTimeStep 
 
 communitiesAcrossTimeStep.AcrossTimestepUI = AcrossTimestep
@@ -224,7 +223,7 @@ debug()
 
 
 """Window for correlation Table"""
-view = CustomWebView()
+view = CustomWebView(url)
 
 Electrode.StopAnimationSignal.connect(view.reload)
 MainSmallMultipleInterface = SmallMultipleLayout(Electrode, view)
