@@ -6,11 +6,11 @@ import sys
 CURR =  path.abspath(path.join(__file__ ,"..")) # going one directory up 
 CURR = os.path.join(CURR, "SyntheticGeneratedData")
 
-Electrode_mat_filename = os.path.join(CURR, "EC2.reg_grd.mat")
-Brain_image_filename = os.path.join(CURR,"EC2.brain_redo1.jpg")
+Electrode_mat_filename = os.path.join(CURR, "SyntheticBrainPositions.mat")
+Brain_image_filename = os.path.join(CURR,"SyntheticBrainImage.jpg")
 ElectrodeSignals =os.path.join(CURR,"SyntheticElectric.mat")
-Electrode_ElectrodeData_filename = os.path.join(CURR,"Bolasso_output_algnd.mat") 
-
+Electrode_ElectrodeData_filename = os.path.join(CURR,"SyntheticCorrelationData.mat") 
+# SyntheticCorrelationData.mat
 url = 'http://localhost/Sankey/artificialWorking.html'
 
 # These are block files and time intervals that can be changed based on where you kept your webpage

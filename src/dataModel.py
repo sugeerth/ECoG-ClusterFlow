@@ -66,24 +66,26 @@ class DataModel(object):
         # Data=scipy.io.loadmat(i)
         self.N = Number_of_Electrode
         sq = self.N * self.N
-        self.adjacencyMatrix = np.zeros((timeStep,sq,sq))
+        self.adjacencyMatrix = np.zeros((6,timeStep,54,54))
         self.Electrode = np.zeros((6,sq,timeStep))
 
         Data=scipy.io.loadmat(Electrode_ElectrodeData_filename)
         temp = Data['electrode']
         self.ElectrodeIds = temp[0]
 
-        # self.x = []
-        # self.y = []
-        # self.z = []
-        # self.x = [int(self.ElectrodeIds[i]) for i in range(20)]
-        # self.y = [int(self.ElectrodeIds[i]) for i in range(21,39)]
-        # self.z = [int(self.ElectrodeIds[i]) for i in range(40,54)]
+        print Data
+
+        self.x = []
+        self.y = []
+        self.z = []
+        self.x = [int(self.ElectrodeIds[i]) for i in range(20)]
+        self.y = [int(self.ElectrodeIds[i]) for i in range(21,39)]
+        self.z = [int(self.ElectrodeIds[i]) for i in range(40,54)]
 
 
-        self.x = [i for i in range(20)]
-        self.y = [i for i in range(21,39)]
-        self.z = [i for i in range(40,64)]
+        # self.x = [i for i in range(20)]
+        # self.y = [i for i in range(21,39)]
+        # self.z = [i for i in range(40,64)]
 
         self.start1 = [i for i in range(6)]
 
@@ -91,26 +93,26 @@ class DataModel(object):
         self.sq = sq
         # self.SeeElectrode_ElectrodeData_filename()
 
-        # self.fillAdjacencyMatrixBaa()
-        self.ElectrodeSignalsBaa(sq)
+        self.fillAdjacencyMatrixBaa()
+        # self.ElectrodeSignalsBaa(sq)
 
         # self.fillAdjacencyMatrixBoo()
-        # self.ElectrodeSignalsBoo(sq)
+        # # self.ElectrodeSignalsBoo(sq)
 
         # self.fillAdjacencyMatrixDaa()
-        # self.ElectrodeSignalsDaa(sq)
+        # # self.ElectrodeSignalsDaa(sq)
 
         # self.fillAdjacencyMatrixDoo()
-        # self.ElectrodeSignalsDoo(sq)
+        # # self.ElectrodeSignalsDoo(sq)
 
         # self.fillAdjacencyMatrixPaa()
-        # self.ElectrodeSignalsPaa(sq)
+        # # self.ElectrodeSignalsPaa(sq)
 
         # self.fillAdjacencyMatrixPoo()
         # self.ElectrodeSignalsPoo(sq)
 
-        # self.writeData(sq)
-        self.writeSignalData()
+        self.writeData(sq)
+        # self.writeSignalData()
 
         # self.ElectrodeSignals(sq)
         # self.GenerateDataSets()
@@ -285,27 +287,37 @@ class DataModel(object):
                         self.x.append(q)
                         q=q+1
                     for l in range(X): 
-                        self.adjacencyMatrix[i][j][k][l] = 0.5
+                        try:
+                            self.adjacencyMatrix[i][j][k][l] = 0.5
+                        except IndexError:
+                            pass
                 for m in range(1,Y+1):
                     if first:
                         self.y.append(q)
                         q=q+1
                     for n in range(1,Y+1):
-                        self.adjacencyMatrix[i][j][k+m][l+n] = 0.5 
+                        try: 
+                            self.adjacencyMatrix[i][j][k+m][l+n] = 0.5 
+                        except IndexError:
+                            pass
                 for o in range(1,Z+1):
                     if first:
                         self.z.append(q)
                         q=q+1
                     for p in range(1,Z+1): 
-                        self.adjacencyMatrix[i][j][k+m+o][l+n+p] = 0.5
+                        try:
+                            self.adjacencyMatrix[i][j][k+m+o][l+n+p] = 0.5
+                        except IndexError:
+                            pass
                 if first:
                     first =False
-
             else:  
                 for q in range(sq):
                     for r in range(sq):
-                        self.adjacencyMatrix[i][j][q][r] = random.uniform(0,1)
-
+                        try:
+                            self.adjacencyMatrix[i][j][q][r] = float(random.uniform(0,1))
+                        except IndexError:
+                            pass
     def fillAdjacencyMatrixBoo(self):
         """
         matrix ordering
@@ -488,10 +500,10 @@ class DataModel(object):
 
     def writeData(self,sq):
         name = "SyntheticGeneratedData/SyntheticCorrelationData.mat"
-        electrod = [ i for i in range(sq)]
-        electrode = [electrod]
+        electrod = [ i for i in range(54)]
+        electrode = [self.ElectrodeIds]
         obj_arr = np.zeros((2,), dtype=np.object)
-        obj_arr[0] = electrode[0]
+        obj_arr[0] = electrode
         scipy.io.savemat(name, mdict={'electrode': obj_arr[0], 'C': self.adjacencyMatrix})
 
     def GenerateBrainFileFormat(self):

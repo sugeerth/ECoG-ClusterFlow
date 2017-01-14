@@ -28,9 +28,12 @@ class dataProcessing(object):
 
 			# Changes for artificial data 
 			Data=scipy.io.loadmat(Electrode_ElectrodeData_filename)
+			
 			temp = Data['electrode']
 			self.ElectrodeIds = temp[0]
 			self.ElectodeData = Data['C']
+
+			print self.ElectrodeIds.shape, self.ElectodeData.shape
 
 			# Changes for RealData
 			# self.ElectrodeIds = [i for i in range(len(self.ElectrodeSignals[ElectrodeSignalDataName][0]))]
