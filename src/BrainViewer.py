@@ -33,7 +33,6 @@ from GraphView.GraphDataStructure import GraphVisualization
 from LayoutDesign.Layout_interface import LayoutInit
 from Electrode.Electrode import ImageLabel
 from Data.dataProcessing import dataProcessing
-from CommunityAnalysis.syllableChoice import Syllable
 from interface.SignalInterface import Interface
 from interface.ElectrodeInterface import ElectrodeInterface
 from interface.CommunitiesAcrossTimestepInterrface import CommunitiesAcrossTimeStepInterface
@@ -184,7 +183,6 @@ if debugTrackingView:
 else: 
     communitiesAcrossTimeStep.hide()
 
-syllable = Syllable()
 
 InterfaceSignals= Interface(widget,ui,Electrode,electrodeUI,communitiesAcrossTimeStep,Tab_1_CorrelationTable,Tab_2_CorrelationTable, Visualizer, quantData, quantTableObject, Graph_Layout)
 
