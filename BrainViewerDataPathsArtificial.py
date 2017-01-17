@@ -16,8 +16,8 @@ CURR =  path.abspath(path.join(__file__ ,"..")) # going one directory up
 CURR = os.path.join(CURR, "RealData")
 Electrode_mat_filename = os.path.join(CURR, "regData.mat");
 Brain_image_filename = os.path.join(CURR,"ec58_blank_clean_enhanced.png");
-ElectrodeSignals = os.path.join(CURR,"enhancedSigData.mat");
-Electrode_ElectrodeData_filename = os.path.join(CURR,"enhancedConData.mat"); 
+ElectrodeSignals = os.path.join(CURR,"realSigData.mat");
+Electrode_ElectrodeData_filename = os.path.join(CURR,"realConData.mat"); 
 
 url = 'http://localhost/Sankey/artificialWorking.html'
 
