@@ -69,7 +69,7 @@ execfile('BrainViewerDataPathsArtificial.py')
 
 print "Creating correlation table display"
 
-dataProcess = dataProcessing(Brain_image_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename, ElectrodeSignals)
+dataProcess = dataProcessing(Brain_image_filename,Electrode_ElectrodeData_filename,Electrode_mat_filename, ElectrodeSignals,ElectrodeSignalDataName)
 correlationTable = CorrelationTable(dataProcess)
 
 colorTable = CreateColorTable(colorTableName)
