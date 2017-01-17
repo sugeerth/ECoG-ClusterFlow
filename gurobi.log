@@ -1,0 +1,2986 @@
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 13:49:38 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:10:35 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:16:12 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:17:28 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:18:28 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:21:08 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:21:47 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:28:48 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:32:11 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:35:17 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:39:33 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:44:40 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:48:19 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+
+Gurobi 7.0.1 (mac64, Python) logging started Tue Jan 17 14:56:27 2017
+
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1
+Changed value of parameter Method to 1
+   Prev: -1  Min: -1  Max: 4  Default: -1

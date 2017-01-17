@@ -271,7 +271,7 @@ class ElectrodeView(QtGui.QGraphicsView):
         self.setSceneRect(self.Scene_to_be_updated.itemsBoundingRect())
         self.setScene(self.Scene_to_be_updated)
 
-        rect =QtCore.QRectF(self.width/2+115, self.height/4+100, 3*self.width/6-60,3*self.height/5+30)
+        rect =QtCore.QRectF(self.width/2.5+115, self.height/4+100, 3.5*self.width/5-50,3*self.height/5+40)
         rect.translate(-470,-180)
 
         self.fitInView(rect,QtCore.Qt.KeepAspectRatio)
@@ -279,11 +279,11 @@ class ElectrodeView(QtGui.QGraphicsView):
         self.MaxVal = MaxVal
         self.MinVal = MinVal
 
-        self.setContextMenuPolicy(Qt.ActionsContextMenu)
-        delete = QAction(self)
-        delete.setText("Select Community")
-        delete.triggered.connect(self.removeButton)
-        self.addAction(delete)
+        # self.setContextMenuPolicy(Qt.ActionsContextMenu)
+        # delete = QAction(self)
+        # delete.setText("Select Community")
+        # delete.triggered.connect(self.removeButton)
+        # self.addAction(delete)
 
 
     def changeSliceNumber(self,value = -1):

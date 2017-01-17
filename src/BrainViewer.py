@@ -170,9 +170,9 @@ else:
 
 # For image label 
 print "Setting up Electrode data"
-Electrode = ImageLabel(dataProcess, correlationTable, colorTable, selectedColor,Counter, widget, electrodeUI, Visualizer)
+Electrode = ImageLabel(dataProcess, correlationTable, colorTable, selectedColor,Counter, widget, electrodeUI, Visualizer,Brain_image_filename)
 
-communitiesAcrossTimeStep = CommunitiesAcrossTimeStep(widget, Electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine, FileNames, HeatmapFilename)
+communitiesAcrossTimeStep = CommunitiesAcrossTimeStep(widget, Electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine, FileNames, HeatmapFilename, ElectrodeSignalDataName)
 Electrode.CommunitiesAcrossTimeStep = communitiesAcrossTimeStep 
 
 communitiesAcrossTimeStep.AcrossTimestepUI = AcrossTimestep

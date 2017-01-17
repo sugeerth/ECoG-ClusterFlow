@@ -78,6 +78,7 @@ class Interface(QtCore.QObject):
 		self.Electrode.TowValuesChanged.connect(self.widget.changeStuffDuetoTowChange)
 		self.Electrode.ClusteringAlgorithmChange.connect(self.widget.ClusterChangeHappening)
 		self.Electrode.NumberOfClusterChange.connect(self.widget.ComputeUpdatedClusters)
+		self.Electrode.selectSeedNode.connect(self.widget.communityDetectionEngine.setCounterValues)
 
 	def ColorSignals(self):
 		self.widget.CalculateColors1.connect(self.communitiesAcrossTimeStep.CalculateClustersForTow)

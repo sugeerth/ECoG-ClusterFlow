@@ -44,8 +44,8 @@ from StaticColorLogic import LogicForTimestep, SimilarityData
 Capture = [0,15]
 Interval = 13
 
-ElectrodeSignalDataName = 'muDat'
-# ElectrodeSignalDataName = 'sigData'
+# ElectrodeSignalDataName = 'muDat'
+ElectrodeSignalDataName = 'sigData'
 
 timestep = 12
 THRESHOLD_VALUE_TRACKING_GRAPH = 0.0
@@ -68,7 +68,7 @@ Working on consistent stuff """
 class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 	sendLCDValues = QtCore.Signal(float)
 
-	def __init__(self,widget, electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine, FileNames, HeatmapFilename):
+	def __init__(self,widget, electrode, electrodeUI, AcrossTimestep, Visualizer, communityDetectionEngine, FileNames, HeatmapFilename,ElectrodeSignalName):
 		QtGui.QGraphicsView.__init__(self)
 		self.Graph_interface = widget
 		self.AggregateList = []
@@ -77,7 +77,8 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 		scene.setItemIndexMethod(QtGui.QGraphicsScene.NoIndex)
 		self.setScene(scene)
 
-		global timestep
+		global timestep,ElectrodeSignalDataName
+		ElectrodeSignalDataName = ElectrodeSignalName
 		self.Logic = LogicForTimestep()
 		timestep = widget.OverallTimestep
 		self.toK = 0
@@ -245,7 +246,7 @@ class CommunitiesAcrossTimeStep(QtGui.QGraphicsView):
 
 		self.dataAccumalation = copy.deepcopy(self.communityMultiple)
 
-		if self.Graph_interface.TimeStep == 61:
+		if self.Graph_interface.TimeStep == 50:
 			self.SendValuesToElectrodeNodes(self.nodelist1)
 
 		if AssignmentAcrossTime:

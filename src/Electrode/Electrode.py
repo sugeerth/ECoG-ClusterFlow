@@ -132,8 +132,10 @@ class ImageLabel(QtGui.QGraphicsView):
     NumberOfClusterChange = QtCore.Signal(int)
     clusterObject = QtCore.Signal(object)
 
+    selectSeedNode = QtCore.Signal(int)
 
-    def __init__(self,dataProcess,correlationTable,colorTable,selectedcolor,counter,graphWidget ,electrodeUI,  Visualizer):
+
+    def __init__(self,dataProcess,correlationTable,colorTable,selectedcolor,counter,graphWidget ,electrodeUI,  Visualizer,Brain_image_filename):
         QtGui.QGraphicsView.__init__(self)
         # self.setMouseTracking(True)
 
@@ -224,11 +226,11 @@ class ImageLabel(QtGui.QGraphicsView):
         # Saving the image file as an output file
         self.label = QtGui.QLabel()
         self.NodeSlider()
-        im.save("BackgroundImage/output.png")
+        im.save(Brain_image_filename)
 
         # Loading the pixmap for better analysis
         loadedImage = QtGui.QImage()
-        loadedImage.load("BackgroundImage/output.png")
+        loadedImage.load(Brain_image_filename)
         self.PixMap = QtGui.QPixmap.fromImage(loadedImage)
         
         self.ElectrodeView = ElectrodeView(self)
@@ -397,6 +399,10 @@ class ImageLabel(QtGui.QGraphicsView):
             self.clusterActivated = 6
             self.ClusteringAlgorithmChange.emit(6)
             print "Toggle state to Precomputed Consensus Cluster"
+        elif state == "LocalGraphClustering":
+            self.clusterActivated = 7
+            self.ClusteringAlgorithmChange.emit(7)
+            print "Toggle state to Local Graph Clustering"
         # self.PreComputeClusters()
 
     @Slot()
@@ -697,7 +703,7 @@ class ImageLabel(QtGui.QGraphicsView):
             ElectroV.RefreshElectrodes()
             ElectroV.update()
 
-    def ColorForVisit(self,partition):
+    def ColorForVisit(self,partiton):
         self.ColorToBeSentToVisit = []
         for key,value in partition.items():
             self.ColorToBeSentToVisit.append(self.ColorVisit[value])

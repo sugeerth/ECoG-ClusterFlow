@@ -56,6 +56,8 @@ class ConsensusCustomCluster(object):
         self.graphWidget = graphwidget
         self.partition = dict()
         self.timestepPartition = dict()
+        self.timestepCommunity = dict()
+
 
         syllable = self.graphWidget.Syllable
         self.syllable = syllable
@@ -105,7 +107,6 @@ class ConsensusCustomCluster(object):
 
         adjacencyMatrixForGraph = nx.adjacency_matrix(graph)
         adjacencyMatrixForGraph = adjacencyMatrixForGraph*1.0
-        adjacencyMatrixForGraph = adjacencyMatrixForGraph + adjacencyMatrixForGraph
 
         numberOfRows = adjacencyMatrixForGraph.shape[0]
         adjacencyMatrixForGraph.setdiag(0, k=0)
@@ -124,23 +125,22 @@ class ConsensusCustomCluster(object):
         d = adjacencyMatrixForGraph.sum(axis=1).flatten()
 
         # Number of nodes.
-        n = 54
-
+        n = len(numpyMatrix)
         # Select your seed node. This should be an integer from 1 to n.
         seed_node = seedNode
 
         # Teleportation parameter for the papge-rank linear system. This is usually 0.1 - 0.15, 
         # but your application may require a different setting. 
-        alpha = 0.01
+        alpha = 0.10
 
         # rho is a parameter of the local graph clustering method
         # which control the termination criterion. The smaller, the longer 
         # the running time, but you get more accurate solutions. 
-        rho = 1.0e-7
+        rho = 1.0e-4
 
         # Solution of local graph clustering method. 
         dd = np.squeeze(np.asarray(d))
-        (x,residual) = lgc.acl(n, seed_node, dd, adjacencyMatrixForGraph.data, adjacencyMatrixForGraph.indices, adjacencyMatrixForGraph.indptr, alpha, rho, max_iter = 1000)
+        (x,residual) = lgc.acl(n, seed_node, dd, adjacencyMatrixForGraph.data, adjacencyMatrixForGraph.indices, adjacencyMatrixForGraph.indptr, alpha, rho, max_iter = 100)
 
         # Retrive the solution and transpose it.
         x = np.asarray(x)
@@ -150,12 +150,26 @@ class ConsensusCustomCluster(object):
 
         # Call Flow Improve 
         ddt = np.transpose(d)
+        S_flowI = None
         try: 
             S_flowI,Q_S = lgc.flow_improve(B, ddt, S_x, kappa = 0 , max_iter = 20)
         except ValueError:
             pass
-        # print (x,residual)
-        print S_x
+
+        self.partition = dict()
+        print timestep,S_x
+        
+        for i in range(n):
+            if i in S_x: 
+                    self.partition[i] = 1 
+            else: 
+                self.partition[i] = 0 
+
+        self.timestepCommunity[timestep] = self.partition
+        if timestep == 50: 
+            with open('localClusteringData/localClustering'+str(seed_node)+'.pickle', 'wb') as handle:
+                pickle.dump(self.timestepCommunity, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
         return self.partition
 
     def changeSyllable(self, syllable):
@@ -682,6 +696,10 @@ class communityDetectionEngine(QtCore.QObject):
         self.PreComputeState = False
         if self.PreComputeData:
             self.PreComputeData.clear()
+    
+    @Slot(int)
+    def setCounterValues(self,counter):
+        self.seedNode = counter
 
     def ChangeCommunityColor(self, level = -1):
         """

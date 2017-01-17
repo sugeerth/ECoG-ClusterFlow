@@ -1,4 +1,3 @@
-
 import csv
 import numpy as np
 import pprint
@@ -58,7 +57,7 @@ class ElectrodeNode(QtGui.QGraphicsItem):
         self.subNodes = []
         self.colorvalue = []
         self.communityNode = None
-        self.nodesize = 12
+        self.nodesize = 9
         self.EA = None
         self.Highlight = False
         self.AcrossCommunityMode = False
@@ -192,6 +191,7 @@ class ElectrodeNode(QtGui.QGraphicsItem):
         menu.exec_(event.screenPos())
 
     def selectSeedNode(self):
+        self.ImageLabel.selectSeedNode.emit(self.counter)
         print self.counter
 
     def SelectCommunitiesOverTime(self):
@@ -402,7 +402,6 @@ class ElectrodeNode(QtGui.QGraphicsItem):
                 painter.drawPie(rectangle,(int(startAngle*16) * -1), (int(angle*16) * -1))
         else:
             painter.drawPie(rectangle,(int(startAngle*16) * -1), (int(angle*16)*-1))
-
 
     def drawBarChart(self, painter, Highlight): 
         radiusOld = 10
