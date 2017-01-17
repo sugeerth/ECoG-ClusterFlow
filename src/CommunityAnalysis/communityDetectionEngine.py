@@ -32,6 +32,18 @@ import ConsensusClster.pca as pca
 
 from random import shuffle
 
+import random
+import random, math
+import matplotlib.pyplot as plt
+
+import numpy as np
+from scipy import sparse as sp
+import pandas as pd
+import networkx as nx
+
+import local_graph_clustering as lgc
+
+
 Number_of_Communities = 3
 starttime = 4 
 endtime = 9
@@ -77,6 +89,73 @@ class ConsensusCustomCluster(object):
         except KeyError:
             pass
         # print "No of communities",len(self.partition.keys()), len(set(self.partition.values()))
+        return self.partition
+
+    def prepareLocalClusteringAlgorithm(self, graph, timestep,seedNode, rho, syllable): 
+        """
+        takes arbitary input for the seed and then computes the nodes 
+        that are the same values
+        """
+
+        numpyMatrix = copy.deepcopy(nx.to_numpy_matrix(graph))
+        numpyMatrix = (numpyMatrix + np.transpose(numpyMatrix)) 
+        numpyMatrix = 0.5*np.array(numpyMatrix)
+
+        graph=nx.from_numpy_matrix(numpyMatrix)
+
+        adjacencyMatrixForGraph = nx.adjacency_matrix(graph)
+        adjacencyMatrixForGraph = adjacencyMatrixForGraph*1.0
+        adjacencyMatrixForGraph = adjacencyMatrixForGraph + adjacencyMatrixForGraph
+
+        numberOfRows = adjacencyMatrixForGraph.shape[0]
+        adjacencyMatrixForGraph.setdiag(0, k=0)
+
+        # Computes the sparse adjacency matrix
+        Atriu = sp.triu(adjacencyMatrixForGraph)
+        ei,ej = Atriu.nonzero()
+        Atriu = []; m = len(ei)
+
+        data  = np.append(np.ones((m,1)),-np.ones((m,1)))
+        idx_i = np.append(np.array(xrange(m)),np.array(xrange(m)))
+        idx_j = np.append(ei,ej)
+        B     = sp.csc_matrix((data, (idx_i, idx_j)), shape=(m, numberOfRows))
+        data  = []; idx_i = []; idx_j = []; ei = []; ej = []
+
+        d = adjacencyMatrixForGraph.sum(axis=1).flatten()
+
+        # Number of nodes.
+        n = 54
+
+        # Select your seed node. This should be an integer from 1 to n.
+        seed_node = seedNode
+
+        # Teleportation parameter for the papge-rank linear system. This is usually 0.1 - 0.15, 
+        # but your application may require a different setting. 
+        alpha = 0.01
+
+        # rho is a parameter of the local graph clustering method
+        # which control the termination criterion. The smaller, the longer 
+        # the running time, but you get more accurate solutions. 
+        rho = 1.0e-7
+
+        # Solution of local graph clustering method. 
+        dd = np.squeeze(np.asarray(d))
+        (x,residual) = lgc.acl(n, seed_node, dd, adjacencyMatrixForGraph.data, adjacencyMatrixForGraph.indices, adjacencyMatrixForGraph.indptr, alpha, rho, max_iter = 1000)
+
+        # Retrive the solution and transpose it.
+        x = np.asarray(x)
+
+        # Sweep cut, the calculation of the directed incidence B matrix is given in [7]
+        S_x,cond_S_x = lgc.sweep_cut_conductance_degree_normalized(B, dd, x)
+
+        # Call Flow Improve 
+        ddt = np.transpose(d)
+        try: 
+            S_flowI,Q_S = lgc.flow_improve(B, ddt, S_x, kappa = 0 , max_iter = 20)
+        except ValueError:
+            pass
+        # print (x,residual)
+        print S_x
         return self.partition
 
     def changeSyllable(self, syllable):
@@ -578,6 +657,9 @@ class communityDetectionEngine(QtCore.QObject):
         self.dend = -3 
         self.TowValue = -1
 
+        self.seedNode = 12
+        self.rho = 1.0e-8
+
         self.TimeStepNetworkxGraphData = None
 
         self.FinalClusterPartition = None
@@ -674,6 +756,10 @@ class communityDetectionEngine(QtCore.QObject):
             partition = self.CustomCluster.prepareClsuterData(graph, self.Graphwidget.TimeStep, self.Graphwidget.Syllable)
         elif value == 6: 
             partition = self.ConsensusCustomCluster.prepareClsuterData(graph, self.Graphwidget.TimeStep, self.Graphwidget.Syllable)
+            """Local Clustering Algorithm"""
+        elif value == 7: 
+            print "Local Clustering Algorithm"
+            partition = self.ConsensusCustomCluster.prepareLocalClusteringAlgorithm(graph, self.Graphwidget.TimeStep, self.seedNode, self.rho, self.Graphwidget.Syllable)            
         return partition
 
     def absolutizeData(self, graph):

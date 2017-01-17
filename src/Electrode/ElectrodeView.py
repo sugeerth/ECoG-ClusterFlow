@@ -279,11 +279,11 @@ class ElectrodeView(QtGui.QGraphicsView):
         self.MaxVal = MaxVal
         self.MinVal = MinVal
 
-        # self.setContextMenuPolicy(Qt.ActionsContextMenu)
-        # delete = QAction(self)
-        # delete.setText("Select Community")
-        # delete.triggered.connect(self.removeButton)
-        # self.addAction(delete)
+        self.setContextMenuPolicy(Qt.ActionsContextMenu)
+        delete = QAction(self)
+        delete.setText("Select Community")
+        delete.triggered.connect(self.removeButton)
+        self.addAction(delete)
 
 
     def changeSliceNumber(self,value = -1):

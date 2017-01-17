@@ -179,13 +179,20 @@ class ElectrodeNode(QtGui.QGraphicsItem):
 
     def contextMenuEvent(self, event):
         menu = QtGui.QMenu()
+        seedNodeSelection= QtGui.QAction('Select This As Seed Node', None)
         testAction = QtGui.QAction('Select This Community Over Time', None)
         CommunityAction= QtGui.QAction('Select This Community', None)
+
+        seedNodeSelection.triggered.connect(self.selectSeedNode) 
         testAction.triggered.connect(self.SelectCommunitiesOverTime)
         CommunityAction.triggered.connect(self.SelectingCommunityInThisTimestep)
+        menu.addAction(seedNodeSelection)
         menu.addAction(testAction)
         menu.addAction(CommunityAction)
         menu.exec_(event.screenPos())
+
+    def selectSeedNode(self):
+        print self.counter
 
     def SelectCommunitiesOverTime(self):
         """

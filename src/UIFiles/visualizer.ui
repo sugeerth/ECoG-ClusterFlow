@@ -202,6 +202,11 @@
          <string>ConsensusPreComputed</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>LocalGraphClustering</string>
+        </property>
+       </item>
       </widget>
       <widget class="QPushButton" name="Reset1">
        <property name="geometry">
