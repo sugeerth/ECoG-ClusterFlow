@@ -431,10 +431,10 @@ class ElectrodeNode(QtGui.QGraphicsItem):
         else: 
             return value
 
-    def drawOnePie(self,painter, Opacity=255, radius = 11):
+    def drawOnePie(self,painter, Opacity=255, radius = 9):
         radius = int(radius)
         self.CommunityColor.setAlpha(Opacity)
-        painter.setPen(QtGui.QPen(self.CommunityColor, 0.1))
+        painter.setPen(QtGui.QPen(QtCore.Qt.black, 0.1))
 
         painter.setBrush(self.CommunityColor)
         painter.drawEllipse(QtCore.QPointF(0,0),radius, radius)

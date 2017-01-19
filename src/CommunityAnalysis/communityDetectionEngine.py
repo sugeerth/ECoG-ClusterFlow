@@ -131,16 +131,16 @@ class ConsensusCustomCluster(object):
 
         # Teleportation parameter for the papge-rank linear system. This is usually 0.1 - 0.15, 
         # but your application may require a different setting. 
-        alpha = 0.10
+        alpha = 0.01
 
         # rho is a parameter of the local graph clustering method
         # which control the termination criterion. The smaller, the longer 
         # the running time, but you get more accurate solutions. 
-        rho = 1.0e-4
+        rho = 1.0e-7
 
         # Solution of local graph clustering method. 
         dd = np.squeeze(np.asarray(d))
-        (x,residual) = lgc.acl(n, seed_node, dd, adjacencyMatrixForGraph.data, adjacencyMatrixForGraph.indices, adjacencyMatrixForGraph.indptr, alpha, rho, max_iter = 100)
+        (x,residual) = lgc.acl(n, seed_node, dd, adjacencyMatrixForGraph.data, adjacencyMatrixForGraph.indices, adjacencyMatrixForGraph.indptr, alpha, rho, max_iter = 1000)
 
         # Retrive the solution and transpose it.
         x = np.asarray(x)
@@ -167,8 +167,8 @@ class ConsensusCustomCluster(object):
 
         self.timestepCommunity[timestep] = self.partition
         if timestep == 50: 
-            with open('localClusteringData/localClustering'+str(seed_node)+'.pickle', 'wb') as handle:
-                pickle.dump(self.timestepCommunity, handle, protocol=pickle.HIGHEST_PROTOCOL)
+            with open('localClustering'+str(seed_node)+'.pickle', 'wb') as handle:
+                pickle.dump(self.timestepCommunity, handle)
 
         return self.partition
 

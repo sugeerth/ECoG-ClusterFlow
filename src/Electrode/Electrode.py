@@ -164,6 +164,7 @@ class ImageLabel(QtGui.QGraphicsView):
         self.ElectrodeData= self.dataProcess.ElectodeData
         self.timeStep = self.dataProcess.timestep
         self.data = correlationTable.data
+        self.Brain_image_filename = Brain_image_filename
 
         self.PreComputeDataObject = PreComputeShared(self.graphWidget, self.ElectrodeData)
         # self.ClusterAlgorithms = self.ClusterAlgorithms()
@@ -226,11 +227,11 @@ class ImageLabel(QtGui.QGraphicsView):
         # Saving the image file as an output file
         self.label = QtGui.QLabel()
         self.NodeSlider()
-        im.save(Brain_image_filename)
+        im.save(self.Brain_image_filename)
 
         # Loading the pixmap for better analysis
         loadedImage = QtGui.QImage()
-        loadedImage.load(Brain_image_filename)
+        loadedImage.load(self.Brain_image_filename)
         self.PixMap = QtGui.QPixmap.fromImage(loadedImage)
         
         self.ElectrodeView = ElectrodeView(self)
