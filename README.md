@@ -10,13 +10,9 @@ We present ECoG ClusterFlow, an interactive visual analysis system for the explo
 
 ### Required dependencies ###
   numpy
-  networkx
-  nibabel
-  pydot
+  networkx 
   community
-  pygraphviz
   PySide
-  decorator
 ################################
 
 ### Getting Started  ###
@@ -32,7 +28,7 @@ Note: Tested on OS X 10.11.6 and Ubuntu 14.04
 	conda config --add channels menpo
 	conda config --add channels conda-forge
 	
-	conda install -c sugeerth ecogCluster
+	conda install -c sugeerth ECoGClusterFlow
 	
 	#Download ECoG Cluster repository and then goto src folder 
 	
@@ -45,7 +41,7 @@ Note: Tested on OS X 10.11.6 and Ubuntu 14.04
 	**RunMainProject.py** -- path for running the application
 
 ##Running the Tool 
-        modulyzerdir/src> RunMainProject.py
+        ecogClusterdir/src> RunMainProject.py
         
 Contributing
 ------------
@@ -80,14 +76,3 @@ The ECoG ClusterFlow Project makes use of the following libraries
 
 
 For full license information regarding included and used software please refer to the file LICENSE.
-
-### License Information ###
-ECoG ClusterFlow is released under the [BSD license](https://github.com/sugeerth/ECoG ClusterFlow/blob/master/LICENSE).
-
-ECoG ClusterFlow Copyright (c) 2016, The Regents of the University of California, through Lawrence Berkeley National Laboratory (subject to receipt of any required approvals from the U.S. Dept. of Energy).  All rights reserved.
- 
-If you have questions about your rights to use or distribute this software, please contact Berkeley Lab's Innovation and Partnerships department at IPO@lbl.gov referring to " Brain Modulyzer (2016-149),."
- 
-NOTICE.  This software was developed under funding from the U.S. Department of Energy.  As such, the U.S. Government has been granted for itself and others acting on its behalf a paid-up, nonexclusive, irrevocable, worldwide license in the Software to reproduce, prepare derivative works, and perform publicly and display publicly.  Beginning five (5) years after the date permission to assert copyright is obtained from the U.S. Department of Energy, and subject to any subsequent five (5) year renewals, the U.S. Government is granted for itself and others acting on its behalf a paid-up, nonexclusive, irrevocable, worldwide license in the Software to reproduce, prepare derivative works, distribute copies to the public, perform publicly and display publicly, and to permit others to do so.
-        
-
