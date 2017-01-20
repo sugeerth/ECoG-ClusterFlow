@@ -25,15 +25,15 @@ class dataProcessing(object):
 			self.connectivityData = scipy.io.loadmat(Electrode_ElectrodeData_filename)
 
 			# Changes for artificial data 
-			# Data=scipy.io.loadmat(Electrode_ElectrodeData_filename)
+			Data=scipy.io.loadmat(Electrode_ElectrodeData_filename)
 			
-			# temp = Data['electrode']
-			# self.ElectrodeIds = temp[0]
-			# self.ElectodeData = Data['C']
+			temp = Data['electrode']
+			self.ElectrodeIds = temp[0]
+			self.ElectodeData = Data['C']
 
 			# Changes for RealData
-			self.ElectrodeIds = [i for i in range(len(self.ElectrodeSignals[ElectrodeSignalDataName][0]))]
-			self.ElectodeData = self.connectivityData['conData']
+			# self.ElectrodeIds = [i for i in range(len(self.ElectrodeSignals[ElectrodeSignalDataName][0]))]
+			# self.ElectodeData = self.connectivityData['conData']
 
 			self.syllable, self.timestep, self.N , self.N  = np.shape(self.ElectodeData)
 			self.timestep = self.timestep - 1
