@@ -122,7 +122,7 @@ class ConsensusCustomCluster(object):
         B     = sp.csc_matrix((data, (idx_i, idx_j)), shape=(m, numberOfRows))
         data  = []; idx_i = []; idx_j = []; ei = []; ej = []
 
-        d = adjacencyMatrixForGraph.sum(axis=1).flatten()
+        d = adjacencyMatrixForGraph.sum(axis=1).flatten() + 1.0e-8
 
         # Number of nodes.
         n = len(numpyMatrix)
@@ -144,26 +144,32 @@ class ConsensusCustomCluster(object):
 
         # Retrive the solution and transpose it.
         x = np.asarray(x)
+        x_1 = np.nonzero(x)
 
         # Sweep cut, the calculation of the directed incidence B matrix is given in [7]
         S_x,cond_S_x = lgc.sweep_cut_conductance_degree_normalized(B, dd, x)
 
         # Call Flow Improve 
-        ddt = np.transpose(d)
-        S_flowI = None
-        try: 
-            S_flowI,Q_S = lgc.flow_improve(B, ddt, S_x, kappa = 0 , max_iter = 20)
-        except ValueError:
-            pass
+        # ddt = np.transpose(d)
+        # S_flowI = None
+
+        # try:
+        # S_flowI,Q_S = lgc.flow_improve(B, ddt, S_x, kappa = 0 , max_iter = 20)
+
+        # except ZeroDivisionError:
+        #     print "ZeroDivision"
+        #     pass
 
         self.partition = dict()
-        print timestep,S_x
+        print timestep, S_x
         
         for i in range(n):
-            if i in S_x: 
-                    self.partition[i] = 1 
-            else: 
-                self.partition[i] = 0 
+            self.partition[i] = 0 
+
+        for i in S_x:
+            print i
+            self.partition[i] = 1
+
 
         self.timestepCommunity[timestep] = self.partition
         if timestep == 50: 
