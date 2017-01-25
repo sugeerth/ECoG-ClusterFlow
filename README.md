@@ -91,4 +91,4 @@ The ECoG ClusterFlow Project makes use of the following libraries
 * [PYSIDE](https://pypi.python.org/pypi/PySide/1.2.4), Copyright (C) 1991, 1999 Free Software Foundation, Inc
 , GNU LESSER GENERAL PUBLIC LICENSE
 * [Scipy](https://www.scipy.org/scipylib/license.html), Copyright © 2001, 2002 Enthought, Inc.
-* [PYSIDE](https://github.com/ChillarAnand/consensus-cluster/blob/master/LICENSE), Copyright Michael Seiler 2008, Rutgers University, miseiler@gmail.com
+* [Consensus Clustering](https://github.com/ChillarAnand/consensus-cluster/blob/master/LICENSE), Copyright Michael Seiler 2008, Rutgers University, miseiler@gmail.com
