@@ -29,6 +29,8 @@ Note: Tested on OS X 10.11.6 and Ubuntu 14.04
 	conda config --add channels menpo
 	conda config --add channels conda-forge
 	
+	conda install -c conda-forge git-lfs=1.5.2
+	
 	conda install -c sugeerth ECoGClusterFlow
 	
 	#Download ECoG Cluster repository and then goto src folder 
