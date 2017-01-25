@@ -41,7 +41,7 @@ Note: Tested on OS X 10.11.6 and Ubuntu 14.04
 	**RunMainProject.py** -- path for running the application
 
 ##Running the Tool 
-        ecogClusterdir/src> RunMainProject.py
+        ecogClusterdir/src> python RunMainProject.py
         
 Contributing
 ------------
