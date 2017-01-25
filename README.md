@@ -1,6 +1,6 @@
-# Hierarchical Spatio-Temporal Visual Analysis of ECoG Data #
+# Multi-scale Clustering and Visualization of time-varying ECoG data#
 Please click to watch the overview video.
- [![ScreenShot](https://github.com/sugeerth/ECoG-ClusterFlow/blob/FinalWorkingTool/src/Images/Synthetic.png)](https://vimeo.com/175328739)
+ [![ScreenShot](https://github.com/sugeerth/ECoG-ClusterFlow/blob/master/src/Images/Synthetic.png)](https://vimeo.com/175328739)
  
 <!--  [![ScreenShot](https://github.com/sugeerth/ECoG-ClusterFlow/blob/FinalWorkingTool/src/Images/Uload.png)](https://vimeo.com/175328739)
 ======= -->
@@ -13,6 +13,7 @@ We present ECoG ClusterFlow, an interactive visual analysis system for the explo
   networkx 
   community
   PySide
+  Consensus Clustering
 ################################
 
 ### Getting Started  ###
@@ -35,13 +36,44 @@ Note: Tested on OS X 10.11.6 and Ubuntu 14.04
 	ecogClusterdir/src> RunProjectMain.py 
 		Happy Analysis! 
 
-####Major Files
-	**BrainViewerDataPaths.py** -- path for the dataset
+	# Other Installation
+	
+	#For mac switch to macports python for installation (as installation libraries are in macports):
+	sudo port install python27
+	port select --list python
+	sudo port select --set python python27
+	
+	#For mac set the pip for macports: 
+	sudo port install py27-pip
+	sudo port select --list pip 
+	sudo port select --set pip pip27
+	
+	sudo pip install numpy==1.11.0
+	sudo pip install networkx==1.11
+	sudo pip install nibabel==2.0.2
+	sudo pip install pydotplus
+	sudo pip install python-louvain
+	
+	To install QT:
+    for linux
+        sudo apt-get install libqt4-dev
+        sudo easy_install -U PySide
+    for mac
+        sudo port install qt4-mac
+        sudo port install py27-pyside
+	
+	#Download ECoG Cluster repository and then goto src folder 
+	
+	ecogClusterdir/src> RunProjectMain.py 
+		Happy Analysis! 
 
-	**RunMainProject.py** -- path for running the application
+####Major Files
+	**BrainViewerDataPathsArtificial.py** -- path for the dataset
+
+	**RunProjectMain2.py** -- path for running the application
 
 ##Running the Tool 
-        ecogClusterdir/src> python RunMainProject.py
+        ecogClusterdir/src> python RunProjectMain2.py
         
 Contributing
 ------------
