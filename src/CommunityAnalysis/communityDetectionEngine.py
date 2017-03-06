@@ -662,7 +662,8 @@ class communityDetectionEngine(QtCore.QObject):
         elif value == 1: 
             """Hierarchical"""
             print "Hierarchical"
-            partition=self.ClusterAlgorithms.HierarchicalClustering(graph)
+            partition= self.ClusterAlgorithms.computeKmeans(Number_of_Communities,graph)
+            # partition=self.ClusterAlgorithms.HierarchicalClustering(graph)
         elif value == 2:
             """Kmeans algorithm"""
             partition= self.ClusterAlgorithms.computeKmeans(Number_of_Communities,graph)
