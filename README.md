@@ -1,4 +1,4 @@
-# Multi-Scale Clustering and Visualization of Time-Varying ECoG Data#
+# Multi-Scale Clustering and Visualization of Time-Varying ECoG Data
 Please click to watch the overview video
  [![ScreenShot](https://raw.githubusercontent.com/sugeerth/ECoG-ClusterFlow/master/src/Images/Synthetic.png)](https://vimeo.com/175328739)
  
