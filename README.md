@@ -85,6 +85,24 @@ You are under no obligation whatsoever to provide any bug fixes, patches, or upg
 ### Citation Information###
 Please cite ECoG ClusterFlow in your publications if it helps your research:
 
+	@Article{Murugesan2017,
+	author="Murugesan, Sugeerth
+	and Bouchard, Kristofer
+	and Chang, Edward
+	and Dougherty, Max
+	and Hamann, Bernd
+	and Weber, Gunther H.",
+	title="Multi-scale visual analysis of time-varying electrocorticography data via clustering of brain regions",
+	journal="BMC Bioinformatics",
+	year="2017",
+	volume="18",
+	number="6",
+	pages="236",
+	doi="10.1186/s12859-017-1633-9",
+	}
+	
+Our conference work: 
+
 	@inproceedings{Murugesan:2016:HSV:2975167.2985688,
 	 author = {Murugesan, Sugeerth and Bouchard, Kristofer and Chang, Edward and Dougherty, Max and Hamann, Bernd and Weber, Gunther H.},
 	 title = {Hierarchical Spatio-temporal Visual Analysis of Cluster Evolution in Electrocorticography Data},
