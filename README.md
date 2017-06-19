@@ -82,7 +82,7 @@ You are under no obligation whatsoever to provide any bug fixes, patches, or upg
  
 ****************************
 
-### Citation Information###
+### Citation Information
 Please cite ECoG ClusterFlow in your publications if it helps your research:
 
 	@Article{Murugesan2017,
