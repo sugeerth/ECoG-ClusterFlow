@@ -20,25 +20,8 @@ We present ECoG ClusterFlow, an interactive visual analysis system for the explo
 Note: Tested on OS X 10.11.6 and Ubuntu 14.04
 
 	# Conda installation, if you dont have conda, then install via (http://conda.pydata.org/docs/install/quick.html)
-	conda install python=2.7
-	conda install anaconda-client
-	conda config --add channels anaconda
-	conda config --add channels pdrops  
-	conda config --add channels allank
-	conda config --add channels asmeurer 
-	conda config --add channels menpo
-	conda config --add channels conda-forge
-	
-	conda install -c conda-forge git-lfs=1.5.2
-	
-	conda install -c sugeerth ECoGClusterFlow
 	
 	#Download ECoG Cluster repository and then goto src folder 
-	
-	ecogClusterdir/src> RunProjectMain.py 
-		Happy Analysis! 
-
-	# Other Installation
 	
 	#For mac switch to macports python for installation (as installation libraries are in macports):
 	sudo port install python27
